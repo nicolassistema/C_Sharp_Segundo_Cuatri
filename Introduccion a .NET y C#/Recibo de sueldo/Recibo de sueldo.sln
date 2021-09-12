@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio I07 - Recibo de sueldo", "Ejercicio I07 - Recibo de sueldo\Ejercicio I07 - Recibo de sueldo.csproj", "{F439C7A8-69DD-442A-8174-4D643D374D9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F439C7A8-69DD-442A-8174-4D643D374D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F439C7A8-69DD-442A-8174-4D643D374D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F439C7A8-69DD-442A-8174-4D643D374D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F439C7A8-69DD-442A-8174-4D643D374D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE1C821D-EE6F-4FC0-A87A-AC91E7B7B73D}
+	EndGlobalSection
+EndGlobal

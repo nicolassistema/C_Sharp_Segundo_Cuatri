@@ -1,0 +1,7 @@
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Trabajo C# en clase\Clase01\Clase01\bin\Debug\Clase01.exe.config
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Trabajo C# en clase\Clase01\Clase01\bin\Debug\Clase01.exe
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Trabajo C# en clase\Clase01\Clase01\bin\Debug\Clase01.pdb
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Trabajo C# en clase\Clase01\Clase01\obj\Debug\Clase01.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Trabajo C# en clase\Clase01\Clase01\obj\Debug\Clase01.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Trabajo C# en clase\Clase01\Clase01\obj\Debug\Clase01.exe
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Trabajo C# en clase\Clase01\Clase01\obj\Debug\Clase01.pdb

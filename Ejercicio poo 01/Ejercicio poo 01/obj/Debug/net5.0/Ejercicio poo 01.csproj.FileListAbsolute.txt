@@ -1,0 +1,16 @@
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\bin\Debug\net5.0\Ejercicio poo 01.exe
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\bin\Debug\net5.0\Ejercicio poo 01.deps.json
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\bin\Debug\net5.0\Ejercicio poo 01.runtimeconfig.json
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\bin\Debug\net5.0\Ejercicio poo 01.runtimeconfig.dev.json
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\bin\Debug\net5.0\Ejercicio poo 01.dll
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\bin\Debug\net5.0\ref\Ejercicio poo 01.dll
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\bin\Debug\net5.0\Ejercicio poo 01.pdb
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.dll
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\ref\Ejercicio poo 01.dll
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.pdb
+C:\Users\Usuario\Desktop\C#\Programacion II\Clases 2° Cuatrimestre\Ejercicios\Ejercicio poo 01\Ejercicio poo 01\obj\Debug\net5.0\Ejercicio poo 01.genruntimeconfig.cache
