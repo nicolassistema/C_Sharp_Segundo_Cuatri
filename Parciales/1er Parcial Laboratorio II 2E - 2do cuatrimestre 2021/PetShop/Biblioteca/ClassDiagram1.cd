@@ -6,14 +6,14 @@
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="Biblioteca.Cliente.TipoPago" Collapsed="true">
+      <Enum Name="Biblioteca.Cliente.ETipoPago" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Cliente.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAMABAADAAA=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
