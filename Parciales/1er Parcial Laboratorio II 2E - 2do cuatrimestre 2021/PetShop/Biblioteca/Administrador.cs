@@ -6,21 +6,16 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    sealed class Administrador : Empleado
+    sealed class Administrador : Usuario
     {
 
-        public Administrador(string nombre, string apellido, string dni, int edad, string usuario, string password) : base(nombre, apellido, dni, edad, usuario, password)
+        public Administrador(string nombre, string apellido, string cuit, string usuario, string password, EPerfilUsuario perfilUsuario) : base(nombre, apellido, cuit, usuario, password, perfilUsuario)
         {
+            
         }
 
+       
 
-        public override bool EsAdmin
-        {
-            get
-            {
-                return true;
-            }
-        }
-
+  
     }
 }

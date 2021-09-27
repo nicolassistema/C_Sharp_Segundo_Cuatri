@@ -7,22 +7,28 @@ using System.Threading.Tasks;
 namespace Biblioteca
 {
 
-    public class Persona
+    public abstract class Persona
     {
         #region "Atributos"
         private string nombre;
         private string apellido;
-        private string dni;
-        private int edad;
+        private string cuit;
         #endregion
 
         #region "Constructor"
-        public Persona(string nombre, string apellido, string dni, int edad)
+
+        public Persona()
+        {
+            this.cuit = String.Empty;
+            this.Nombre = String.Empty;
+            this.Apellido = String.Empty;
+        }
+
+        public Persona(string nombre, string apellido, string cuit)
         {
             this.nombre = nombre;
             this.apellido = apellido;
-            this.dni = dni;
-            this.edad = edad;
+            this.cuit = cuit;
         }
         #endregion
 
@@ -51,32 +57,30 @@ namespace Biblioteca
             }
         }
 
-        public string Dni
+        public string Cuit
         {
             get
             {
-                return this.dni;
+                return this.cuit;
             }
             set
             {
-                this.dni = value;
+                this.cuit = value;
             }
         }
-        public int Edad
+
+        #endregion
+
+        #region "utils"
+        public override string ToString()
         {
-            get
-            {
-                return this.edad;
-            }
-            set
-            {
-                this.edad = value;
-            }
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"{this.Apellido}");
+            sb.AppendLine($"{this.Nombre}");
+            sb.AppendLine($"{this.cuit}");
+
+            return sb.ToString();
         }
-
-
-
-
 
         #endregion
 

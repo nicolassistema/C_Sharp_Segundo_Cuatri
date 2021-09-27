@@ -6,22 +6,91 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    class Usuario : Empleado
+    public class Usuario : Persona
     {
+        #region "Atributos"
+        private string usuario;
+        private string password;
+        EPerfilUsuario perfilUsuario;
+        #endregion
 
-        public Usuario(string nombre, string apellido, string dni, int edad, string usuario, string password) : base(nombre, apellido, dni, edad, usuario, password)
+
+        #region "Constructores"
+        public Usuario() : base()
         {
 
         }
 
+        public Usuario(string nombre, string apellido, string cuit, string usuario, string password, EPerfilUsuario perfilUsuario) : base(nombre, apellido, cuit)
+        {
+            this.usuario = usuario;
+            this.password = password;
+            this.perfilUsuario = perfilUsuario;
+        }
+        #endregion
 
-        public override bool EsAdmin
+
+        #region "Propiedades"
+        public string NameUsuario
         {
             get
             {
-                return false;
+                return this.usuario;
+            }
+            set
+            {
+                this.usuario = value;
             }
         }
+
+
+        public string PassUsuario
+        {
+            get
+            {
+                return this.password;
+            }
+            set
+            {
+                this.password = value;
+            }
+        }
+
+
+        public EPerfilUsuario PerfilUsuario
+        {
+            get
+            {
+                return this.perfilUsuario;
+            }
+            set
+            {
+                this.perfilUsuario = value;
+            }
+        }
+
+        #endregion
+
+
+        #region "Enumerados"
+        public enum EPerfilUsuario
+        {
+            Admin,
+            Empleado
+        }
+        #endregion
+
+
+        #region "Utils"
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"{this.Apellido} | {this.Nombre} | {this.perfilUsuario}");
+            return sb.ToString();
+        }
+
+        #endregion
 
     }
 }

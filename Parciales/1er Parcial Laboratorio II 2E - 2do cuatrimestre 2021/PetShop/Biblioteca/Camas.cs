@@ -11,9 +11,10 @@ namespace Biblioteca
 
         private ETamanio tamanio;
 
-        public Camas(int codigo, string nombre, string detalle, int cantidad, double precio, ETamanio tamanio) : base(codigo, nombre, detalle, cantidad, precio)
+        public Camas(int codigo, string marca, string nombre, string detalle, int cantidad, double precio, ETamanio tamanio) : base(codigo, marca, nombre, detalle, cantidad, precio)
         {
             this.tamanio = tamanio;
+
         }
 
 
@@ -30,6 +31,9 @@ namespace Biblioteca
                 return this.tamanio;
             }
         }
+
+
+
 
     }
 }

@@ -6,6 +6,7 @@ namespace Biblioteca
     {
         #region "Atributos"
         private int codigo;
+        private string marca;
         private string nombre;
         private string descripcion;
         private int cantidad;
@@ -13,13 +14,15 @@ namespace Biblioteca
         #endregion
 
         #region "Constructores"
-        public Productos(int codigo, string nombre, string descripcion, int cantidad, double precio)
+        public Productos(int codigo, string marca, string nombre, string descripcion, int cantidad, double precio)
         {
             this.codigo = codigo;
+            this.marca = marca;
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.cantidad = cantidad;
             this.precio = precio;
+
         }
         #endregion
 
@@ -38,6 +41,18 @@ namespace Biblioteca
             }
         }
 
+
+        public string Marca
+        {
+            get
+            {
+                return this.marca;
+            }
+            set
+            {
+                this.marca = value;
+            }
+        }
 
         public string Nombre
         {
@@ -90,9 +105,8 @@ namespace Biblioteca
         }
 
 
+
         #endregion
-
-
 
     }
 }

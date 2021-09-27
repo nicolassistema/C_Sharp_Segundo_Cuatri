@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public abstract class ArtCuidadoMascotas : Productos
+    public  class ArtCuidadoMascotas : Productos
     {
 
+        private ETipoCuidado tipoCuidado;
 
-        public ArtCuidadoMascotas(int codigo, string nombre, string detalle, int cantidad, double precio) : base(codigo, nombre, detalle, cantidad, precio)
+        public ArtCuidadoMascotas(int codigo, string marca, string nombre, string detalle, int cantidad, double precio, ETipoCuidado tipoCuidado) : base(codigo, marca, nombre, detalle, cantidad, precio)
         {
 
         }
@@ -22,12 +23,15 @@ namespace Biblioteca
             Limpieza
         }
 
-        public abstract ETipoCuidado TipoCuidado
+        public  ETipoCuidado TipoCuidado
         {
-            get;
+            get
+            {
+                return this.tipoCuidado;
+            }
         }
 
     }
 
 }
-}
+

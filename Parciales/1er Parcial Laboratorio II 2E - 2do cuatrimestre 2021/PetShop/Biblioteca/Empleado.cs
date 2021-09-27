@@ -6,47 +6,22 @@ using System.Threading.Tasks;
 
 namespace Biblioteca
 {
-    public abstract class Empleado : Persona
+    public abstract class Empleado : Usuario
     {
 
-        private string usuario;
-        private string password;
 
-        public Empleado(string nombre, string apellido, string dni, int edad, string usuario, string password) : base(nombre, apellido, dni, edad)
+        public Empleado() : base()
         {
-            this.usuario = usuario;
-            this.password = password;
+
         }
 
-        public abstract bool EsAdmin
+        public Empleado(string nombre, string apellido, string cuit, string usuario, string password, EPerfilUsuario perfilUsuario) : base(nombre, apellido, cuit, usuario, password, perfilUsuario)
         {
-            get;
+          
         }
 
+    
 
-        public string Usuario
-        {
-            get
-            {
-                return this.usuario;
-            }
-            set
-            {
-                this.usuario = value;
-            }
-        }
-
-        public string Password
-        {
-            get
-            {
-                return this.password;
-            }
-            set
-            {
-                this.password = value;
-            }
-        }
 
 
     }

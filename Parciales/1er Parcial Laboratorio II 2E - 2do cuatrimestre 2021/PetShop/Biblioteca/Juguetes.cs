@@ -10,7 +10,7 @@ namespace Biblioteca
     {
         private EMaterial material;
 
-        public Juguetes(int codigo , string nombre, string detalle, int cantidad, double precio, EMaterial material) : base(codigo, nombre, detalle, cantidad, precio)
+        public Juguetes(int codigo, string marca, string nombre, string detalle, int cantidad, double precio, EMaterial material) : base(codigo, marca, nombre, detalle, cantidad, precio)
         {
             this.material = material;
         }
@@ -21,7 +21,7 @@ namespace Biblioteca
             Plastico,
             Metal,
             Goma
-       }
+        }
 
         public EMaterial Material
         {
