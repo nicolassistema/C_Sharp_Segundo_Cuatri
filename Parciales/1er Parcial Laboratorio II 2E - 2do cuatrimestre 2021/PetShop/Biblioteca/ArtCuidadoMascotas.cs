@@ -4,22 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
     public  class ArtCuidadoMascotas : Productos
     {
 
         private ETipoCuidado tipoCuidado;
 
-        public ArtCuidadoMascotas(int codigo, string marca, string nombre, string detalle, int cantidad, double precio, ETipoCuidado tipoCuidado) : base(codigo, marca, nombre, detalle, cantidad, precio)
+        public ArtCuidadoMascotas(int codigo, string marca, string nombre, string detalle, int stock, double precio, ETipoCuidado tipoCuidado) : base(codigo, marca, nombre, detalle, stock, precio)
         {
-
+            this.tipoCuidado = tipoCuidado;
         }
 
 
         public enum ETipoCuidado
         {
-            Farmacia,
+   Farmacia,
             Limpieza
         }
 
@@ -29,7 +29,23 @@ namespace Biblioteca
             {
                 return this.tipoCuidado;
             }
+            set
+            {
+                this.tipoCuidado = value;
+            }
         }
+
+
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(base.ToString());
+            sb.AppendLine($"{this.tipoCuidado}");
+            return sb.ToString();
+        }
+
+
 
     }
 

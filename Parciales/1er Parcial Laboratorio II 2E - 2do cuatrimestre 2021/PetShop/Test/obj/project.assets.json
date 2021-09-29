@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Entidades/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Entidades.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entidades.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Entidades/1.0.0": {
+      "type": "project",
+      "path": "../Biblioteca/Entidades.csproj",
+      "msbuildProject": "../Biblioteca/Entidades.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "Entidades >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Usuario\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Entidades.csproj": {
+              "projectPath": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Entidades.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

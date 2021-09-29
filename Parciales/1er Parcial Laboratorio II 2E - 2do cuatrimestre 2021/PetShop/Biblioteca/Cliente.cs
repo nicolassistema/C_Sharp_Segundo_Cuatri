@@ -4,24 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
-    sealed class Cliente : Persona
+    public class Cliente : Persona
     {
         #region "Atributos"
         private ETipoPago tipoPago;
         private int idCliente;
         private double saldo;
+        List<Productos> listaProductos;
         #endregion
 
 
-        #region "Construcotores"
+        #region "Constructores"
 
-        public Cliente(string nombre, string apellido, string cuit, ETipoPago tipoPago, double saldo) : base(nombre, apellido, cuit)
+        public Cliente() : base()
+        {
+        }
+
+        public Cliente(string nombre, string apellido, string cuit, ETipoPago tipoPago, double saldo, List<Productos> listaProductos) : base(nombre, apellido, cuit)
         {
             this.tipoPago = tipoPago;
             this.idCliente = IdAutoIncremental();
             this.saldo = saldo;
+            this.listaProductos = listaProductos;
         }
 
         #endregion
@@ -35,7 +41,7 @@ namespace Biblioteca
             }
             set
             {
-                this.tipoPago = TipoPago;
+                this.tipoPago = value;
             }
         }
 
@@ -64,6 +70,14 @@ namespace Biblioteca
             }
         }
 
+        public List<Productos> Producto
+        {
+            get { return this.listaProductos; }
+            set { this.listaProductos = value; }
+        }
+
+
+
         #endregion
 
 
@@ -80,15 +94,29 @@ namespace Biblioteca
 
 
         #region "Utils"
+
+
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(base.ToString());
-            sb.AppendLine($"{this.Saldo}");
+            sb.Append(base.ToString());
+            sb.Append($"{this.idCliente} | {this.saldo} | {this.tipoPago} \n");
+
+            foreach (var item in listaProductos)
+            {
+                sb.AppendLine($"{item}");
+            }
+
+
             return sb.ToString();
         }
 
+        public string Mostrar()
+        {
+            return ToString();
 
+        }
 
         public int IdAutoIncremental()
         {

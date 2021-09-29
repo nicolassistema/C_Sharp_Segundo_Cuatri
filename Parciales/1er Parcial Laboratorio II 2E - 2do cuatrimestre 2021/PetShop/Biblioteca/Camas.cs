@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
-    sealed class Camas : Productos
+    public sealed class Camas : Productos
     {
 
         private ETamanio tamanio;
@@ -17,12 +17,7 @@ namespace Biblioteca
 
         }
 
-
-        public enum ETamanio
-        {
-            Grande,
-            Chico
-        }
+        #region "Propiedades"
 
         public ETamanio Tamanio
         {
@@ -30,10 +25,35 @@ namespace Biblioteca
             {
                 return this.tamanio;
             }
+            set
+            {
+                this.tamanio = value;
+            }
+        }
+
+        #endregion
+
+        #region "Enumerados"
+        public enum ETamanio
+        {
+            Grande,
+            Chico
+        }
+        #endregion
+
+        #region "Utils"
+        public override string ToString()
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append($"{base.ToString() } | {this.tamanio}");
+
+            return sb.ToString();
         }
 
 
 
-
+        #endregion
     }
 }

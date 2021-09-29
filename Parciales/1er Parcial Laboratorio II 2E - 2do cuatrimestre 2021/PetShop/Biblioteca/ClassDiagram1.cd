@@ -1,72 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="Biblioteca.Cliente">
+  <Class Name="Entidades.Cliente">
     <Position X="2" Y="6.75" Width="3.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="Biblioteca.Cliente.ETipoPago" Collapsed="true">
+      <Enum Name="Entidades.Cliente.ETipoPago" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Cliente.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAMABAADAAA=</HashCode>
+      <HashCode>AEAAAAAAAAQAAAAEQAAAAAAAAAAAAAAEAIMABAADAAA=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Empleado">
+  <Class Name="Entidades.Empleado">
     <Position X="6.75" Y="12.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Empleado.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Juguetes">
-    <Position X="25.5" Y="6.25" Width="3.25" />
+  <Class Name="Entidades.Juguetes">
+    <Position X="20.25" Y="6" Width="3.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="Biblioteca.Juguetes.EMaterial" Collapsed="true">
+      <Enum Name="Entidades.Juguetes.EMaterial" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Juguetes.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
-    <InheritanceLine Type="Biblioteca.Productos" ManuallyRouted="true">
-      <Path>
-        <Point X="31.625" Y="4.93" />
-        <Point X="31.625" Y="5.869" />
-        <Point X="27.125" Y="5.869" />
-        <Point X="27.125" Y="6.25" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Juguetes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Persona">
+  <Class Name="Entidades.Persona">
     <Position X="6.5" Y="1" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAQAAACEAAAAgAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Persona.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Productos">
-    <Position X="30" Y="1" Width="3.25" />
+  <Class Name="Entidades.Productos">
+    <Position X="24.75" Y="0.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AQABABEAAQAQAACAAAEAgAARAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQABABEAAQAQAACEAAEAgAARAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>Productos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Usuario">
+  <Class Name="Entidades.Usuario">
     <Position X="8.75" Y="7" Width="3.25" />
     <NestedTypes>
-      <Enum Name="Biblioteca.Usuario.EPerfilUsuario" Collapsed="true">
+      <Enum Name="Entidades.Usuario.EPerfilUsuario" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Usuario.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -77,62 +69,76 @@
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Administrador">
+  <Class Name="Entidades.Administrador">
     <Position X="11.25" Y="12.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Administrador.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Alimentos">
-    <Position X="29.5" Y="6.25" Width="3.25" />
+  <Class Name="Entidades.Alimentos">
+    <Position X="24.25" Y="6" Width="4" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="Biblioteca.Alimentos.ETipoAlimento" Collapsed="true">
+      <Enum Name="Entidades.Alimentos.ETipoAlimento" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Alimentos.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAgAAAAIAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Alimentos.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.ArtCuidadoMascotas">
-    <Position X="36.25" Y="6.25" Width="3.25" />
+  <Class Name="Entidades.ArtCuidadoMascotas">
+    <Position X="29.25" Y="6" Width="3.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="Biblioteca.ArtCuidadoMascotas.ETipoCuidado" Collapsed="true">
+      <Enum Name="Entidades.ArtCuidadoMascotas.ETipoCuidado" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>ArtCuidadoMascotas.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAgAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ArtCuidadoMascotas.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Biblioteca.Camas">
-    <Position X="21.5" Y="6.25" Width="3.25" />
+  <Class Name="Entidades.Camas">
+    <Position X="16.25" Y="6" Width="3.25" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="Biblioteca.Camas.ETamanio" Collapsed="true">
+      <Enum Name="Entidades.Camas.ETamanio" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Camas.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAEAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Camas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.PetShopApp">
+    <Position X="34.25" Y="2.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAgEAAAAAAIABAAQAKAAAAAAAAAAgAQAIAEAAAAABA=</HashCode>
+      <FileName>PetShopApp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Ventas">
+    <Position X="33.5" Y="6.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAACAAAAABAEAAiQAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ventas.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

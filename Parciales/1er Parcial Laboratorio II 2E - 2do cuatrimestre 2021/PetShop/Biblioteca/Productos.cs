@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
     public class Productos
     {
@@ -103,9 +107,16 @@ namespace Biblioteca
                 this.precio = value;
             }
         }
+        #endregion
 
+        #region "Utils"
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"{this.codigo} | {this.marca} | {this.nombre} | {this.cantidad} | {this.precio}");
 
-
+            return sb.ToString();
+        }
         #endregion
 
     }

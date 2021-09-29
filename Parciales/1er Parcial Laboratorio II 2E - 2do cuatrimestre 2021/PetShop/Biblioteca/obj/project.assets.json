@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Biblioteca.csproj",
-      "projectName": "Biblioteca",
-      "projectPath": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Biblioteca.csproj",
+      "projectUniqueName": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Entidades.csproj",
+      "projectName": "Entidades",
+      "projectPath": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Entidades.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
       "outputPath": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\obj\\",
       "projectStyle": "PackageReference",

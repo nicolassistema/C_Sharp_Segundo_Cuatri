@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
 
     public abstract class Persona
@@ -75,9 +75,9 @@ namespace Biblioteca
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"{this.Apellido}");
-            sb.AppendLine($"{this.Nombre}");
-            sb.AppendLine($"{this.cuit}");
+            sb.Append($"{this.Apellido} |");
+            sb.Append($"{this.Nombre} |");
+            sb.Append($"{this.cuit}|");
 
             return sb.ToString();
         }

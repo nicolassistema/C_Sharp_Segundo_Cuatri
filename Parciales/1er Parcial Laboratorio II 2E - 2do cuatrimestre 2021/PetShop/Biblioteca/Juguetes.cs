@@ -4,15 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
-    class Juguetes : Productos
+    public class Juguetes : Productos
     {
         private EMaterial material;
 
-        public Juguetes(int codigo, string marca, string nombre, string detalle, int cantidad, double precio, EMaterial material) : base(codigo, marca, nombre, detalle, cantidad, precio)
+        public Juguetes(int codigo, string marca, string nombre, string detalle, int stock, double precio, EMaterial material) : base(codigo, marca, nombre, detalle, stock, precio)
         {
             this.material = material;
+        }
+
+
+        public EMaterial Material
+        {
+            get
+            {
+                return this.material;
+            }
+            set
+            {
+                this.material = value;
+            }
         }
 
 
@@ -22,17 +35,16 @@ namespace Biblioteca
             Metal,
             Goma
         }
+                 
+        
 
-        public EMaterial Material
+        public override string ToString()
         {
-            get
-            {
-                return this.material;
-            }
+            StringBuilder sb = new StringBuilder();
+            sb.Append(base.ToString());
+            sb.Append($" | {this.material}");
+            return sb.ToString();
         }
-
-
-
 
 
     }

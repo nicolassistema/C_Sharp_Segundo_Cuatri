@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
-    public abstract class Empleado : Usuario
+    public  class Empleado : Usuario
     {
 
 
@@ -17,7 +17,7 @@ namespace Biblioteca
 
         public Empleado(string nombre, string apellido, string cuit, string usuario, string password, EPerfilUsuario perfilUsuario) : base(nombre, apellido, cuit, usuario, password, perfilUsuario)
         {
-          
+            this.PerfilUsuario = EPerfilUsuario.Empleado;
         }
 
     

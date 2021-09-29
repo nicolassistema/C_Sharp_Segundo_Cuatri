@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioteca
+namespace Entidades
 {
     public class Usuario : Persona
     {
@@ -13,7 +13,6 @@ namespace Biblioteca
         private string password;
         EPerfilUsuario perfilUsuario;
         #endregion
-
 
         #region "Constructores"
         public Usuario() : base()
@@ -26,6 +25,7 @@ namespace Biblioteca
             this.usuario = usuario;
             this.password = password;
             this.perfilUsuario = perfilUsuario;
+
         }
         #endregion
 
@@ -68,6 +68,7 @@ namespace Biblioteca
                 this.perfilUsuario = value;
             }
         }
+
 
         #endregion
 
