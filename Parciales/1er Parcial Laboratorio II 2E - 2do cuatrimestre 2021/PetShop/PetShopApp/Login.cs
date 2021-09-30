@@ -7,29 +7,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace PetShopApp
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
-        public Login()
+
+        Usuario userForm;
+
+        public frmLogin()
         {
             InitializeComponent();
+            PetShop.HarcodearListas();
+            this.userForm = new Usuario();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
+            label3.Text = Validaciones.SalidaMensajeValidacion(txtUser.Text, txtPass.Text);
+            //TODO: Consultar a Lucas sobre ternario que no me anda  label3.Text == "Bienvenido!" ? label3.ForeColor = Color.Green : label3.ForeColor = Color.Red;
 
-            MessageBox.Show($"usuario: {txtUser.Text}\npass: {txtPass.Text} ");
-
-
-            this.Hide();
-
+            if (label3.Text == "Bienvenido!")
+            {
+                label3.ForeColor = Color.Green;
+                this.userForm = PetShop.ObtenerUsuario(txtUser.Text, txtPass.Text);
+                if (!(this.userForm is null))
+                {
+                    frmAdministracion administracion = new frmAdministracion(this.userForm);
+                    this.Hide();
+                    administracion.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    label3.Text = "Usuario no registrado";
+                }
+            }
+            else
+            {
+                label3.ForeColor = Color.Red;
+            }
+            label3.Visible = true;
+            //envolver esto en validaciones construidas en esta clase o en una clase validaciones
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
+            DialogResult boton = MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (boton == DialogResult.Yes)
+            {
+                Dispose();
+            }
+            //this.Close();
         }
     }
 }

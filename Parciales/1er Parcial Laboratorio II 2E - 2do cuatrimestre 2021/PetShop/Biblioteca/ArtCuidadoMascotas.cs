@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public  class ArtCuidadoMascotas : Productos
+    public class ArtCuidadoMascotas : Productos
     {
 
         private ETipoCuidado tipoCuidado;
@@ -19,11 +19,11 @@ namespace Entidades
 
         public enum ETipoCuidado
         {
-   Farmacia,
+            Farmacia,
             Limpieza
         }
 
-        public  ETipoCuidado TipoCuidado
+        public ETipoCuidado TipoCuidado
         {
             get
             {

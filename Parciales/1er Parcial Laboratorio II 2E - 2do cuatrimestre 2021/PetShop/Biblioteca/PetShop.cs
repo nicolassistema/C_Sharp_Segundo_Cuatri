@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public static class PetShopApp
+    public static class PetShop
     {
 
         static List<Usuario> listaUsuarios;
@@ -14,14 +14,22 @@ namespace Entidades
         static List<Cliente> listaClientes;
         static List<Ventas> listaVentas;
 
+        public static void HarcodearListas()
+        {
+            HardcodUsuarios();
+            HardcodProductos();
+            HardcodClientes();
+            HardcodVentas();
+        }
 
 
-        static PetShopApp()
+        static PetShop()
         {
             Usuario = new List<Usuario>();
             Producto = new List<Productos>();
             Cliente = new List<Cliente>();
             Ventas = new List<Ventas>();
+            HarcodearListas();
         }
 
         public static List<Usuario> Usuario
@@ -74,17 +82,17 @@ namespace Entidades
 
 
 
-        private static List<Usuario> HardcodUsuarios()
+        private static void HardcodUsuarios()
         {
             listaUsuarios.Add(new Empleado("Nicolas", "Letticugna", "32320510", "pepe", "123", Empleado.EPerfilUsuario.Empleado));
             listaUsuarios.Add(new Empleado("Pedro", "Gomez", "32320511", "pipo", "123", Empleado.EPerfilUsuario.Empleado));
             listaUsuarios.Add(new Empleado("Juan", "Lopez", "32320512", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Administrador("lolo", "Lopez", "32320513", "sarasa", "123", Administrador.EPerfilUsuario.Admin));
-            return listaUsuarios;
+            listaUsuarios.Add(new Administrador("lolo", "Lopez", "32320513", "admin", "admin", Administrador.EPerfilUsuario.Admin));
+            
         }
 
 
-        private static List<Productos> HardcodProductos()
+        private static void HardcodProductos()
         {
             listaProductos.Add(new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.30, Camas.ETamanio.Grande));
             listaProductos.Add(new Camas(2, "Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.30, Camas.ETamanio.Chico));
@@ -94,11 +102,11 @@ namespace Entidades
             listaProductos.Add(new Alimentos(6, "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.30, Alimentos.ETipoAlimento.Balanceado));
             listaProductos.Add(new ArtCuidadoMascotas(7, "Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.30, ArtCuidadoMascotas.ETipoCuidado.Farmacia));
             listaProductos.Add(new ArtCuidadoMascotas(8, "Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.30, ArtCuidadoMascotas.ETipoCuidado.Limpieza));
-            return listaProductos;
+         
         }
 
 
-        private static List<Cliente> HardcodClientes()
+        private static void HardcodClientes()
         {
             listaClientes.Add(new Cliente("menagno", "lopez", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
                 new List<Productos>()
@@ -129,24 +137,39 @@ namespace Entidades
                     new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
                 }
                 ));
-            return listaClientes;
+           
         }
 
 
-        private static List<Ventas> HardcodVentas()
+        private static void HardcodVentas()
         {
             listaVentas.Add(new Ventas(listaClientes[1], 300));
             listaVentas.Add(new Ventas(listaClientes[2], 300));
             listaVentas.Add(new Ventas(listaClientes[3], 300));
-            return listaVentas;
         }
 
 
-        public static string Mostrar()
+        public static Usuario ObtenerUsuario(string usuarioNombre, string password)
         {
-            return listaVentas[1].Cliente.Apellido;
+            List<Usuario> auxList = PetShop.Usuario;
+            foreach (var item in auxList)
+            {
+                if (item.NameUsuario == usuarioNombre && item.PassUsuario == password)
+                {
+                    return item;
+                }
+            }
+            return null;//TODO Consultar a Lucas por que no debo devulver null  segun Dense
         }
 
+        //public static string Mostrar()
+        //{
+        //    return listaVentas[1].Cliente.Apellido;
+        //}
 
-}
+
+      
+
+
+    }
 }

@@ -17,8 +17,8 @@ namespace PetShopApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-            //Application.Run(new Administracion());
+            Application.Run(new frmLogin());
+            //Application.Run(new frmAdministracion());
         }
     }
 }

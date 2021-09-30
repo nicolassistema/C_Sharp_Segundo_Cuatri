@@ -11,7 +11,7 @@ namespace Entidades
         #region "Atributos"
         private string usuario;
         private string password;
-        EPerfilUsuario perfilUsuario;
+        private EPerfilUsuario perfilUsuario;
         #endregion
 
         #region "Constructores"
@@ -90,6 +90,17 @@ namespace Entidades
             sb.AppendLine($"{this.Apellido} | {this.Nombre} | {this.perfilUsuario}");
             return sb.ToString();
         }
+
+        public static bool IsAdmin(Usuario usuario)
+        {
+            if (usuario.PerfilUsuario == EPerfilUsuario.Admin)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
 
         #endregion
 
