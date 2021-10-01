@@ -91,6 +91,12 @@ namespace Entidades
             
         }
 
+        public static List<Usuario> ObtenerListaUsuarios()
+        {
+            return listaUsuarios;
+        }
+
+
 
         private static void HardcodProductos()
         {

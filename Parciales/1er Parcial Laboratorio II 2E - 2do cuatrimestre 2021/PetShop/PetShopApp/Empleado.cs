@@ -20,19 +20,57 @@ namespace PetShopApp
         public frmEmpleado()
         {
             InitializeComponent();
+           // PetShop.HardcodUsuarios();
         }
 
 
 
         public frmEmpleado(Usuario usuario) : this()
         {
-            this.userForm = usuario;
-            // MessageBox.Show(this.userForm.ToString());
 
-            //mapear "Bienvenido con el el nombre del usuario"
+            int i = 0;
+            int j;
+            this.userForm = usuario;
+           
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
-            //agregar validaciones de visualizacion por perfil
+
+            List<Usuario> lista = new List<Usuario>();
+            lista = PetShop.ObtenerListaUsuarios();
+
+            dgvListaEmpleados.RowCount = lista.Count;
+
+            foreach (var item in lista)
+            {
+                j = 0;
+                dgvListaEmpleados.Rows[i].Cells[j].Value = item.Cuit;
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[j].Value = item.Nombre;
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[j].Value = item.Apellido;
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[j].Value = item.NameUsuario;
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[j].Value = item.PassUsuario;
+                j += 1;
+               if (item.PerfilUsuario ==  Entidades.Usuario.EPerfilUsuario.Admin)
+                {
+                    dgvListaEmpleados.Rows[i].Cells[j].Value = "Admin";
+                }
+                else
+                {
+                    dgvListaEmpleados.Rows[i].Cells[j].Value = "Empleado";
+                }
+                i++;
+            }
+
+
         }
+
+    
+
+
+
+
 
         private void lblVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

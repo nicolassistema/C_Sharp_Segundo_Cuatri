@@ -8,7 +8,12 @@ C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio I
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\bin\Debug\net5.0-windows\Entidades.dll
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\bin\Debug\net5.0-windows\Entidades.pdb
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.csproj.AssemblyReference.cache
+C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmAdministracion.resources
+C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmCliente.resources
+C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmEmpleado.resources
+C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmFacturacion.resources
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmLogin.resources
+C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmVenta.resources
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.csproj.GenerateResource.cache
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.AssemblyInfoInputs.cache
@@ -19,8 +24,3 @@ C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio I
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\ref\PetShopApp.dll
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.pdb
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.genruntimeconfig.cache
-C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmAdministracion.resources
-C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmVenta.resources
-C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmEmpleado.resources
-C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmCliente.resources
-C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmFacturacion.resources
