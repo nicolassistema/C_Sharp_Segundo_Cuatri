@@ -54,7 +54,21 @@ namespace Entidades
             set { cliente = value; }
         }
 
+        public static implicit operator double(Ventas unaVenta)
+        {
+            return unaVenta.MontoTotal;
+        } 
+        
+        //public static implicit operator Ventas(List<Ventas> listaVenta)
+        // {
+        //    double acum = 0;
+        //    foreach (var item in listaVenta)
+        //    {
+        //        acum += item.MontoTotal;
+        //    }
 
+        //    return acum;
+        //}
 
         public int IdFacturacionAutoIncremental()
         {

@@ -19,7 +19,7 @@ namespace PetShopApp
         public frmLogin()
         {
             InitializeComponent();
-            PetShop.HarcodearListas();
+          //  PetShop.HarcodearListas();
             this.userForm = new Usuario();
         }
 

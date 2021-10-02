@@ -20,7 +20,7 @@ namespace PetShopApp
         public frmEmpleado()
         {
             InitializeComponent();
-           // PetShop.HardcodUsuarios();
+            // PetShop.HardcodUsuarios();
         }
 
 
@@ -31,7 +31,7 @@ namespace PetShopApp
             int i = 0;
             int j;
             this.userForm = usuario;
-           
+
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
 
             List<Usuario> lista = new List<Usuario>();
@@ -52,7 +52,7 @@ namespace PetShopApp
                 j += 1;
                 dgvListaEmpleados.Rows[i].Cells[j].Value = item.PassUsuario;
                 j += 1;
-               if (item.PerfilUsuario ==  Entidades.Usuario.EPerfilUsuario.Admin)
+                if (item.PerfilUsuario == Entidades.Usuario.EPerfilUsuario.Admin)
                 {
                     dgvListaEmpleados.Rows[i].Cells[j].Value = "Admin";
                 }
@@ -62,11 +62,10 @@ namespace PetShopApp
                 }
                 i++;
             }
-
-
+            dgvListaEmpleados.ReadOnly = true;
         }
 
-    
+
 
 
 
@@ -94,6 +93,63 @@ namespace PetShopApp
                 login.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvListaEmpleados.Rows.Clear();//Limpio el datagrid
+            List<Usuario> lista = new List<Usuario>();
+            lista = PetShop.ObtenerListaUsuarios();
+            string aux;
+            foreach (var item in lista)
+            {
+                if (BuscarPorString(item, txtBuscar.Text.ToLower()))
+                {
+                    if (item.PerfilUsuario == Entidades.Usuario.EPerfilUsuario.Admin)
+                    {
+                        aux = "Admin";
+                    }
+                    else
+                    {
+                        aux = "Empleado";
+                    }
+                    dgvListaEmpleados.Rows.Add(item.Cuit, item.Nombre, item.Apellido, item.NameUsuario, item.PassUsuario, aux);
+                    MakeReadOnly();
+                }
+            }
+        }
+
+        private void MakeReadOnly()
+        {
+            dgvListaEmpleados.AllowUserToAddRows = false;
+            dgvListaEmpleados.AllowUserToDeleteRows = false;
+            dgvListaEmpleados.ReadOnly = true;
+        }
+
+
+        public bool BuscarPorString(Usuario usuario, string palabra)
+        {
+            if (
+                usuario.Cuit.ToLower().Contains(palabra) ||
+                usuario.Nombre.ToLower().Contains(palabra) ||
+                usuario.Apellido.ToLower().Contains(palabra) ||
+                usuario.NameUsuario.ToLower().Contains(palabra) ||
+                usuario.PassUsuario.ToLower().Contains(palabra) ||
+                usuario.PerfilUsuario.ToString().ToLower().Contains(palabra)
+                )
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void btnAlta_Click(object sender, EventArgs e)
+        {
+            pnlBuscar.Enabled = false;
+            btnEliminar.Enabled = false;
+          //  panelAltaUsuario.Visible = true;
+            dgvListaEmpleados.Enabled = false;
+
         }
     }
 }

@@ -14,13 +14,7 @@ namespace Entidades
         static List<Cliente> listaClientes;
         static List<Ventas> listaVentas;
 
-        public static void HarcodearListas()
-        {
-            HardcodUsuarios();
-            HardcodProductos();
-            HardcodClientes();
-            HardcodVentas();
-        }
+      
 
 
         static PetShop()
@@ -30,6 +24,15 @@ namespace Entidades
             Cliente = new List<Cliente>();
             Ventas = new List<Ventas>();
             HarcodearListas();
+        }
+
+
+        public static void HarcodearListas()
+        {
+            HardcodUsuarios();
+            HardcodProductos();
+            HardcodClientes();
+            HardcodVentas();
         }
 
         public static List<Usuario> Usuario
@@ -81,6 +84,12 @@ namespace Entidades
         }
 
 
+
+        public static void Test()
+        {
+            double precio = Ventas[0];
+
+       }
 
         private static void HardcodUsuarios()
         {

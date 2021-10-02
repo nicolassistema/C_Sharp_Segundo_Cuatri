@@ -17,7 +17,6 @@ namespace PetShopApp
         public frmAdministracion()
         {
             InitializeComponent();
-
         }
 
 
