@@ -147,6 +147,7 @@ namespace PetShopApp
         {
             pnlBuscar.Enabled = false;
             btnEliminar.Enabled = false;
+
           //  panelAltaUsuario.Visible = true;
             dgvListaEmpleados.Enabled = false;
 
