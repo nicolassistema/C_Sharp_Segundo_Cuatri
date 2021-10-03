@@ -93,10 +93,10 @@ namespace Entidades
 
         private static void HardcodUsuarios()
         {
-            listaUsuarios.Add(new Empleado("32320510", "Nicolas", "Letticugna", "pepe", "123", Empleado.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Empleado("32320511", "Pedro", "Gomez", "pipo", "123", Empleado.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Administrador("32320513", "lolo", "Lopez", "admin", "admin", Administrador.EPerfilUsuario.Admin));
-            listaUsuarios.Add(new Empleado("32320512", "Juan", "Lopez", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
+            listaUsuarios.Add(new Empleado("20323205109", "Nicolas", "Letticugna", "pepe", "123", Empleado.EPerfilUsuario.Empleado));
+            listaUsuarios.Add(new Empleado("20323205117", "Pedro", "Gomez", "pipo", "123", Empleado.EPerfilUsuario.Empleado));
+            listaUsuarios.Add(new Administrador("20323205125", "lolo", "Lopez", "admin", "admin", Administrador.EPerfilUsuario.Admin));
+            listaUsuarios.Add(new Empleado("20323205133", "Juan", "Lopez", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
 
 
         }
@@ -143,7 +143,7 @@ namespace Entidades
 
         private static void HardcodClientes()
         {
-            listaClientes.Add(new Cliente("32320600", "menagno", "lopez",  250
+            listaClientes.Add(new Cliente("20323206008", "menagno", "lopez",  250
                 //new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
@@ -151,21 +151,21 @@ namespace Entidades
                 //}
                 ));
 
-            listaClientes.Add(new Cliente("32320601", "sultano", "lopez",  250
+            listaClientes.Add(new Cliente("20323206016", "sultano", "lopez",  250
                 //  new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
                 //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
                 //}
                 ));
-            listaClientes.Add(new Cliente("32320602", "lolo", "lopez",  250
+            listaClientes.Add(new Cliente("20323205109", "lolo", "lopez",  250
                 //     new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
                 //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
                 //}
                 ));
-            listaClientes.Add(new Cliente("32320603", "fefe", "lopez",  250
+            listaClientes.Add(new Cliente("20323206059", "fefe", "lopez",  250
                 //         new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
@@ -195,6 +195,13 @@ namespace Entidades
                 }
             }
             return null;//TODO Consultar a Lucas por que no debo devulver null  segun Dense
+        }
+
+
+
+        public static List<Productos> ObtenerPorductos()
+        {
+            return listaProductos;
         }
 
 
@@ -260,7 +267,19 @@ namespace Entidades
             return null;
         }
 
-
+        public static  bool BuscarClientePorString(Cliente cliente, string palabra)
+        {
+            if (
+                cliente.IdCliente.ToString().Contains(palabra) ||
+                cliente.Cuit.ToString().Contains(palabra) ||
+                cliente.Nombre.ToLower().Contains(palabra) ||
+                cliente.Apellido.ToLower().Contains(palabra)
+                )
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }

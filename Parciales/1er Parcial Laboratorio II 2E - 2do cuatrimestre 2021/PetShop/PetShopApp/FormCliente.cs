@@ -87,7 +87,7 @@ namespace PetShopApp
             lista = PetShop.ObtenerListaCliente();
             foreach (var item in lista)
             {
-                if (BuscarPorString(item, txtBuscar.Text.ToLower()))
+                if (PetShop.BuscarClientePorString(item, txtBuscar.Text.ToLower()))
                 {
                     dvgListaClientes.Rows.Add(item.IdCliente, item.Cuit, item.Nombre, item.Apellido);
                     MakeReadOnly();
@@ -105,19 +105,19 @@ namespace PetShopApp
 
 
 
-        public bool BuscarPorString(Cliente cliente, string palabra)
-        {
-            if (
-                cliente.IdCliente.ToString().Contains(palabra) ||
-                cliente.Cuit.ToString().Contains(palabra) ||
-                cliente.Nombre.ToLower().Contains(palabra) ||
-                cliente.Apellido.ToLower().Contains(palabra)
-                )
-            {
-                return true;
-            }
-            return false;
-        }
+        //public bool BuscarPorString(Cliente cliente, string palabra)
+        //{
+        //    if (
+        //        cliente.IdCliente.ToString().Contains(palabra) ||
+        //        cliente.Cuit.ToString().Contains(palabra) ||
+        //        cliente.Nombre.ToLower().Contains(palabra) ||
+        //        cliente.Apellido.ToLower().Contains(palabra)
+        //        )
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         private void btnAltaCliente_Click(object sender, EventArgs e)
         {
