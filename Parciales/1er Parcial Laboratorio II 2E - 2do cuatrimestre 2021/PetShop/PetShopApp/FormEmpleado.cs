@@ -206,11 +206,72 @@ namespace PetShopApp
                     break;
                 }
             }
-
-
-
-
         }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+           
+            List<Usuario> auxList = new List<Usuario>();
+            for (int i = 0; i < dgvListaEmpleados.RowCount; i++)
+            {
+                string aux = dgvListaEmpleados.Rows[i].Cells[5].Value.ToString();
+
+                if (Entidades.Usuario.EPerfilUsuario.Admin.ToString() == aux)
+                {
+                    Usuario usuario = new Usuario(dgvListaEmpleados.Rows[i].Cells[0].Value.ToString(),
+                                                             dgvListaEmpleados.Rows[i].Cells[1].Value.ToString(),
+                                                             dgvListaEmpleados.Rows[i].Cells[2].Value.ToString(),
+                                                             dgvListaEmpleados.Rows[i].Cells[3].Value.ToString(),
+                                                             dgvListaEmpleados.Rows[i].Cells[4].Value.ToString(),
+                                                             Entidades.Usuario.EPerfilUsuario.Admin);
+                    auxList.Add(usuario);
+                }
+                else
+                {
+                    Usuario usuario = new Usuario(dgvListaEmpleados.Rows[i].Cells[0].Value.ToString(),
+                                                            dgvListaEmpleados.Rows[i].Cells[1].Value.ToString(),
+                                                            dgvListaEmpleados.Rows[i].Cells[2].Value.ToString(),
+                                                            dgvListaEmpleados.Rows[i].Cells[3].Value.ToString(),
+                                                            dgvListaEmpleados.Rows[i].Cells[4].Value.ToString(),
+                                                            Entidades.Usuario.EPerfilUsuario.Empleado);
+                    auxList.Add(usuario);
+                }
+
+                PetShop.LimpiarLista();
+                PetShop.CargarListaNuevamente(auxList);
+
+                //PetShop.AddUsuario(usuario);
+
+            }
+
+
+        
+           
+
+        
+        
+        }
     }
 }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

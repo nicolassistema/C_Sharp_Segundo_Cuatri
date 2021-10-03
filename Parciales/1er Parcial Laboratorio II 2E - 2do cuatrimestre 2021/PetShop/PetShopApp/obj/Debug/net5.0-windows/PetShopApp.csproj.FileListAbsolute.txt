@@ -25,4 +25,3 @@ C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio I
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.genruntimeconfig.cache
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.frmAltaEmpleado.resources
 C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.FormEmpleado.resources
-C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\obj\Debug\net5.0-windows\PetShopApp.EliminarUsuario.resources

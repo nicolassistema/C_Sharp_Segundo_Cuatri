@@ -7,9 +7,6 @@
     <Compile Update="Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EliminarUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>

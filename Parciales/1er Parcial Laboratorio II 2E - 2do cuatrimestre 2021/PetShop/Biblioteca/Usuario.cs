@@ -100,7 +100,26 @@ namespace Entidades
             return false;
         }
 
+        public static EPerfilUsuario StringToPerfil(string perfil)
+        {
 
+            if (EPerfilUsuario.Admin.ToString() == perfil)
+            {
+                return EPerfilUsuario.Admin;
+            }
+            return EPerfilUsuario.Empleado;
+        }
+
+        //public static explicit  operator EPerfilUsuario(string perfil)
+        //{
+
+        //    if (EPerfilUsuario.Admin)
+        //    {
+
+        //    }
+
+        //    return "fd";
+        //}
 
 
 

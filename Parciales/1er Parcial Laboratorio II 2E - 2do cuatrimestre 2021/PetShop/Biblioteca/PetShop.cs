@@ -97,7 +97,7 @@ namespace Entidades
             listaUsuarios.Add(new Empleado("Pedro", "Gomez", "32320511", "pipo", "123", Empleado.EPerfilUsuario.Empleado));
             listaUsuarios.Add(new Administrador("lolo", "Lopez", "32320513", "admin", "admin", Administrador.EPerfilUsuario.Admin));
             listaUsuarios.Add(new Empleado("Juan", "Lopez", "32320512", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
-       
+
 
         }
 
@@ -199,8 +199,28 @@ namespace Entidades
             return false;
         }
 
+        public static void LimpiarLista()
+        {
+            listaUsuarios.Clear();
+        }
 
+        public static List<Usuario> CargarListaNuevamente(List<Usuario> listaUsuariosAux)
+        {
+            if (!(listaUsuariosAux is null))
+            {
+                //List<Usuario> auxList = ObtenerListaUsuarios();
+                LimpiarLista();
 
+                foreach (var item in listaUsuariosAux)
+                {
+                    AddUsuario(item);
+                }
+                return ObtenerListaUsuarios();
+            }
+           return null;
+        }
+
+     
 
     }
 }
