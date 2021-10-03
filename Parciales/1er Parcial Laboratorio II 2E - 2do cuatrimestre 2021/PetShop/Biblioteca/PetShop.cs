@@ -101,6 +101,19 @@ namespace Entidades
 
         }
 
+        public static List<Cliente> ObtenerListaCliente()
+        {
+            return listaClientes;
+        }
+
+        public static void AddCliente(Cliente cliente)
+        {
+            listaClientes.Add(cliente);
+
+        }
+
+
+
         public static List<Usuario> ObtenerListaUsuarios()
         {
             return listaUsuarios;
@@ -130,34 +143,34 @@ namespace Entidades
 
         private static void HardcodClientes()
         {
-            listaClientes.Add(new Cliente("menagno", "lopez", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                new List<Productos>()
-                {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                }
+            listaClientes.Add(new Cliente("32320600", "menagno", "lopez",  250
+                //new List<Productos>()
+                //{
+                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
+                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
+                //}
                 ));
 
-            listaClientes.Add(new Cliente("sultano", "lopez", "32320601", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                  new List<Productos>()
-                {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                }
+            listaClientes.Add(new Cliente("32320601", "sultano", "lopez",  250
+                //  new List<Productos>()
+                //{
+                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
+                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
+                //}
                 ));
-            listaClientes.Add(new Cliente("lolo", "lopez", "32320602", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                     new List<Productos>()
-                {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                }
+            listaClientes.Add(new Cliente("32320602", "lolo", "lopez",  250
+                //     new List<Productos>()
+                //{
+                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
+                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
+                //}
                 ));
-            listaClientes.Add(new Cliente("fefe", "lopez", "32320603", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                         new List<Productos>()
-                {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                }
+            listaClientes.Add(new Cliente("32320603", "fefe", "lopez",  250
+                //         new List<Productos>()
+                //{
+                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
+                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
+                //}
                 ));
 
         }
@@ -199,23 +212,50 @@ namespace Entidades
             return false;
         }
 
-        public static void LimpiarLista()
+        public static void LimpiarListaUsarios()
         {
             listaUsuarios.Clear();
         }
+
+
+        public static void LimpiarListaClientes()
+        {
+            listaClientes.Clear();
+        }
+
+
+
+
 
         public static List<Usuario> CargarListaNuevamente(List<Usuario> listaUsuariosAux)
         {
             if (!(listaUsuariosAux is null))
             {
                 //List<Usuario> auxList = ObtenerListaUsuarios();
-                LimpiarLista();
+                LimpiarListaUsarios();
 
                 foreach (var item in listaUsuariosAux)
                 {
                     AddUsuario(item);
                 }
                 return ObtenerListaUsuarios();
+            }
+            return null;
+        }
+
+
+        public static List<Cliente> CargarListaNuevamenteClientes(List<Cliente> listaClienteAux)
+        {
+            if (!(listaClienteAux is null))
+            {
+                //List<Usuario> auxList = ObtenerListaUsuarios();
+                LimpiarListaClientes();
+
+                foreach (var item in listaClienteAux)
+                {
+                    AddCliente(item);
+                }
+                return ObtenerListaCliente();
             }
             return null;
         }

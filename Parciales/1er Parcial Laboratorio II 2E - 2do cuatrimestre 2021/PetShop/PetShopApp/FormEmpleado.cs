@@ -127,6 +127,7 @@ namespace PetShopApp
                     dgvListaEmpleados.Rows.Add(item.Cuit, item.Nombre, item.Apellido, item.NameUsuario, item.PassUsuario, aux);
                     MakeReadOnly();
                 }
+               
             }
         }
 
@@ -168,6 +169,7 @@ namespace PetShopApp
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            dgvListaEmpleados.Rows.Clear();
             dgvListaEmpleados.DataSource = null;
             List<Usuario> lista = new List<Usuario>();
             //  Usuario usuario;
@@ -253,7 +255,7 @@ namespace PetShopApp
                     auxList.Add(usuario);
                 }
 
-                PetShop.LimpiarLista();
+                PetShop.LimpiarListaUsarios();
                 PetShop.CargarListaNuevamente(auxList);
             }
         }

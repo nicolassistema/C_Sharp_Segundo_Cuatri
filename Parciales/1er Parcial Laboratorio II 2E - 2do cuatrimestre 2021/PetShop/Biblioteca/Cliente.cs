@@ -9,10 +9,10 @@ namespace Entidades
     public class Cliente : Persona
     {
         #region "Atributos"
-        private ETipoPago tipoPago;
+      //  private ETipoPago tipoPago;
         private int idCliente;
         private double saldo;
-        List<Productos> listaProductos;
+    //   List<Productos> listaProductos;
         #endregion
 
 
@@ -22,28 +22,32 @@ namespace Entidades
         {
         }
 
-        public Cliente(string nombre, string apellido, string cuit, ETipoPago tipoPago, double saldo, List<Productos> listaProductos) : base(nombre, apellido, cuit)
+        //public Cliente(string cuit, string nombre, string apellido) : base()
+        //{
+        //    this.idCliente = IdAutoIncremental();
+        //}
+
+        public Cliente(string cuit, string nombre, string apellido,  double saldo) : base(cuit, nombre, apellido)
         {
-            this.tipoPago = tipoPago;
             this.idCliente = IdAutoIncremental();
             this.saldo = saldo;
-            this.listaProductos = listaProductos;
         }
+
 
         #endregion
 
         #region "Propiedades"
-        public ETipoPago TipoPago
-        {
-            get
-            {
-                return this.tipoPago;
-            }
-            set
-            {
-                this.tipoPago = value;
-            }
-        }
+        //public ETipoPago TipoPago
+        //{
+        //    get
+        //    {
+        //        return this.tipoPago;
+        //    }
+        //    set
+        //    {
+        //        this.tipoPago = value;
+        //    }
+        //}
 
         public int IdCliente
         {
@@ -70,11 +74,11 @@ namespace Entidades
             }
         }
 
-        public List<Productos> Producto
-        {
-            get { return this.listaProductos; }
-            set { this.listaProductos = value; }
-        }
+        //public List<Productos> Producto
+        //{
+        //    get { return this.listaProductos; }
+        //    set { this.listaProductos = value; }
+        //}
 
 
 
@@ -101,12 +105,12 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.Append($"{this.idCliente} | {this.saldo} | {this.tipoPago} \n");
+            sb.Append($"{this.idCliente} | {this.saldo} \n");
 
-            foreach (var item in listaProductos)
-            {
-                sb.AppendLine($"{item}");
-            }
+            //foreach (var item in listaProductos)
+            //{
+            //    sb.AppendLine($"{item}");
+            //}
 
 
             return sb.ToString();
@@ -118,13 +122,17 @@ namespace Entidades
 
         }
 
+
+
         public int IdAutoIncremental()
         {
-            for (int i = 0; i <= 1; i++)
+
+            for (int i = 0; i <= PetShop.ObtenerListaCliente().Count; i++)
             {
-                this.idCliente = i + 1;
+                IdCliente = i + 1;
             }
-            return this.idCliente;
+
+            return IdCliente;
         }
 
         #endregion
