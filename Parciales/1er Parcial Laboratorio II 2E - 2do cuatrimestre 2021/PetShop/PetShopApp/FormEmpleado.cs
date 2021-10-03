@@ -13,33 +13,38 @@ using Entidades;
 
 namespace PetShopApp
 {
-    public partial class frmEmpleado : Form
+    public partial class FormEmpleado : Form
     {
         Usuario userForm;
 
-        public frmEmpleado()
+        public FormEmpleado()
         {
             InitializeComponent();
-            // PetShop.HardcodUsuarios();
         }
 
 
 
-        public frmEmpleado(Usuario usuario) : this()
+        public FormEmpleado(Usuario usuario) : this()
         {
+            this.userForm = usuario;
+            lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
+            CargarDataGrid();
+        }
+
+
+
+
+
+        public void CargarDataGrid()
+        {
+            dgvListaEmpleados.Refresh();
+            dgvListaEmpleados.DataSource = null;
 
             int i = 0;
             int j;
-            this.userForm = usuario;
+            dgvListaEmpleados.RowCount = PetShop.ObtenerListaUsuarios().Count;
 
-            lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
-
-            List<Usuario> lista = new List<Usuario>();
-            lista = PetShop.ObtenerListaUsuarios();
-
-            dgvListaEmpleados.RowCount = lista.Count;
-
-            foreach (var item in lista)
+            foreach (var item in PetShop.ObtenerListaUsuarios())
             {
                 j = 0;
                 dgvListaEmpleados.Rows[i].Cells[j].Value = item.Cuit;
@@ -62,13 +67,14 @@ namespace PetShopApp
                 }
                 i++;
             }
-            dgvListaEmpleados.ReadOnly = true;
         }
 
 
-
-
-
+        public void RefrescarForm()
+        {
+            FormEmpleado form = new FormEmpleado();
+            form.Refresh();
+        }
 
 
         private void lblVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -145,12 +151,66 @@ namespace PetShopApp
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            pnlBuscar.Enabled = false;
+            // pnlBuscar.Enabled = false;
             btnEliminar.Enabled = false;
+            //  panelAltaUsuario.Visible = true;
+            dgvListaEmpleados.Enabled = true;
 
-          //  panelAltaUsuario.Visible = true;
-            dgvListaEmpleados.Enabled = false;
+            frmAltaEmpleado empleado = new frmAltaEmpleado(this.userForm);
+            empleado.ShowDialog();
+            this.CargarDataGrid();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            dgvListaEmpleados.DataSource = null;
+            List<Usuario> lista = new List<Usuario>();
+            //  Usuario usuario;
+            lista = PetShop.ObtenerListaUsuarios();
+            string aux;
+            foreach (DataGridViewCell oneCell in dgvListaEmpleados.SelectedCells)//Busca en que row se selecciono la celda
+            {
+                aux = dgvListaEmpleados.Rows[dgvListaEmpleados.CurrentCell.RowIndex].Cells[0].Value.ToString();//obtengo el id del registro datagrid tal y como esta en la base
+                if (userForm.Cuit != aux)
+                {
+                    if (dgvListaEmpleados.SelectedCells.Count < 2)//Valido que si hay mas de una celda seleccionada, salga y muestre mensaje de validacion
+                    {
+                        if (oneCell.Selected)
+                        {
+                            foreach (var item in lista)//recorro la lista de usuarios ubicando el que tiene el id que obtuve el datagrid
+                            {
+                                if (item.Cuit == aux)//una vez encontrado, cargo el constructor y lo mando a la funcion eliminar de la base de datos
+                                {
+                                    DialogResult dr = MessageBox.Show($"Esta seguro de eliminar el usuario\n {item.ToString()}?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                                    if (dr != DialogResult.No)
+                                    {
+                                        PetShop.EliminarUsuario(item);
+                                        dgvListaEmpleados.DataSource = null;
+                                        this.CargarDataGrid();
+
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede seleccionar mas de una celda");
+                        break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede borrar el usuario que esta loguado actualmente");
+                    break;
+                }
+            }
+
+
+
 
         }
+
     }
 }

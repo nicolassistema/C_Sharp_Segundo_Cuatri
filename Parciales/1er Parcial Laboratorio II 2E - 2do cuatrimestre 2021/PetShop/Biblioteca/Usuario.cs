@@ -87,7 +87,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"{this.Apellido} | {this.Nombre} | {this.perfilUsuario}");
+            sb.AppendLine($"{this.Apellido} {this.Nombre} {this.perfilUsuario}");
             return sb.ToString();
         }
 
@@ -99,6 +99,9 @@ namespace Entidades
             }
             return false;
         }
+
+
+
 
 
 

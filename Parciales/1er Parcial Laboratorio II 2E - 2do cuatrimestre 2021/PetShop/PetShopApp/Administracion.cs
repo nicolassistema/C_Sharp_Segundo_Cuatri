@@ -44,7 +44,8 @@ namespace PetShopApp
             frmVenta venta = new frmVenta(this.userForm);
             this.Hide();
             venta.ShowDialog();
-            this.Close();
+           
+           // this.Close();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace PetShopApp
 
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
-            frmEmpleado venta = new frmEmpleado(this.userForm);
+            FormEmpleado venta = new FormEmpleado(this.userForm);
             this.Hide();
             venta.ShowDialog();
             this.Close();

@@ -19,15 +19,13 @@ namespace PetShopApp
         public frmLogin()
         {
             InitializeComponent();
-          //  PetShop.HarcodearListas();
+            //  PetShop.HarcodearListas();
             this.userForm = new Usuario();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             label3.Text = Validaciones.SalidaMensajeValidacion(txtUser.Text, txtPass.Text);
-            //TODO: Consultar a Lucas sobre ternario que no me anda  label3.Text == "Bienvenido!" ? label3.ForeColor = Color.Green : label3.ForeColor = Color.Red;
-
             if (label3.Text == "Bienvenido!")
             {
                 label3.ForeColor = Color.Green;
@@ -54,13 +52,12 @@ namespace PetShopApp
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult boton = MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (boton == DialogResult.Yes)
             {
                 Dispose();
             }
-            //this.Close();
         }
     }
 }

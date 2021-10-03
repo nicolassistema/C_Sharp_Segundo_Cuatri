@@ -14,7 +14,7 @@ namespace Entidades
         static List<Cliente> listaClientes;
         static List<Ventas> listaVentas;
 
-      
+
 
 
         static PetShop()
@@ -89,15 +89,16 @@ namespace Entidades
         {
             double precio = Ventas[0];
 
-       }
+        }
 
         private static void HardcodUsuarios()
         {
             listaUsuarios.Add(new Empleado("Nicolas", "Letticugna", "32320510", "pepe", "123", Empleado.EPerfilUsuario.Empleado));
             listaUsuarios.Add(new Empleado("Pedro", "Gomez", "32320511", "pipo", "123", Empleado.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Empleado("Juan", "Lopez", "32320512", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
             listaUsuarios.Add(new Administrador("lolo", "Lopez", "32320513", "admin", "admin", Administrador.EPerfilUsuario.Admin));
-            
+            listaUsuarios.Add(new Empleado("Juan", "Lopez", "32320512", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
+       
+
         }
 
         public static List<Usuario> ObtenerListaUsuarios()
@@ -105,6 +106,12 @@ namespace Entidades
             return listaUsuarios;
         }
 
+
+        public static void AddUsuario(Usuario usuario)
+        {
+            listaUsuarios.Add(usuario);
+
+        }
 
 
         private static void HardcodProductos()
@@ -117,7 +124,7 @@ namespace Entidades
             listaProductos.Add(new Alimentos(6, "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.30, Alimentos.ETipoAlimento.Balanceado));
             listaProductos.Add(new ArtCuidadoMascotas(7, "Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.30, ArtCuidadoMascotas.ETipoCuidado.Farmacia));
             listaProductos.Add(new ArtCuidadoMascotas(8, "Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.30, ArtCuidadoMascotas.ETipoCuidado.Limpieza));
-         
+
         }
 
 
@@ -152,7 +159,7 @@ namespace Entidades
                     new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
                 }
                 ));
-           
+
         }
 
 
@@ -177,13 +184,22 @@ namespace Entidades
             return null;//TODO Consultar a Lucas por que no debo devulver null  segun Dense
         }
 
-        //public static string Mostrar()
-        //{
-        //    return listaVentas[1].Cliente.Apellido;
-        //}
+
+        public static bool EliminarUsuario(Usuario usuario)
+        {
+            List<Usuario> auxList = PetShop.Usuario;
+            foreach (var item in auxList)
+            {
+                if (item == usuario)
+                {
+                    auxList.Remove(item);
+                    return true;
+                }
+            }
+            return false;
+        }
 
 
-      
 
 
     }

@@ -1,7 +1,7 @@
 ﻿
 namespace PetShopApp
 {
-    partial class frmEmpleado
+    partial class FormEmpleado
     {
         /// <summary>
         /// Required designer variable.
@@ -178,6 +178,7 @@ namespace PetShopApp
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAlta
             // 
@@ -207,7 +208,7 @@ namespace PetShopApp
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // frmEmpleado
+            // FormEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -221,7 +222,7 @@ namespace PetShopApp
             this.Controls.Add(this.lblCerrarSesion);
             this.Controls.Add(this.lblVolver);
             this.Controls.Add(this.lblNombreUsuario);
-            this.Name = "frmEmpleado";
+            this.Name = "FormEmpleado";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Empleado";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaEmpleados)).EndInit();
