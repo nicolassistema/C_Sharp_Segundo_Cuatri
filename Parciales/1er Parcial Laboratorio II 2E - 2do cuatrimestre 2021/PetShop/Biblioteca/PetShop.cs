@@ -93,10 +93,10 @@ namespace Entidades
 
         private static void HardcodUsuarios()
         {
-            listaUsuarios.Add(new Empleado("Nicolas", "Letticugna", "32320510", "pepe", "123", Empleado.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Empleado("Pedro", "Gomez", "32320511", "pipo", "123", Empleado.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Administrador("lolo", "Lopez", "32320513", "admin", "admin", Administrador.EPerfilUsuario.Admin));
-            listaUsuarios.Add(new Empleado("Juan", "Lopez", "32320512", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
+            listaUsuarios.Add(new Empleado("32320510", "Nicolas", "Letticugna", "pepe", "123", Empleado.EPerfilUsuario.Empleado));
+            listaUsuarios.Add(new Empleado("32320511", "Pedro", "Gomez", "pipo", "123", Empleado.EPerfilUsuario.Empleado));
+            listaUsuarios.Add(new Administrador("32320513", "lolo", "Lopez", "admin", "admin", Administrador.EPerfilUsuario.Admin));
+            listaUsuarios.Add(new Empleado("32320512", "Juan", "Lopez", "pupu", "123", Empleado.EPerfilUsuario.Empleado));
 
 
         }
@@ -217,10 +217,10 @@ namespace Entidades
                 }
                 return ObtenerListaUsuarios();
             }
-           return null;
+            return null;
         }
 
-     
+
 
     }
 }

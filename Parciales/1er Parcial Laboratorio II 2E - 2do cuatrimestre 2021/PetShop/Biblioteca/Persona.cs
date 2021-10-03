@@ -24,7 +24,7 @@ namespace Entidades
             this.Apellido = String.Empty;
         }
 
-        public Persona(string nombre, string apellido, string cuit)
+        public Persona(string cuit, string nombre, string apellido )
         {
             this.nombre = nombre;
             this.apellido = apellido;

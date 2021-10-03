@@ -20,7 +20,7 @@ namespace Entidades
 
         }
 
-        public Usuario(string nombre, string apellido, string cuit, string usuario, string password, EPerfilUsuario perfilUsuario) : base(nombre, apellido, cuit)
+        public Usuario(string cuit, string nombre, string apellido, string usuario, string password, EPerfilUsuario perfilUsuario) : base(cuit, nombre, apellido)
         {
             this.usuario = usuario;
             this.password = password;

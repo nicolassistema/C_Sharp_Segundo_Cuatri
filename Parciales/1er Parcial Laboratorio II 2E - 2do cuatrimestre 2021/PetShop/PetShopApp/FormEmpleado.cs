@@ -23,16 +23,12 @@ namespace PetShopApp
         }
 
 
-
         public FormEmpleado(Usuario usuario) : this()
         {
             this.userForm = usuario;
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
             CargarDataGrid();
         }
-
-
-
 
 
         public void CargarDataGrid()
@@ -47,23 +43,32 @@ namespace PetShopApp
             foreach (var item in PetShop.ObtenerListaUsuarios())
             {
                 j = 0;
-                dgvListaEmpleados.Rows[i].Cells[j].Value = item.Cuit;
-                j += 1;
-                dgvListaEmpleados.Rows[i].Cells[j].Value = item.Nombre;
-                j += 1;
-                dgvListaEmpleados.Rows[i].Cells[j].Value = item.Apellido;
-                j += 1;
-                dgvListaEmpleados.Rows[i].Cells[j].Value = item.NameUsuario;
-                j += 1;
-                dgvListaEmpleados.Rows[i].Cells[j].Value = item.PassUsuario;
-                j += 1;
-                if (item.PerfilUsuario == Entidades.Usuario.EPerfilUsuario.Admin)
+                if (item.Cuit == userForm.Cuit.ToString())
                 {
-                    dgvListaEmpleados.Rows[i].Cells[j].Value = "Admin";
+                    dgvListaEmpleados.Rows[i].Cells[0].Value = item.Cuit;
+                    dgvListaEmpleados.Rows[i].Cells[0].ReadOnly = true;
+                    dgvListaEmpleados.Rows[i].Cells[5].ReadOnly = true;
                 }
                 else
                 {
-                    dgvListaEmpleados.Rows[i].Cells[j].Value = "Empleado";
+                    dgvListaEmpleados.Rows[i].Cells[0].Value = item.Cuit;
+                }
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[1].Value = item.Nombre;
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[2].Value = item.Apellido;
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[3].Value = item.NameUsuario;
+                j += 1;
+                dgvListaEmpleados.Rows[i].Cells[4].Value = item.PassUsuario;
+                j += 1;
+                if (item.PerfilUsuario == Entidades.Usuario.EPerfilUsuario.Admin)
+                {
+                    dgvListaEmpleados.Rows[i].Cells[5].Value = "Admin";
+                }
+                else
+                {
+                    dgvListaEmpleados.Rows[i].Cells[5].Value = "Empleado";
                 }
                 i++;
             }
@@ -210,11 +215,22 @@ namespace PetShopApp
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-           
+
             List<Usuario> auxList = new List<Usuario>();
             for (int i = 0; i < dgvListaEmpleados.RowCount; i++)
             {
                 string aux = dgvListaEmpleados.Rows[i].Cells[5].Value.ToString();
+                string cuitAux = dgvListaEmpleados.Rows[i].Cells[0].Value.ToString();
+
+
+                if (userForm.Cuit == cuitAux)
+                {
+                    lblNombreUsuario.Text = dgvListaEmpleados.Rows[i].Cells[1].Value.ToString() + " " + dgvListaEmpleados.Rows[i].Cells[2].Value.ToString();
+                    userForm.Nombre = dgvListaEmpleados.Rows[i].Cells[1].Value.ToString();
+                    userForm.Apellido = dgvListaEmpleados.Rows[i].Cells[2].Value.ToString();
+                    userForm.NameUsuario = dgvListaEmpleados.Rows[i].Cells[3].Value.ToString();
+                    userForm.PassUsuario = dgvListaEmpleados.Rows[i].Cells[4].Value.ToString();
+                }
 
                 if (Entidades.Usuario.EPerfilUsuario.Admin.ToString() == aux)
                 {
@@ -239,21 +255,18 @@ namespace PetShopApp
 
                 PetShop.LimpiarLista();
                 PetShop.CargarListaNuevamente(auxList);
-
-                //PetShop.AddUsuario(usuario);
-
             }
-
-
-        
-           
-
-        
-        
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            CargarDataGrid();
+        }
+
+
     }
 }
-  
+
 
 
 
