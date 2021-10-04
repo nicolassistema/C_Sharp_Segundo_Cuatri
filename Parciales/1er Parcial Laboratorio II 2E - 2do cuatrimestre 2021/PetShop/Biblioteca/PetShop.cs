@@ -127,13 +127,6 @@ namespace Entidades
 
         }
 
-
-
-
-
-  
-
-
         public static Usuario ObtenerUsuario(string usuarioNombre, string password)
         {
             List<Usuario> auxList = PetShop.Usuario;
@@ -222,12 +215,10 @@ namespace Entidades
 
         public static bool BuscarClientePorString(Cliente cliente, string palabra)
         {
-            if (
-                cliente.IdCliente.ToString().Contains(palabra) ||
+            if (cliente.IdCliente.ToString().Contains(palabra) ||
                 cliente.Cuit.ToString().Contains(palabra) ||
                 cliente.Nombre.ToLower().Contains(palabra) ||
-                cliente.Apellido.ToLower().Contains(palabra)
-                )
+                cliente.Apellido.ToLower().Contains(palabra))
             {
                 return true;
             }
