@@ -31,6 +31,7 @@ namespace PetShopApp
             //agregar validaciones de visualizacion por perfil
 
             CargarLisBox();
+
         }
 
 
@@ -131,6 +132,7 @@ namespace PetShopApp
         private void btnSacar_Click(object sender, EventArgs e)
         {
             lstProductoSeleccionado.Items.Remove(lstProductoSeleccionado.SelectedItem);
+      //      PetShop.Productos -= new Alimento("Power Balance", "Dog Chow", 4000, Producto.ETipo.Alimento, 7, 20);
         }
     }
 }

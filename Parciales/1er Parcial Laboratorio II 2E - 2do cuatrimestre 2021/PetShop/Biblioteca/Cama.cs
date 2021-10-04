@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public sealed class Camas : Productos
+    public sealed class Cama : Producto
     {
 
         private ETamanio tamanio;
 
-        public Camas(string marca, string nombre, string detalle, int cantidad, double precio, ETamanio tamanio) : base(marca, nombre, detalle, cantidad, precio)
+        public Cama(string marca, string nombre, string detalle, int cantidad, double precio, ETamanio tamanio) : base(marca, nombre, detalle, cantidad, precio)
         {
             this.tamanio = tamanio;
 

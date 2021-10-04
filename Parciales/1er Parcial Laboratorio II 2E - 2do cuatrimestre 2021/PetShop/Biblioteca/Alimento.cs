@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Alimentos : Productos
+    class Alimento : Producto
     {
 
         private ETipoAlimento tipoAlimento;
        
 
-        public Alimentos(string marca, string nombre, string detalle, int cantidad, double precio, ETipoAlimento tipoAlimento) : base( marca, nombre, detalle, cantidad, precio)
+        public Alimento(string marca, string nombre, string detalle, int cantidad, double precio, ETipoAlimento tipoAlimento) : base( marca, nombre, detalle, cantidad, precio)
         {
             this.tipoAlimento = tipoAlimento;
 

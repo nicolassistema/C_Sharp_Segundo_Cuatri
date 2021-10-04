@@ -6,18 +6,29 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Ventas
+    public class Venta
     {
+        List<Producto> listaProductos;
         Cliente cliente;
+        Usuario usuario;
         int numeroFactura;
         double montoTotal;
 
 
-        public Ventas(Cliente cliente, double montoTotal)
+        public Venta()
         {
-            this.cliente = cliente;
-            this.montoTotal = montoTotal;
-            this.numeroFactura = IdFacturacionAutoIncremental();
+            listaProductos = new List<Producto>();
+        }
+
+
+        public Venta(Usuario usuario, Cliente cliente, double montoTotal, List<Producto> listaProductos ) : this()
+        {
+            this.NumeroFactura = IdFacturacionAutoIncremental();
+            this.Cliente = cliente;
+            this.MontoTotal = montoTotal;
+            this.Usuario = usuario;
+            this.ListaProductos = listaProductos;
+
         }
 
         public double MontoTotal
@@ -46,29 +57,51 @@ namespace Entidades
             }
         }
 
-
-
         public Cliente Cliente
         {
-            get { return cliente; }
-            set { cliente = value; }
+            get 
+            {
+                return cliente;
+            }
+            set 
+            {
+                cliente = value;
+            }
         }
 
-        public static implicit operator double(Ventas unaVenta)
-        {
-            return unaVenta.MontoTotal;
-        } 
-        
-        //public static implicit operator Ventas(List<Ventas> listaVenta)
-        // {
-        //    double acum = 0;
-        //    foreach (var item in listaVenta)
-        //    {
-        //        acum += item.MontoTotal;
-        //    }
 
-        //    return acum;
+        public List<Producto> ListaProductos
+        {
+            get
+            {
+                return listaProductos;
+            }
+            set
+            {
+                listaProductos = value;
+            }
+        }
+
+        public Usuario Usuario
+        {
+            get
+            {
+                return usuario;
+            }
+            set
+            {
+                usuario = value;
+            }
+        }
+
+
+
+
+        //public static implicit operator double(Venta unaVenta)
+        //{
+        //    return unaVenta.MontoTotal;
         //}
+
 
         public int IdFacturacionAutoIncremental()
         {
@@ -78,6 +111,8 @@ namespace Entidades
             }
             return this.numeroFactura;
         }
+
+
 
 
 

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class ArtCuidadoMascotas : Productos
+    public class ArtCuidadoMascota : Producto
     {
 
         private ETipoCuidado tipoCuidado;
 
-        public ArtCuidadoMascotas(string marca, string nombre, string detalle, int stock, double precio, ETipoCuidado tipoCuidado) : base( marca, nombre, detalle, stock, precio)
+        public ArtCuidadoMascota(string marca, string nombre, string detalle, int stock, double precio, ETipoCuidado tipoCuidado) : base( marca, nombre, detalle, stock, precio)
         {
             this.tipoCuidado = tipoCuidado;
         }

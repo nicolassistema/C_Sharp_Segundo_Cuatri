@@ -9,9 +9,9 @@ namespace Entidades
     public class Usuario : Persona
     {
         #region "Atributos"
-        private string usuario;
-        private string password;
-        private EPerfilUsuario perfilUsuario;
+        string usuario;
+        string password;
+        EPerfilUsuario perfilUsuario;
         #endregion
 
         #region "Constructores"
@@ -25,7 +25,6 @@ namespace Entidades
             this.usuario = usuario;
             this.password = password;
             this.perfilUsuario = perfilUsuario;
-
         }
         #endregion
 
@@ -82,6 +81,47 @@ namespace Entidades
         #endregion
 
 
+        #region "Operadores"
+        public static List<Usuario> operator +(List<Usuario> usuarios, Usuario usuario)
+        {
+            if (usuarios != usuario)
+            {
+                PetShop.Usuario.Add(usuario);
+                return PetShop.Usuario;
+            }
+            else
+                return PetShop.Usuario;
+        }
+
+        public static List<Usuario> operator -(List<Usuario> usuarios, Usuario usuario)
+        {
+
+            if (usuarios == usuario)
+            {
+                PetShop.Usuario.Remove(usuario);
+                return PetShop.Usuario;
+            }
+            else
+                return PetShop.Usuario;
+        }
+
+        public static bool operator ==(List<Usuario> usuarios, Usuario usuario)
+        {
+            foreach (Usuario auxUsuarios in PetShop.Usuario)
+            {
+                if (usuario == auxUsuarios)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static bool operator !=(List<Usuario> usuarios, Usuario usuario)
+        {
+            return !(usuarios == usuario);
+        }
+        #endregion
+
         #region "Utils"
 
         public override string ToString()
@@ -102,7 +142,6 @@ namespace Entidades
 
         public static EPerfilUsuario StringToPerfil(string perfil)
         {
-
             if (EPerfilUsuario.Admin.ToString() == perfil)
             {
                 return EPerfilUsuario.Admin;
@@ -110,16 +149,7 @@ namespace Entidades
             return EPerfilUsuario.Empleado;
         }
 
-        //public static explicit  operator EPerfilUsuario(string perfil)
-        //{
 
-        //    if (EPerfilUsuario.Admin)
-        //    {
-
-        //    }
-
-        //    return "fd";
-        //}
 
 
 

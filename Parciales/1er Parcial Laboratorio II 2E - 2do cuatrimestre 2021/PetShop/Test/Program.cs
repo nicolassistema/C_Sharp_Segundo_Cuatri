@@ -31,16 +31,16 @@ namespace Test
             {
 
           new Cliente("menagno", "lopez", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                new List<Productos>()
+                new List<Producto>()
                 {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
+                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Cama.ETamanio.Grande),
+                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguete.EMaterial.Goma)
                 }),
            new Cliente("dfdfdf", "lopeuuuu", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                new List<Productos>()
+                new List<Producto>()
                 {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
+                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Cama.ETamanio.Grande),
+                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguete.EMaterial.Goma)
                 })
 
 

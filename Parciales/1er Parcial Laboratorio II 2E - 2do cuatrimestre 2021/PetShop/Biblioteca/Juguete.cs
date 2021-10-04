@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Juguetes : Productos
+    public class Juguete : Producto
     {
         private EMaterial material;
 
-        public Juguetes( string marca, string nombre, string detalle, int stock, double precio, EMaterial material) : base( marca, nombre, detalle, stock, precio)
+        public Juguete( string marca, string nombre, string detalle, int stock, double precio, EMaterial material) : base( marca, nombre, detalle, stock, precio)
         {
             this.material = material;
         }

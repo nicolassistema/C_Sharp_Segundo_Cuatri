@@ -19,16 +19,16 @@ namespace Entidades
 
         public Persona()
         {
-            this.cuit = String.Empty;
+            this.Cuit = String.Empty;
             this.Nombre = String.Empty;
             this.Apellido = String.Empty;
         }
 
         public Persona(string cuit, string nombre, string apellido )
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.cuit = cuit;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Cuit = cuit;
         }
         #endregion
 
