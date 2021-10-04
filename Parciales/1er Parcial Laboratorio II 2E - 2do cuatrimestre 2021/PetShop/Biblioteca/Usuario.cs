@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -28,8 +25,10 @@ namespace Entidades
         }
         #endregion
 
-
         #region "Propiedades"
+        /// <summary>
+        /// Recibe y setea el dato 
+        /// </summary>
         public string NameUsuario
         {
             get
@@ -43,6 +42,9 @@ namespace Entidades
         }
 
 
+        /// <summary>
+        /// Recibe y setea el dato 
+        /// </summary>
         public string PassUsuario
         {
             get
@@ -56,6 +58,9 @@ namespace Entidades
         }
 
 
+        /// <summary>
+        /// Recibe y setea el dato 
+        /// </summary>
         public EPerfilUsuario PerfilUsuario
         {
             get
@@ -67,10 +72,7 @@ namespace Entidades
                 this.perfilUsuario = value;
             }
         }
-
-
         #endregion
-
 
         #region "Enumerados"
         public enum EPerfilUsuario
@@ -79,7 +81,6 @@ namespace Entidades
             Empleado
         }
         #endregion
-
 
         #region "Operadores"
         public static List<Usuario> operator +(List<Usuario> usuarios, Usuario usuario)
@@ -123,7 +124,10 @@ namespace Entidades
         #endregion
 
         #region "Utils"
-
+        /// <summary>
+        /// Devuelve informacion del objeto como string
+        /// </summary>
+        /// <returns>Devuelve informacion del objeto como string</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -131,6 +135,11 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Proegunta si el usuario en admin
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>Devuelve true si admin o false si no</returns>
         public static bool IsAdmin(Usuario usuario)
         {
             if (usuario.PerfilUsuario == EPerfilUsuario.Admin)
@@ -139,22 +148,6 @@ namespace Entidades
             }
             return false;
         }
-
-        public static EPerfilUsuario StringToPerfil(string perfil)
-        {
-            if (EPerfilUsuario.Admin.ToString() == perfil)
-            {
-                return EPerfilUsuario.Admin;
-            }
-            return EPerfilUsuario.Empleado;
-        }
-
-
-
-
-
-
         #endregion
-
     }
 }

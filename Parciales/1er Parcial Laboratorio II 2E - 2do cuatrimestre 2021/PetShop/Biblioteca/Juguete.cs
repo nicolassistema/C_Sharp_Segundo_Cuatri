@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Entidades
 {
     public class Juguete : Producto
     {
+        #region "Atributos"
         private EMaterial material;
+        #endregion
 
-        public Juguete( string marca, string nombre, string detalle, int stock, double precio, EMaterial material) : base( marca, nombre, detalle, stock, precio)
+        #region "Constructores"
+        public Juguete(string marca, string nombre, string detalle, int stock, double precio, EMaterial material) : base(marca, nombre, detalle, stock, precio)
         {
             this.material = material;
         }
+        #endregion
 
-
+        #region "Propiedades"
+        /// <summary>
+        /// Setea y devuelve el dato
+        /// </summary>
         public EMaterial Material
         {
             get
@@ -27,17 +30,22 @@ namespace Entidades
                 this.material = value;
             }
         }
+        #endregion
 
-
+        #region "Enumerados"
         public enum EMaterial
         {
             Plastico,
             Metal,
             Goma
         }
-                 
-        
+        #endregion
 
+        #region "Utils"
+        /// <summary>
+        /// Muestra informacion del juguete
+        /// </summary>
+        /// <returns> Muestra informacion del juguete</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -45,7 +53,6 @@ namespace Entidades
             sb.Append($" | {this.material}");
             return sb.ToString();
         }
-
-
+        #endregion
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Entidades
 {
@@ -18,7 +14,12 @@ namespace Entidades
         }
 
 
-
+        /// <summary>
+        /// mensajes de validacion
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="password"></param>
+        /// <returns>mensajes de validacion</returns>
         public static string SalidaMensajeValidacion(string usuario, string password)
         {
 
@@ -44,7 +45,11 @@ namespace Entidades
         }
 
 
-
+        /// <summary>
+        /// valida el uusario
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>true o false</returns>
         public static bool ValidacionUser(string usuario)
         {
             foreach (var item in acceso)
@@ -57,7 +62,11 @@ namespace Entidades
             return false;
         }
 
-
+        /// <summary>
+        /// Valida password
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns>true o false</returns>
         public static bool ValidacionPassword(string password)
         {
             foreach (var item in acceso)
@@ -73,7 +82,11 @@ namespace Entidades
 
 
 
-
+        /// <summary>
+        /// Valida si es numero
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns>true o false</returns>
         public static bool ValidateNumber(string number)
         {
             //Quito los guiones, el cuit resultante debe tener 11 caracteres.
@@ -87,10 +100,10 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Compute the last digit´s CUIL
+        /// Calcula el digito para el cuit
         /// </summary>
         /// <param name="cuit"></param>
-        /// <returns></returns>
+        /// <returns>devuelve un nuemro</returns>
         public static int CalcularDigitoCuit(string cuit)
         {
             int[] mult = new[] { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
@@ -104,13 +117,17 @@ namespace Entidades
             return resto == 0 ? 0 : resto == 1 ? 9 : 11 - resto;
         }
 
-        public static  bool ValidaCuit(string cuit)
+        /// <summary>
+        /// Valida si el cuit tiene el formato correcto
+        /// </summary>
+        /// <param name="cuit"></param>
+        /// <returns>true o false</returns>
+        public static bool ValidaCuit(string cuit)
         {
             if (cuit == null)
             {
                 return false;
             }
-            //Quito los guiones, el cuit resultante debe tener 11 caracteres.
             cuit = cuit.Replace("-", string.Empty);
             if (cuit.Length != 11)
             {
@@ -124,10 +141,11 @@ namespace Entidades
             }
         }
 
-
-
-
-
+        /// <summary>
+        /// Valida si es string
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns>true o false</returns>
         public static bool ValidacionString(string nombre)
         {
             char[] arr;
@@ -147,7 +165,6 @@ namespace Entidades
             {
                 return false;
             }
-
             return true;
         }
 

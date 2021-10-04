@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -21,7 +18,7 @@ namespace Entidades
         }
 
 
-        public Venta(Usuario usuario, Cliente cliente, double montoTotal, List<Producto> listaProductos ) : this()
+        public Venta(Usuario usuario, Cliente cliente, double montoTotal, List<Producto> listaProductos) : this()
         {
             this.NumeroFactura = IdFacturacionAutoIncremental();
             this.Cliente = cliente;
@@ -60,11 +57,11 @@ namespace Entidades
 
         public Cliente Cliente
         {
-            get 
+            get
             {
                 return cliente;
             }
-            set 
+            set
             {
                 cliente = value;
             }
@@ -122,7 +119,7 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine(usuario.ToString());
-           
+
             sb.AppendLine(Cliente.Mostrar());
             foreach (var item in listaProductos)
             {

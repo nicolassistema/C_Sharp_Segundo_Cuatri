@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -24,9 +21,9 @@ namespace Entidades
         {
         }
 
-        public Producto(string marca, string nombre,  double precio) : this()
+        public Producto(string marca, string nombre, double precio) : this()
         {
-           
+
             this.marca = marca;
             this.nombre = nombre;
             this.precio = precio;
@@ -39,7 +36,7 @@ namespace Entidades
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.precio = precio;
-       }
+        }
 
 
         public Producto(string marca, string nombre, string descripcion, int cantidad, double precio) : this()
@@ -56,7 +53,9 @@ namespace Entidades
 
         #region "Propiedades"
 
-
+        /// <summary>
+        /// Devuelve y setea el dato
+        /// </summary>
         public int Codigo
         {
             get
@@ -69,7 +68,9 @@ namespace Entidades
             }
         }
 
-
+        /// <summary>
+        /// Devuelve y setea el dato
+        /// </summary>
         public string Marca
         {
             get
@@ -82,6 +83,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Devuelve y setea el dato
+        /// </summary>
         public string Nombre
         {
             get
@@ -95,6 +99,9 @@ namespace Entidades
         }
 
 
+        /// <summary>
+        /// Devuelve y setea el dato
+        /// </summary>
         public string Descripcion
         {
             get
@@ -106,7 +113,6 @@ namespace Entidades
                 this.descripcion = value;
             }
         }
-
 
         public int Cantidad
         {
@@ -120,6 +126,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Devuelve y setea el dato
+        /// </summary>
         public double Precio
         {
             get
@@ -134,8 +143,12 @@ namespace Entidades
         #endregion
 
         #region "Operadores"
-
-
+        /// <summary>
+        ///  Verifica si el objeto  esta en la lista
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="producto"></param>
+        /// <returns>devuelve verdadero en caso de que el objeto  este en la lista</returns>
         public static bool operator ==(List<Producto> productos, Producto producto)
         {
             foreach (Producto productoAux in PetShop.Producto)
@@ -148,11 +161,25 @@ namespace Entidades
             return false;
         }
 
+
+        /// <summary>
+        /// Verifica si el objeto no esta en la lista
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="producto"></param>
+        /// <returns>devuelve verdadero en caso de que el objeto no este en la lista</returns>
         public static bool operator !=(List<Producto> productos, Producto producto)
         {
             return !(productos == producto);
         }
 
+
+        /// <summary>
+        /// Agrega un objeto a la lista
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="producto"></param>
+        /// <returns>Devueve la lista con el objeto agregado</returns>
         public static List<Producto> operator +(List<Producto> productos, Producto producto)
         {
             if (productos != producto)
@@ -164,9 +191,14 @@ namespace Entidades
             {
                 return PetShop.Producto;
             }
-
         }
 
+        /// <summary>
+        /// Elimina el objeto de la lista
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="producto"></param>
+        /// <returns>Devuelve la lista con el objeto eliminado</returns>
         public static List<Producto> operator -(List<Producto> productos, Producto producto)
         {
             if (productos == producto)
@@ -179,24 +211,24 @@ namespace Entidades
                 return PetShop.Producto;
             }
         }
-
-
-
-
         #endregion
 
         #region "Utils"
+        /// <summary>
+        /// Muestra informacion del producto
+        /// </summary>
+        /// <returns>devuelve un striing con al informacion del prodcuto</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($" {this.marca} | {this.nombre}  | {this.precio}");
-
             return sb.ToString();
         }
 
-
-
-
+        /// <summary>
+        /// genera un id autoincremenal
+        /// </summary>
+        /// <returns>devuelve el id autoincrementado</returns>
         public int IdAutoIncremental()
         {
             for (int i = 0; i <= PetShop.ObtenerPorductos().Count; i++)
@@ -205,12 +237,6 @@ namespace Entidades
             }
             return codigo;
         }
-
-
-
-
-
         #endregion
-
     }
 }

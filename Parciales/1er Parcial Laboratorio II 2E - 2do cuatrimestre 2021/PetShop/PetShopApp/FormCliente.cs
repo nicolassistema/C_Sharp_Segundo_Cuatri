@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 
-
-
 namespace PetShopApp
 {
     public partial class frmCliente : Form
@@ -50,9 +48,6 @@ namespace PetShopApp
         }
 
 
-
-
-
         private void lblVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             DialogResult dr = MessageBox.Show("Dese Volver a la pantalla principal", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -79,10 +74,8 @@ namespace PetShopApp
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
             dvgListaClientes.Rows.Clear();
             dvgListaClientes.DataSource = null;
-            //Limpio el datagrid
             List<Cliente> lista = new List<Cliente>();
             lista = PetShop.ObtenerListaCliente();
             foreach (var item in lista)
@@ -90,42 +83,13 @@ namespace PetShopApp
                 if (PetShop.BuscarClientePorString(item, txtBuscar.Text.ToLower()))
                 {
                     dvgListaClientes.Rows.Add(item.IdCliente, item.Cuit, item.Nombre, item.Apellido);
-                    MakeReadOnly();
                 }
             }
+
         }
-
-
-        private void MakeReadOnly()
-        {
-            dvgListaClientes.AllowUserToAddRows = false;
-            dvgListaClientes.AllowUserToDeleteRows = false;
-            dvgListaClientes.ReadOnly = true;
-        }
-
-
-
-        //public bool BuscarPorString(Cliente cliente, string palabra)
-        //{
-        //    if (
-        //        cliente.IdCliente.ToString().Contains(palabra) ||
-        //        cliente.Cuit.ToString().Contains(palabra) ||
-        //        cliente.Nombre.ToLower().Contains(palabra) ||
-        //        cliente.Apellido.ToLower().Contains(palabra)
-        //        )
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
 
         private void btnAltaCliente_Click(object sender, EventArgs e)
         {
-            // pnlBuscar.Enabled = false;
-            ///btnEliminar.Enabled = false;
-            //  panelAltaUsuario.Visible = true;
-            //dgvListaEmpleados.Enabled = true;
-
             FormAltaCliente cliente = new FormAltaCliente(this.userForm);
             cliente.ShowDialog();
             this.CargarDataGrid();
@@ -136,24 +100,27 @@ namespace PetShopApp
             List<Cliente> auxList = new List<Cliente>();
             for (int i = 0; i < dvgListaClientes.RowCount; i++)
             {
- 
+
                 Cliente cliente = new Cliente(dvgListaClientes.Rows[i].Cells[0].Value.ToString(),
                                                          dvgListaClientes.Rows[i].Cells[1].Value.ToString(),
                                                          dvgListaClientes.Rows[i].Cells[2].Value.ToString(),
                                                          0);
-                                                          
-                    auxList.Add(cliente);
-              
 
+                auxList.Add(cliente);
                 PetShop.LimpiarListaClientes();
                 PetShop.CargarListaNuevamenteClientes(auxList);
             }
-
+            btnCancelarMoficiacion.Enabled = false;
         }
 
         private void btnCancelarMoficiacion_Click(object sender, EventArgs e)
         {
             CargarDataGrid();
+        }
+
+        private void dvgListaClientes_DoubleClick(object sender, EventArgs e)
+        {
+            btnCancelarMoficiacion.Enabled = true;
         }
     }
 }

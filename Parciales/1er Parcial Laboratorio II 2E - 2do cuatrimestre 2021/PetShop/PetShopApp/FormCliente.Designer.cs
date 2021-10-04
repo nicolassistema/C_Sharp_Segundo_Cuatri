@@ -112,6 +112,7 @@ namespace PetShopApp
             this.dvgListaClientes.RowTemplate.Height = 25;
             this.dvgListaClientes.Size = new System.Drawing.Size(453, 171);
             this.dvgListaClientes.TabIndex = 3;
+            this.dvgListaClientes.DoubleClick += new System.EventHandler(this.dvgListaClientes_DoubleClick);
             // 
             // ID
             // 

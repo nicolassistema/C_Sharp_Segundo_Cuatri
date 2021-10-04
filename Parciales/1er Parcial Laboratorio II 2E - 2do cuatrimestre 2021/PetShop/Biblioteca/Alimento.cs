@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Entidades
 {
@@ -10,9 +6,9 @@ namespace Entidades
     {
 
         private ETipoAlimento tipoAlimento;
-       
 
-        public Alimento(string marca, string nombre, string detalle, int cantidad, double precio, ETipoAlimento tipoAlimento) : base( marca, nombre, detalle, cantidad, precio)
+
+        public Alimento(string marca, string nombre, string detalle, int cantidad, double precio, ETipoAlimento tipoAlimento) : base(marca, nombre, detalle, cantidad, precio)
         {
             this.tipoAlimento = tipoAlimento;
 
@@ -25,6 +21,9 @@ namespace Entidades
             Natural
         }
 
+        /// <summary>
+        /// setea y devuelve el dato
+        /// </summary>
         public ETipoAlimento TipoAlimento
         {
             get
@@ -38,7 +37,10 @@ namespace Entidades
         }
 
 
-
+        /// <summary>
+        /// muestra informacion del objeto
+        /// </summary>
+        /// <returns>muestra informacion del objeto</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

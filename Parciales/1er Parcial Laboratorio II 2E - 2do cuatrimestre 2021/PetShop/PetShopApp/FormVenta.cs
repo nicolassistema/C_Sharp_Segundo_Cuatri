@@ -24,12 +24,7 @@ namespace PetShopApp
         public frmVenta(Usuario usuario) : this()
         {
             this.userForm = usuario;
-            // MessageBox.Show(this.userForm.ToString());
-
-            //mapear "Bienvenido con el el nombre del usuario"
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
-            //agregar validaciones de visualizacion por perfil
-
             CargarDataGridProducto();
         }
 
@@ -53,11 +48,6 @@ namespace PetShopApp
                 i++;
             }
         }
-
-
-
-
-
 
         private void lblCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -97,8 +87,7 @@ namespace PetShopApp
                 lblCuit.Visible = false;
                 lblNombre.Visible = false;
                 lblApellido.Visible = false;
-
-            }
+           }
             else
             {
                 foreach (var item in lista)
@@ -118,10 +107,6 @@ namespace PetShopApp
                     }
                 }
             }
-
-
-
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -177,48 +162,21 @@ namespace PetShopApp
 
         private void btnAceptaCompra_Click(object sender, EventArgs e)
         {
-            //Preguntar si acepta la venta
-            //Actualizar inventario de prodcutos
-            //Generar la venta
-
             Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), 0);
             List<Producto> listaProductoAComprar = new List<Producto>();
             Producto producto;
-            //Venta venta;
 
             for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
             {
-
                 string marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
                 string nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
                 double precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
-
                 producto = new Producto(marca, nombre, precio);
-
                 listaProductoAComprar.Add(producto);
             }
-
-
             Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text), listaProductoAComprar);
-
             MessageBox.Show(venta.ToString()) ;
-
         }
-
-
-
-        ////  Producto produtoAux = lstProductoSeleccionado.Items.(lstProductoSeleccionado.SelectedItem);
-        //  List<Producto> listaProdutosAux =  new List<Producto>();
-        //  string item = lstProductos.SelectedItem.ToString();
-        //  lstProductoSeleccionado.Items.Add(lstProductos.SelectedItem);
-
-
-
-        //  MessageBox.Show("*******" + lstProductos.Items[0]);
-
-
-        // // listaProdutosAux += produtoAux();
-
     }
 
 

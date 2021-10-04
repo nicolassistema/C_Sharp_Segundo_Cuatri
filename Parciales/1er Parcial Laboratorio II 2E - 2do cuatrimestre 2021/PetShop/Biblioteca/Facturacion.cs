@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
     public class Facturacion
     {
-
         DateTime fecha;
         double montoTotal;
 
@@ -18,21 +14,25 @@ namespace Entidades
             this.montoTotal = montoTotal;
         }
 
-      
 
+        /// <summary>
+        /// setea y devuelve el dato
+        /// </summary>
         public DateTime Fecha
         {
-            get 
+            get
             {
                 return this.fecha;
-             }
-            set 
+            }
+            set
             {
-                this.fecha = value; 
+                this.fecha = value;
             }
         }
 
-
+        /// <summary>
+        /// setea y devuelve el dato
+        /// </summary>
         public double MontoTotal
         {
             get
@@ -45,7 +45,10 @@ namespace Entidades
             }
         }
 
-
+        /// <summary>
+        /// Convierte una lista de ventas en una facturacion final
+        /// </summary>
+        /// <param name="listaVenta"></param>
         public static explicit operator Facturacion(List<Venta> listaVenta)
         {
             double acum = 0;
@@ -55,12 +58,5 @@ namespace Entidades
             }
             return new Facturacion(acum);
         }
-
-
-
-
-
-
-
     }
 }

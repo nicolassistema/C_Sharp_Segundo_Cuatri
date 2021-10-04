@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Entidades
 {
@@ -85,12 +81,12 @@ namespace Entidades
 
 
 
-    
+
 
         private static void HardcodUsuarios()//diccionario
         {
             listaUsuarios.Add(new Usuario("20323205109", "Nicolas", "Letticugna", "pepe", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Usuario("20323205117", "Pedro", "Gomez", "pipo", "123",Entidades.Usuario.EPerfilUsuario.Empleado));
+            listaUsuarios.Add(new Usuario("20323205117", "Pedro", "Gomez", "pipo", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
             listaUsuarios.Add(new Usuario("20323205125", "lolo", "Lopez", "admin", "admin", Entidades.Usuario.EPerfilUsuario.Admin));
             listaUsuarios.Add(new Usuario("20323205133", "Juan", "Lopez", "pupu", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
 
@@ -126,12 +122,12 @@ namespace Entidades
         private static void HardcodProductos()
         {
             listaProductos.Add(new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.78, Cama.ETamanio.Grande));
-            listaProductos.Add(new Cama( "Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.50, Cama.ETamanio.Chico));
-            listaProductos.Add(new Juguete( "Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.12, Juguete.EMaterial.Plastico));
-            listaProductos.Add(new Juguete( "Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.14, Juguete.EMaterial.Goma));
-            listaProductos.Add(new Alimento( "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.98, Alimento.ETipoAlimento.Natural));
-            listaProductos.Add(new Alimento( "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.36, Alimento.ETipoAlimento.Balanceado));
-            listaProductos.Add(new ArtCuidadoMascota( "Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.85, ArtCuidadoMascota.ETipoCuidado.Farmacia));
+            listaProductos.Add(new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.50, Cama.ETamanio.Chico));
+            listaProductos.Add(new Juguete("Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.12, Juguete.EMaterial.Plastico));
+            listaProductos.Add(new Juguete("Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.14, Juguete.EMaterial.Goma));
+            listaProductos.Add(new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.98, Alimento.ETipoAlimento.Natural));
+            listaProductos.Add(new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.36, Alimento.ETipoAlimento.Balanceado));
+            listaProductos.Add(new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.85, ArtCuidadoMascota.ETipoCuidado.Farmacia));
             listaProductos.Add(new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.05, ArtCuidadoMascota.ETipoCuidado.Limpieza));
 
         }
@@ -139,35 +135,10 @@ namespace Entidades
 
         private static void HardcodClientes()
         {
-            listaClientes.Add(new Cliente("20323206008", "menagno", "lopez",  0
-                //new List<Productos>()
-                //{
-                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                //}
-                ));
-
-            listaClientes.Add(new Cliente("20323206016", "sultano", "lopez",  0
-                //  new List<Productos>()
-                //{
-                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                //}
-                ));
-            listaClientes.Add(new Cliente("20323205109", "Fernando", "Talarga",  0
-                //     new List<Productos>()
-                //{
-                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                //}
-                ));
-            listaClientes.Add(new Cliente("20323206059", "fefe", "lopez",  0
-                //         new List<Productos>()
-                //{
-                //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
-                //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
-                //}
-                ));
+            listaClientes.Add(new Cliente("20323206008", "menagno", "lopez", 0));
+            listaClientes.Add(new Cliente("20323206016", "sultano", "lopez",0));
+            listaClientes.Add(new Cliente("20323205109", "Fernando", "Talarga", 0));
+            listaClientes.Add(new Cliente("20323206059", "fefe", "lopez", 0));
 
         }
 
@@ -239,7 +210,7 @@ namespace Entidades
             listaClientes.Clear();
         }
 
-       
+
 
 
 
@@ -276,7 +247,7 @@ namespace Entidades
             return null;
         }
 
-        public static  bool BuscarClientePorString(Cliente cliente, string palabra)
+        public static bool BuscarClientePorString(Cliente cliente, string palabra)
         {
             if (
                 cliente.IdCliente.ToString().Contains(palabra) ||
