@@ -24,6 +24,24 @@ namespace Entidades
         {
         }
 
+        public Producto(string marca, string nombre,  double precio) : this()
+        {
+           
+            this.marca = marca;
+            this.nombre = nombre;
+            this.precio = precio;
+        }
+
+        public Producto(string marca, string nombre, string descripcion, double precio) : this()
+        {
+            this.codigo = IdAutoIncremental();
+            this.marca = marca;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.precio = precio;
+       }
+
+
         public Producto(string marca, string nombre, string descripcion, int cantidad, double precio) : this()
         {
             this.codigo = IdAutoIncremental();
@@ -171,7 +189,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"{this.codigo} | {this.marca} | {this.nombre} | {this.cantidad} | {this.precio}");
+            sb.Append($" {this.marca} | {this.nombre}  | {this.precio}");
 
             return sb.ToString();
         }

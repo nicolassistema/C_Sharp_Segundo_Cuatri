@@ -139,7 +139,7 @@ namespace Entidades
 
         private static void HardcodClientes()
         {
-            listaClientes.Add(new Cliente("20323206008", "menagno", "lopez",  250
+            listaClientes.Add(new Cliente("20323206008", "menagno", "lopez",  0
                 //new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
@@ -147,21 +147,21 @@ namespace Entidades
                 //}
                 ));
 
-            listaClientes.Add(new Cliente("20323206016", "sultano", "lopez",  250
+            listaClientes.Add(new Cliente("20323206016", "sultano", "lopez",  0
                 //  new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
                 //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
                 //}
                 ));
-            listaClientes.Add(new Cliente("20323205109", "lolo", "lopez",  250
+            listaClientes.Add(new Cliente("20323205109", "Fernando", "Talarga",  0
                 //     new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
                 //    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguetes.EMaterial.Goma)
                 //}
                 ));
-            listaClientes.Add(new Cliente("20323206059", "fefe", "lopez",  250
+            listaClientes.Add(new Cliente("20323206059", "fefe", "lopez",  0
                 //         new List<Productos>()
                 //{
                 //    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Camas.ETamanio.Grande),
@@ -239,7 +239,7 @@ namespace Entidades
             listaClientes.Clear();
         }
 
-
+       
 
 
 

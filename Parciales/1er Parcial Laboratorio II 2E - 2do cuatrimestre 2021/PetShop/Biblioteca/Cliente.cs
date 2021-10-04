@@ -105,7 +105,7 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.Append($"{this.idCliente} | {this.saldo} \n");
+          //  sb.Append($" {this.saldo} \n");
 
             //foreach (var item in listaProductos)
             //{

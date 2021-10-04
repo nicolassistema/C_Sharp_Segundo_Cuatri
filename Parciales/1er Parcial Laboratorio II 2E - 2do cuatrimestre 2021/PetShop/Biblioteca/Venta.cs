@@ -120,8 +120,16 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"{this.cliente} | {this.montoTotal} | {this.numeroFactura}");
+
+            sb.AppendLine(usuario.ToString());
+           
             sb.AppendLine(Cliente.Mostrar());
+            foreach (var item in listaProductos)
+            {
+                sb.AppendLine(item.ToString());
+            }
+
+            sb.AppendLine($" {this.numeroFactura} | {this.montoTotal}");
             return sb.ToString();
         }
 

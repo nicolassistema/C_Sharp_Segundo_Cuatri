@@ -128,6 +128,7 @@ namespace PetShopApp
         {
             btnSacar.Enabled = true;
             double acum = 0;
+            int stock = 0;
             Producto productoAux = new Producto();
             int aux = Convert.ToInt32(dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[0].Value);
             productoAux = PetShop.ObtenerProductoByID(aux);
@@ -138,17 +139,34 @@ namespace PetShopApp
                 acum += double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
             }
             lblMostrarTotal.Text = string.Format("{0:f2}", acum);
+
+            stock = Convert.ToInt32(dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[3].Value);
+            stock -= 1;
+            dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[3].Value = stock.ToString();
         }
 
 
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
+            int idAux = Convert.ToInt32(dgvListaProdSelecc.Rows[dgvListaProdSelecc.CurrentCell.RowIndex].Cells[0].Value);
+            int stock = 0;
             double acumDos = double.Parse(lblMostrarTotal.Text);
             double acum = double.Parse(dgvListaProdSelecc.CurrentRow.Cells[3].Value.ToString());
             dgvListaProdSelecc.Rows.Remove(dgvListaProdSelecc.CurrentRow);
             lblMostrarTotal.Text = string.Format("{0:f2}", (acumDos - acum));
 
+
+            for (int i = 0; i < dgvListaProductos.RowCount; i++)
+            {
+                if (idAux == Convert.ToInt32(dgvListaProductos.Rows[i].Cells[0].Value.ToString()))
+                {
+                    stock = Convert.ToInt32(dgvListaProductos.Rows[i].Cells[3].Value.ToString());
+                    stock += 1;
+                    dgvListaProductos.Rows[i].Cells[3].Value = stock.ToString();
+                    break;
+                }
+            }
 
             if (double.Parse(lblMostrarTotal.Text) <= 0)
             {
@@ -159,7 +177,32 @@ namespace PetShopApp
 
         private void btnAceptaCompra_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(lblMostrarTotal.Text);
+            //Preguntar si acepta la venta
+            //Actualizar inventario de prodcutos
+            //Generar la venta
+
+            Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), 0);
+            List<Producto> listaProductoAComprar = new List<Producto>();
+            Producto producto;
+            //Venta venta;
+
+            for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
+            {
+
+                string marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
+                string nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
+                double precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
+
+                producto = new Producto(marca, nombre, precio);
+
+                listaProductoAComprar.Add(producto);
+            }
+
+
+            Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text), listaProductoAComprar);
+
+            MessageBox.Show(venta.ToString()) ;
+
         }
 
 
