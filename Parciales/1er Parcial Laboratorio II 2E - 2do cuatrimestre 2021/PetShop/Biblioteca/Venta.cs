@@ -30,6 +30,7 @@ namespace Entidades
             this.ListaProductos = listaProductos;
 
         }
+        #region "Propiedades"
 
         public double MontoTotal
         {
@@ -93,7 +94,7 @@ namespace Entidades
                 usuario = value;
             }
         }
-
+        #endregion
 
 
 

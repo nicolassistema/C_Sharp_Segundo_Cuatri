@@ -29,6 +29,10 @@ namespace PetShopApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.lblCerrarSesion = new System.Windows.Forms.LinkLabel();
             this.lblVolver = new System.Windows.Forms.LinkLabel();
@@ -44,8 +48,17 @@ namespace PetShopApp
             this.btnSacar = new System.Windows.Forms.Button();
             this.lblMostrarTotal = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lstProductoSeleccionado = new System.Windows.Forms.ListBox();
-            this.lstProductos = new System.Windows.Forms.ListBox();
+            this.dgvListaProdSelecc = new System.Windows.Forms.DataGridView();
+            this.CodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvListaProductos = new System.Windows.Forms.DataGridView();
+            this.CodPorducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPesos = new System.Windows.Forms.Label();
             this.btnCancelaCompra = new System.Windows.Forms.Button();
             this.btnAceptaCompra = new System.Windows.Forms.Button();
@@ -65,6 +78,8 @@ namespace PetShopApp
             this.cmbFromaPago = new System.Windows.Forms.ComboBox();
             this.pnlBuscarCliente.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdSelecc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             this.pnlVenta.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +95,7 @@ namespace PetShopApp
             // lblCerrarSesion
             // 
             this.lblCerrarSesion.AutoSize = true;
-            this.lblCerrarSesion.Location = new System.Drawing.Point(1036, 9);
+            this.lblCerrarSesion.Location = new System.Drawing.Point(1104, 9);
             this.lblCerrarSesion.Name = "lblCerrarSesion";
             this.lblCerrarSesion.Size = new System.Drawing.Size(76, 15);
             this.lblCerrarSesion.TabIndex = 1;
@@ -91,7 +106,7 @@ namespace PetShopApp
             // lblVolver
             // 
             this.lblVolver.AutoSize = true;
-            this.lblVolver.Location = new System.Drawing.Point(866, 9);
+            this.lblVolver.Location = new System.Drawing.Point(934, 9);
             this.lblVolver.Name = "lblVolver";
             this.lblVolver.Size = new System.Drawing.Size(142, 15);
             this.lblVolver.TabIndex = 2;
@@ -206,7 +221,7 @@ namespace PetShopApp
             // 
             this.lblMostrarTotal.AutoSize = true;
             this.lblMostrarTotal.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMostrarTotal.Location = new System.Drawing.Point(667, 205);
+            this.lblMostrarTotal.Location = new System.Drawing.Point(671, 398);
             this.lblMostrarTotal.Name = "lblMostrarTotal";
             this.lblMostrarTotal.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.lblMostrarTotal.Size = new System.Drawing.Size(83, 37);
@@ -215,42 +230,137 @@ namespace PetShopApp
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lstProductoSeleccionado);
-            this.panel2.Controls.Add(this.lstProductos);
+            this.panel2.Controls.Add(this.dgvListaProdSelecc);
+            this.panel2.Controls.Add(this.dgvListaProductos);
             this.panel2.Controls.Add(this.lblPesos);
             this.panel2.Controls.Add(this.btnCancelaCompra);
             this.panel2.Controls.Add(this.btnAceptaCompra);
             this.panel2.Controls.Add(this.lblMostrarTotal);
             this.panel2.Controls.Add(this.btnSacar);
             this.panel2.Controls.Add(this.btnAgregar);
-            this.panel2.Location = new System.Drawing.Point(335, 97);
+            this.panel2.Location = new System.Drawing.Point(403, 53);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 261);
+            this.panel2.Size = new System.Drawing.Size(777, 466);
             this.panel2.TabIndex = 10;
             // 
-            // lstProductoSeleccionado
+            // dgvListaProdSelecc
             // 
-            this.lstProductoSeleccionado.FormattingEnabled = true;
-            this.lstProductoSeleccionado.ItemHeight = 15;
-            this.lstProductoSeleccionado.Location = new System.Drawing.Point(451, 6);
-            this.lstProductoSeleccionado.Name = "lstProductoSeleccionado";
-            this.lstProductoSeleccionado.Size = new System.Drawing.Size(323, 184);
-            this.lstProductoSeleccionado.TabIndex = 13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProdSelecc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvListaProdSelecc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaProdSelecc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CodProducto,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaProdSelecc.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvListaProdSelecc.Location = new System.Drawing.Point(451, 7);
+            this.dgvListaProdSelecc.Name = "dgvListaProdSelecc";
+            this.dgvListaProdSelecc.RowHeadersVisible = false;
+            this.dgvListaProdSelecc.RowTemplate.Height = 25;
+            this.dgvListaProdSelecc.Size = new System.Drawing.Size(317, 357);
+            this.dgvListaProdSelecc.TabIndex = 14;
             // 
-            // lstProductos
+            // CodProducto
             // 
-            this.lstProductos.FormattingEnabled = true;
-            this.lstProductos.ItemHeight = 15;
-            this.lstProductos.Location = new System.Drawing.Point(4, 6);
-            this.lstProductos.Name = "lstProductos";
-            this.lstProductos.Size = new System.Drawing.Size(362, 184);
-            this.lstProductos.TabIndex = 12;
+            this.CodProducto.HeaderText = "CodProducto";
+            this.CodProducto.Name = "CodProducto";
+            this.CodProducto.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Marca";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Precio";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dgvListaProductos
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CodPorducto,
+            this.Marca,
+            this.Nombre,
+            this.Stock,
+            this.Precio});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaProductos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvListaProductos.Location = new System.Drawing.Point(14, 7);
+            this.dgvListaProductos.Name = "dgvListaProductos";
+            this.dgvListaProductos.RowHeadersVisible = false;
+            this.dgvListaProductos.RowTemplate.Height = 25;
+            this.dgvListaProductos.Size = new System.Drawing.Size(350, 456);
+            this.dgvListaProductos.TabIndex = 13;
+            // 
+            // CodPorducto
+            // 
+            this.CodPorducto.HeaderText = "CodPorducto";
+            this.CodPorducto.Name = "CodPorducto";
+            this.CodPorducto.Width = 50;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.Width = 50;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 50;
             // 
             // lblPesos
             // 
             this.lblPesos.AutoSize = true;
             this.lblPesos.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPesos.Location = new System.Drawing.Point(628, 205);
+            this.lblPesos.Location = new System.Drawing.Point(632, 398);
             this.lblPesos.Name = "lblPesos";
             this.lblPesos.Size = new System.Drawing.Size(33, 37);
             this.lblPesos.TabIndex = 12;
@@ -258,7 +368,7 @@ namespace PetShopApp
             // 
             // btnCancelaCompra
             // 
-            this.btnCancelaCompra.Location = new System.Drawing.Point(547, 196);
+            this.btnCancelaCompra.Location = new System.Drawing.Point(551, 389);
             this.btnCancelaCompra.Name = "btnCancelaCompra";
             this.btnCancelaCompra.Size = new System.Drawing.Size(75, 53);
             this.btnCancelaCompra.TabIndex = 11;
@@ -267,12 +377,13 @@ namespace PetShopApp
             // 
             // btnAceptaCompra
             // 
-            this.btnAceptaCompra.Location = new System.Drawing.Point(449, 196);
+            this.btnAceptaCompra.Location = new System.Drawing.Point(453, 389);
             this.btnAceptaCompra.Name = "btnAceptaCompra";
             this.btnAceptaCompra.Size = new System.Drawing.Size(75, 53);
             this.btnAceptaCompra.TabIndex = 10;
             this.btnAceptaCompra.Text = "Aceptar";
             this.btnAceptaCompra.UseVisualStyleBackColor = true;
+            this.btnAceptaCompra.Click += new System.EventHandler(this.btnAceptaCompra_Click);
             // 
             // pnlVenta
             // 
@@ -289,7 +400,7 @@ namespace PetShopApp
             this.pnlVenta.Controls.Add(this.lblFormaPAgo);
             this.pnlVenta.Controls.Add(this.txtMontoAPagar);
             this.pnlVenta.Controls.Add(this.cmbFromaPago);
-            this.pnlVenta.Location = new System.Drawing.Point(740, 364);
+            this.pnlVenta.Location = new System.Drawing.Point(15, 345);
             this.pnlVenta.Name = "pnlVenta";
             this.pnlVenta.Size = new System.Drawing.Size(372, 171);
             this.pnlVenta.TabIndex = 11;
@@ -421,7 +532,7 @@ namespace PetShopApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 551);
+            this.ClientSize = new System.Drawing.Size(1203, 535);
             this.Controls.Add(this.pnlVenta);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlBuscarCliente);
@@ -435,6 +546,8 @@ namespace PetShopApp
             this.pnlBuscarCliente.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdSelecc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).EndInit();
             this.pnlVenta.ResumeLayout(false);
             this.pnlVenta.PerformLayout();
             this.ResumeLayout(false);
@@ -476,7 +589,16 @@ namespace PetShopApp
         private System.Windows.Forms.Label lblPesosPagar;
         private System.Windows.Forms.Label lblCuitIng;
         private System.Windows.Forms.Label lblMensajeCliente;
-        private System.Windows.Forms.ListBox lstProductos;
-        private System.Windows.Forms.ListBox lstProductoSeleccionado;
+        private System.Windows.Forms.DataGridView dgvListaProdSelecc;
+        private System.Windows.Forms.DataGridView dgvListaProductos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodPorducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

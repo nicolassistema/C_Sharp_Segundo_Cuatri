@@ -30,28 +30,29 @@ namespace PetShopApp
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
             //agregar validaciones de visualizacion por perfil
 
-            CargarLisBox();
-
+            CargarDataGridProducto();
         }
 
 
-
-        public void CargarLisBox()
+        public void CargarDataGridProducto()
         {
-            lstProductos.Refresh();
-            lstProductos.DataSource = null;
+            dgvListaProductos.Refresh();
+            dgvListaProductos.DataSource = null;
+
             int i = 0;
 
-           
-                
-               
+            dgvListaProductos.RowCount = PetShop.ObtenerPorductos().Count;
+
             foreach (var item in PetShop.ObtenerPorductos())
             {
-
-                lstProductos.Items.Add(item);
+                dgvListaProductos.Rows[i].Cells[0].Value = item.Codigo;
+                dgvListaProductos.Rows[i].Cells[1].Value = item.Marca;
+                dgvListaProductos.Rows[i].Cells[2].Value = item.Nombre;
+                dgvListaProductos.Rows[i].Cells[3].Value = item.Cantidad;
+                dgvListaProductos.Rows[i].Cells[4].Value = item.Precio;
+                i++;
             }
         }
-
 
 
 
@@ -125,14 +126,58 @@ namespace PetShopApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string curItem = lstProductos.SelectedItem.ToString();
-            lstProductoSeleccionado.Items.Add(curItem);
+            btnSacar.Enabled = true;
+            double acum = 0;
+            Producto productoAux = new Producto();
+            int aux = Convert.ToInt32(dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[0].Value);
+            productoAux = PetShop.ObtenerProductoByID(aux);
+            dgvListaProdSelecc.Rows.Add(new[] { productoAux.Codigo.ToString(), productoAux.Nombre.ToString(), productoAux.Marca.ToString(), productoAux.Precio.ToString() });
+            dgvListaProdSelecc.AllowUserToAddRows = false;
+            for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
+            {
+                acum += double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
+            }
+            lblMostrarTotal.Text = string.Format("{0:f2}", acum);
         }
+
+
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
-            lstProductoSeleccionado.Items.Remove(lstProductoSeleccionado.SelectedItem);
-      //      PetShop.Productos -= new Alimento("Power Balance", "Dog Chow", 4000, Producto.ETipo.Alimento, 7, 20);
+            double acumDos = double.Parse(lblMostrarTotal.Text);
+            double acum = double.Parse(dgvListaProdSelecc.CurrentRow.Cells[3].Value.ToString());
+            dgvListaProdSelecc.Rows.Remove(dgvListaProdSelecc.CurrentRow);
+            lblMostrarTotal.Text = string.Format("{0:f2}", (acumDos - acum));
+
+
+            if (double.Parse(lblMostrarTotal.Text) <= 0)
+            {
+                btnSacar.Enabled = false;
+            }
+
         }
+
+        private void btnAceptaCompra_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lblMostrarTotal.Text);
+        }
+
+
+
+        ////  Producto produtoAux = lstProductoSeleccionado.Items.(lstProductoSeleccionado.SelectedItem);
+        //  List<Producto> listaProdutosAux =  new List<Producto>();
+        //  string item = lstProductos.SelectedItem.ToString();
+        //  lstProductoSeleccionado.Items.Add(lstProductos.SelectedItem);
+
+
+
+        //  MessageBox.Show("*******" + lstProductos.Items[0]);
+
+
+        // // listaProdutosAux += produtoAux();
+
     }
+
+
+
 }

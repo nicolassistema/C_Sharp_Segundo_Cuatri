@@ -125,14 +125,14 @@ namespace Entidades
 
         private static void HardcodProductos()
         {
-            listaProductos.Add(new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.30, Cama.ETamanio.Grande));
-            listaProductos.Add(new Cama( "Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.30, Cama.ETamanio.Chico));
-            listaProductos.Add(new Juguete( "Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.30, Juguete.EMaterial.Plastico));
-            listaProductos.Add(new Juguete( "Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.30, Juguete.EMaterial.Goma));
-            listaProductos.Add(new Alimento( "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.30, Alimento.ETipoAlimento.Natural));
-            listaProductos.Add(new Alimento( "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.30, Alimento.ETipoAlimento.Balanceado));
-            listaProductos.Add(new ArtCuidadoMascota( "Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.30, ArtCuidadoMascota.ETipoCuidado.Farmacia));
-            listaProductos.Add(new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.30, ArtCuidadoMascota.ETipoCuidado.Limpieza));
+            listaProductos.Add(new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.78, Cama.ETamanio.Grande));
+            listaProductos.Add(new Cama( "Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.50, Cama.ETamanio.Chico));
+            listaProductos.Add(new Juguete( "Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.12, Juguete.EMaterial.Plastico));
+            listaProductos.Add(new Juguete( "Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.14, Juguete.EMaterial.Goma));
+            listaProductos.Add(new Alimento( "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.98, Alimento.ETipoAlimento.Natural));
+            listaProductos.Add(new Alimento( "Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.36, Alimento.ETipoAlimento.Balanceado));
+            listaProductos.Add(new ArtCuidadoMascota( "Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.85, ArtCuidadoMascota.ETipoCuidado.Farmacia));
+            listaProductos.Add(new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.05, ArtCuidadoMascota.ETipoCuidado.Limpieza));
 
         }
 
@@ -193,6 +193,19 @@ namespace Entidades
             return null;//TODO Consultar a Lucas por que no debo devulver null  segun Dense
         }
 
+
+        public static Producto ObtenerProductoByID(int id)
+        {
+            List<Producto> auxList = PetShop.Producto;
+            foreach (var item in auxList)
+            {
+                if (item.Codigo == id)
+                {
+                    return item;
+                }
+            }
+            return null;//TODO Consultar a Lucas por que no debo devulver null  segun Dense
+        }
 
 
         public static List<Producto> ObtenerPorductos()
