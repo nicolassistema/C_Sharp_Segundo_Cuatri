@@ -24,6 +24,7 @@ namespace Entidades
             HardcodUsuarios();
             HardcodProductos();
             HardcodClientes();
+            HardcodVentas();
         }
 
         public static List<Usuario> Usuario
@@ -102,6 +103,15 @@ namespace Entidades
             listaClientes += (new Cliente("20323206016", "sultano", "lopez", 0));
             listaClientes += (new Cliente("20323205109", "Fernando", "Talarga", 0));
             listaClientes += (new Cliente("20323206059", "fefe", "lopez", 0));
+        }
+
+
+        private static void HardcodVentas()
+        {
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
         }
 
 

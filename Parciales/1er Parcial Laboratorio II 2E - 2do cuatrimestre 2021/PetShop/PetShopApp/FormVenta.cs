@@ -174,7 +174,7 @@ namespace PetShopApp
                 producto = new Producto(marca, nombre, precio);
                 listaProductoAComprar.Add(producto);
             }
-            Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text), listaProductoAComprar);
+            Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()) , listaProductoAComprar);
             MessageBox.Show(venta.ToString()) ;
         }
     }

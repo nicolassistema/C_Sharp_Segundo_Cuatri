@@ -11,21 +11,28 @@ namespace Entidades
         int numeroFactura;
         double montoTotal;
 
-
         public Venta()
         {
             listaProductos = new List<Producto>();
         }
 
-
-        public Venta(Usuario usuario, Cliente cliente, double montoTotal, List<Producto> listaProductos) : this()
+        public Venta(Usuario usuario, Cliente cliente, double monto, List<Producto> productos) : this()
         {
             this.NumeroFactura = IdFacturacionAutoIncremental();
             this.Cliente = cliente;
-            this.MontoTotal = montoTotal;
+            this.MontoTotal = monto;
             this.Usuario = usuario;
             this.ListaProductos = listaProductos;
+        }
 
+
+        public Venta(Usuario usuario, Cliente cliente, List<Producto> listaProductos) : this()
+        {
+            this.NumeroFactura = IdFacturacionAutoIncremental();
+            this.Cliente = cliente;
+            this.MontoTotal = CalcularMontoTotal();
+            this.Usuario = usuario;
+            this.ListaProductos = listaProductos;
         }
         #region "Propiedades"
 
@@ -93,14 +100,33 @@ namespace Entidades
         }
         #endregion
 
+        #region "Operadores"
+        public static bool operator ==(List<Venta> productos, Venta producto)
+        {
+            foreach (Venta auxProducto in PetShop.Ventas)
+            {
+                if (producto == auxProducto)
+                    return true;
+            }
+            return false;
+        }
 
+        public static bool operator !=(List<Venta> productos, Venta producto)
+        {
+            return !(productos == producto);
+        }
+        public static List<Venta> operator +(List<Venta> ventas, Venta venta)
+        {
+            if (ventas != venta)
+            {
+                PetShop.Ventas.Add(venta);
+                return PetShop.Ventas;
+            }
+            return PetShop.Ventas;
+        }
+        #endregion
 
-        //public static implicit operator double(Venta unaVenta)
-        //{
-        //    return unaVenta.MontoTotal;
-        //}
-
-
+        #region "Utils"
         public int IdFacturacionAutoIncremental()
         {
             for (int i = 0; i <= 1; i++)
@@ -109,9 +135,6 @@ namespace Entidades
             }
             return this.numeroFactura;
         }
-
-
-
 
 
         public override string ToString()
@@ -130,15 +153,21 @@ namespace Entidades
             return sb.ToString();
         }
 
+        public double CalcularMontoTotal()
+        {
+            double monto = 0;
+            for (int i = 0; i < ListaProductos.Count; i++)
+            {
+                monto += ListaProductos[i].Precio;
+            }
+            return monto;
+        }
+
         public string MostrarFactura()
         {
             return ToString();
         }
 
-
-
-
-
-
+        #endregion
     }
 }
