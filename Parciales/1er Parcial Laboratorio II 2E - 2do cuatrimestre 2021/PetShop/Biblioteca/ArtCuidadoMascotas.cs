@@ -11,7 +11,7 @@ namespace Entidades
 
         private ETipoCuidado tipoCuidado;
 
-        public ArtCuidadoMascotas(int codigo, string marca, string nombre, string detalle, int stock, double precio, ETipoCuidado tipoCuidado) : base(codigo, marca, nombre, detalle, stock, precio)
+        public ArtCuidadoMascotas(string marca, string nombre, string detalle, int stock, double precio, ETipoCuidado tipoCuidado) : base( marca, nombre, detalle, stock, precio)
         {
             this.tipoCuidado = tipoCuidado;
         }

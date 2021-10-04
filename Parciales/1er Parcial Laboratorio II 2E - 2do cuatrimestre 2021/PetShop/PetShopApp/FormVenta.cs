@@ -124,12 +124,13 @@ namespace PetShopApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            string curItem = lstProductos.SelectedItem.ToString();
+            lstProductoSeleccionado.Items.Add(curItem);
         }
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
-
+            lstProductoSeleccionado.Items.Remove(lstProductoSeleccionado.SelectedItem);
         }
     }
 }

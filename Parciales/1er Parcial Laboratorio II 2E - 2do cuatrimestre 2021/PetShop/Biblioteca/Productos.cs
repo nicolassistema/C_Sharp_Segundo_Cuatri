@@ -17,10 +17,18 @@ namespace Entidades
         private double precio;
         #endregion
 
+
+
         #region "Constructores"
-        public Productos(int codigo, string marca, string nombre, string descripcion, int cantidad, double precio)
+
+
+        public Productos()
         {
-            this.codigo = codigo;
+        }
+
+        public Productos(string marca, string nombre, string descripcion, int cantidad, double precio):this()
+        {
+            this.codigo = IdAutoIncremental();
             this.marca = marca;
             this.nombre = nombre;
             this.descripcion = descripcion;
@@ -116,6 +124,20 @@ namespace Entidades
             sb.Append($"{this.codigo} | {this.marca} | {this.nombre} | {this.cantidad} | {this.precio}");
 
             return sb.ToString();
+        }
+
+
+
+
+        public int IdAutoIncremental()
+        {
+
+            for (int i = 0; i <= PetShop.ObtenerPorductos().Count; i++)
+            {
+                codigo = i + 1;
+            }
+
+            return codigo;
         }
         #endregion
 

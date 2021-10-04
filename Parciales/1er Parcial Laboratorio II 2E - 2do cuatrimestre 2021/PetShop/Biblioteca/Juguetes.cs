@@ -10,7 +10,7 @@ namespace Entidades
     {
         private EMaterial material;
 
-        public Juguetes(int codigo, string marca, string nombre, string detalle, int stock, double precio, EMaterial material) : base(codigo, marca, nombre, detalle, stock, precio)
+        public Juguetes( string marca, string nombre, string detalle, int stock, double precio, EMaterial material) : base( marca, nombre, detalle, stock, precio)
         {
             this.material = material;
         }

@@ -11,7 +11,7 @@ namespace Entidades
 
         private ETamanio tamanio;
 
-        public Camas(int codigo, string marca, string nombre, string detalle, int cantidad, double precio, ETamanio tamanio) : base(codigo, marca, nombre, detalle, cantidad, precio)
+        public Camas(string marca, string nombre, string detalle, int cantidad, double precio, ETamanio tamanio) : base(marca, nombre, detalle, cantidad, precio)
         {
             this.tamanio = tamanio;
 
