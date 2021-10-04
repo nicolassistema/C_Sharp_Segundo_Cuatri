@@ -28,7 +28,9 @@ namespace PetShopApp
         }
 
 
-
+        /// <summary>
+        /// Recarga el datagrid
+        /// </summary>
         public void CargarDataGrid()
         {
             dvgListaClientes.Refresh();
@@ -60,6 +62,7 @@ namespace PetShopApp
             }
         }
 
+
         private void lblCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             DialogResult dr = MessageBox.Show("Dese cerrar session?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -71,6 +74,7 @@ namespace PetShopApp
                 this.Close();
             }
         }
+
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -85,8 +89,8 @@ namespace PetShopApp
                     dvgListaClientes.Rows.Add(item.IdCliente, item.Cuit, item.Nombre, item.Apellido);
                 }
             }
-
         }
+
 
         private void btnAltaCliente_Click(object sender, EventArgs e)
         {

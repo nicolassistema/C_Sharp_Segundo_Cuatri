@@ -19,15 +19,10 @@ namespace PetShopApp
             InitializeComponent();
         }
 
-
         public frmAdministracion(Usuario usuario) : this()
         {
             this.userForm = usuario;
-            // MessageBox.Show(this.userForm.ToString());
-
-            //mapear "Bienvenido con el el nombre del usuario"
             lblBienvenido.Text = "Bienvenido: " + usuario.Nombre +" "+ usuario.Apellido;
-            //agregar validaciones de visualizacion por perfil
             if (!(Usuario.IsAdmin(userForm)))
             {
                 btnEmpleados.Visible = false;
@@ -35,17 +30,11 @@ namespace PetShopApp
             }
         }
 
-
-
-
-
         private void btnVender_Click(object sender, EventArgs e)
         {
             frmVenta venta = new frmVenta(this.userForm);
             this.Hide();
             venta.ShowDialog();
-           
-           // this.Close();
         }
 
         private void btnClientes_Click(object sender, EventArgs e)

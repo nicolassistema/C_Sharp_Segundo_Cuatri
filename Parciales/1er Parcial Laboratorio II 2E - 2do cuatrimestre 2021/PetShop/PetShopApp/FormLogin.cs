@@ -46,12 +46,10 @@ namespace PetShopApp
                 label3.ForeColor = Color.Red;
             }
             label3.Visible = true;
-            //envolver esto en validaciones construidas en esta clase o en una clase validaciones
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
             DialogResult boton = MessageBox.Show("¿Seguro que quiere salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (boton == DialogResult.Yes)
             {

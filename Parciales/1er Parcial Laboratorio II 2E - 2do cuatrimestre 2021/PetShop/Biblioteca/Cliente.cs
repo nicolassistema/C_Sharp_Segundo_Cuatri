@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Entidades
 {
@@ -57,6 +59,49 @@ namespace Entidades
             Efectivo,
             TarjetaDebito
         }
+        #endregion
+
+        #region "Operadores"
+
+        public static List<Cliente> operator +(List<Cliente> clientes, Cliente cliente)
+        {
+            if (clientes != cliente)
+            {
+                PetShop.Cliente.Add(cliente);
+                return PetShop.Cliente;
+            }
+            else
+                return PetShop.Cliente;
+        }
+
+        public static List<Cliente> operator -(List<Cliente> clientes, Cliente cliente)
+        {
+
+            if (clientes == cliente)
+            {
+                PetShop.Cliente.Remove(cliente);
+                return PetShop.Cliente;
+            }
+            else
+                return PetShop.Cliente;
+        }
+
+        public static bool operator ==(List<Cliente> clientes, Cliente cliente)
+        {
+            foreach (Cliente auxCliente in PetShop.Cliente)
+            {
+                if (cliente == auxCliente)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static bool operator !=(List<Cliente> clientes, Cliente cliente)
+        {
+            return !(clientes == cliente);
+        }
+
         #endregion
 
         #region "Utils"

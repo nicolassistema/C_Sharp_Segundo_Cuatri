@@ -21,12 +21,9 @@ namespace PetShopApp
         }
 
 
-
         public frmAltaEmpleado(Usuario usuario) : this()
         {
             this.userForm = usuario;
-
-            //   lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -50,9 +47,7 @@ namespace PetShopApp
             if (!(Validaciones.ValidateNumber(txtCuit.Text)))
             {
                 sb.AppendLine("*Cuit Incorrecto");
-                // validaciones.Add("Cuit Incorrecto");
                 lblMensaje.ForeColor = Color.Red;
-                //  lblCuit.Text = "Cuit Incorrecto";
                 lblMensaje.Visible = true;
             }
             else
@@ -67,7 +62,6 @@ namespace PetShopApp
             {
                 sb.AppendLine("*Formato de nombre incorrecto");
                 lblMensaje.ForeColor = Color.Red;
-                // lblMensaje.Text = "Formato de nombre incorrecto";
                 lblMensaje.Visible = true;
             }
             else
@@ -81,21 +75,13 @@ namespace PetShopApp
             {
                 sb.AppendLine("*Formato de apellido incorrecto");
                 lblMensaje.ForeColor = Color.Red;
-                // lblMensaje.Text = "Formato de nombre incorrecto";
                 lblMensaje.Visible = true;
             }
             else
             {
                 lblMensaje.Visible = true;
                 lblMensaje.ForeColor = Color.Green;
-                //   lblMensaje.Text = "formato apellido correcto";
             }
-
-
-            //Agregar Validacion para usuario y pasword
-            //txtPassword.Text;
-            //txtUsuario.Text;
-
 
             if (string.IsNullOrWhiteSpace(cmbPerfil.Text.ToString()))
             {
@@ -108,22 +94,5 @@ namespace PetShopApp
             this.Hide();
             this.Close();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

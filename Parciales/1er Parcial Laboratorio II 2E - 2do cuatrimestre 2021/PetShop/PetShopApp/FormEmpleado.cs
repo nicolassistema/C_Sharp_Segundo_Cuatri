@@ -37,12 +37,10 @@ namespace PetShopApp
             dgvListaEmpleados.DataSource = null;
 
             int i = 0;
-            int j;
             dgvListaEmpleados.RowCount = PetShop.ObtenerListaUsuarios().Count;
 
             foreach (var item in PetShop.ObtenerListaUsuarios())
             {
-                j = 0;
                 if (item.Cuit == userForm.Cuit.ToString())
                 {
                     dgvListaEmpleados.Rows[i].Cells[0].Value = item.Cuit;
@@ -53,15 +51,11 @@ namespace PetShopApp
                 {
                     dgvListaEmpleados.Rows[i].Cells[0].Value = item.Cuit;
                 }
-                j += 1;
                 dgvListaEmpleados.Rows[i].Cells[1].Value = item.Nombre;
-                j += 1;
                 dgvListaEmpleados.Rows[i].Cells[2].Value = item.Apellido;
-                j += 1;
                 dgvListaEmpleados.Rows[i].Cells[3].Value = item.NameUsuario;
-                j += 1;
                 dgvListaEmpleados.Rows[i].Cells[4].Value = item.PassUsuario;
-                j += 1;
+
                 if (item.PerfilUsuario == Entidades.Usuario.EPerfilUsuario.Admin)
                 {
                     dgvListaEmpleados.Rows[i].Cells[5].Value = "Admin";
@@ -108,7 +102,7 @@ namespace PetShopApp
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvListaEmpleados.Rows.Clear();//Limpio el datagrid
+            dgvListaEmpleados.Rows.Clear();
             List<Usuario> lista = new List<Usuario>();
             lista = PetShop.ObtenerListaUsuarios();
             string aux;
@@ -138,7 +132,12 @@ namespace PetShopApp
             dgvListaEmpleados.ReadOnly = true;
         }
 
-
+        /// <summary>
+        /// Buscar en todos los elementos del objeto palabras que contenga lo que se busca
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="palabra"></param>
+        /// <returns>devuelve true si encuentre y false sino</returns>
         public bool BuscarPorString(Usuario usuario, string palabra)
         {
             if (
@@ -157,9 +156,7 @@ namespace PetShopApp
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
-            // pnlBuscar.Enabled = false;
             btnEliminar.Enabled = false;
-            //  panelAltaUsuario.Visible = true;
             dgvListaEmpleados.Enabled = true;
 
             frmAltaEmpleado empleado = new frmAltaEmpleado(this.userForm);
@@ -171,21 +168,20 @@ namespace PetShopApp
         {
             dgvListaEmpleados.DataSource = null;
             List<Usuario> lista = new List<Usuario>();
-            //  Usuario usuario;
             lista = PetShop.ObtenerListaUsuarios();
             string aux;
-            foreach (DataGridViewCell oneCell in dgvListaEmpleados.SelectedCells)//Busca en que row se selecciono la celda
+            foreach (DataGridViewCell oneCell in dgvListaEmpleados.SelectedCells)
             {
-                aux = dgvListaEmpleados.Rows[dgvListaEmpleados.CurrentCell.RowIndex].Cells[0].Value.ToString();//obtengo el id del registro datagrid tal y como esta en la base
+                aux = dgvListaEmpleados.Rows[dgvListaEmpleados.CurrentCell.RowIndex].Cells[0].Value.ToString();
                 if (userForm.Cuit != aux)
                 {
-                    if (dgvListaEmpleados.SelectedCells.Count < 2)//Valido que si hay mas de una celda seleccionada, salga y muestre mensaje de validacion
+                    if (dgvListaEmpleados.SelectedCells.Count < 2)
                     {
                         if (oneCell.Selected)
                         {
-                            foreach (var item in lista)//recorro la lista de usuarios ubicando el que tiene el id que obtuve el datagrid
+                            foreach (var item in lista)
                             {
-                                if (item.Cuit == aux)//una vez encontrado, cargo el constructor y lo mando a la funcion eliminar de la base de datos
+                                if (item.Cuit == aux)
                                 {
                                     DialogResult dr = MessageBox.Show($"Esta seguro de eliminar el usuario\n {item.ToString()}?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                                     if (dr != DialogResult.No)
@@ -193,7 +189,6 @@ namespace PetShopApp
                                         PetShop.EliminarUsuario(item);
                                         dgvListaEmpleados.DataSource = null;
                                         this.CargarDataGrid();
-
                                         break;
                                     }
                                 }
@@ -214,15 +209,13 @@ namespace PetShopApp
             }
         }
 
-            private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
-
             List<Usuario> auxList = new List<Usuario>();
             for (int i = 0; i < dgvListaEmpleados.RowCount; i++)
             {
                 string aux = dgvListaEmpleados.Rows[i].Cells[5].Value.ToString();
                 string cuitAux = dgvListaEmpleados.Rows[i].Cells[0].Value.ToString();
-
 
                 if (userForm.Cuit == cuitAux)
                 {
@@ -254,10 +247,8 @@ namespace PetShopApp
 
                     auxList.Add(usuario);
                 }
-
                 PetShop.LimpiarListaUsarios();
                 PetShop.CargarListaNuevamente(auxList);
-
             }
         }
 
@@ -265,7 +256,6 @@ namespace PetShopApp
         {
             CargarDataGrid();
         }
-
 
     }
 }

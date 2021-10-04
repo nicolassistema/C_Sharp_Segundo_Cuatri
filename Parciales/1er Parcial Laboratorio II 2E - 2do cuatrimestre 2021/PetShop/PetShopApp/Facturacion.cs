@@ -15,25 +15,17 @@ namespace PetShopApp
 {
     public partial class frmFacturacion : Form
     {
-
         Usuario userForm;
         public frmFacturacion()
         {
             InitializeComponent();
         }
 
-
-
         public frmFacturacion(Usuario usuario) : this()
         {
             this.userForm = usuario;
-            // MessageBox.Show(this.userForm.ToString());
-
-            //mapear "Bienvenido con el el nombre del usuario"
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
-            //agregar validaciones de visualizacion por perfil
         }
-
 
         private void lblVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

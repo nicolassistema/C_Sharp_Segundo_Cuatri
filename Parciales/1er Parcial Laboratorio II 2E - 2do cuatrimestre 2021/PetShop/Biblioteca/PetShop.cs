@@ -4,14 +4,10 @@ namespace Entidades
 {
     public static class PetShop
     {
-
         static List<Usuario> listaUsuarios;
         static List<Producto> listaProductos;
         static List<Cliente> listaClientes;
         static List<Venta> listaVentas;
-
-
-
 
         static PetShop()
         {
@@ -28,7 +24,6 @@ namespace Entidades
             HardcodUsuarios();
             HardcodProductos();
             HardcodClientes();
-            HardcodVentas();
         }
 
         public static List<Usuario> Usuario
@@ -79,19 +74,36 @@ namespace Entidades
             }
         }
 
-
-
-
-
         private static void HardcodUsuarios()//diccionario
         {
-            listaUsuarios.Add(new Usuario("20323205109", "Nicolas", "Letticugna", "pepe", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Usuario("20323205117", "Pedro", "Gomez", "pipo", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
-            listaUsuarios.Add(new Usuario("20323205125", "lolo", "Lopez", "admin", "admin", Entidades.Usuario.EPerfilUsuario.Admin));
-            listaUsuarios.Add(new Usuario("20323205133", "Juan", "Lopez", "pupu", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
-
-
+            listaUsuarios += (new Usuario("20323205109", "Nicolas", "Letticugna", "pepe", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
+            listaUsuarios += (new Usuario("20323205109", "Nicolas", "Letticugna", "pepe", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
+            listaUsuarios += (new Usuario("20323205117", "Pedro", "Gomez", "pipo", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
+            listaUsuarios += (new Usuario("20323205125", "lolo", "Lopez", "admin", "admin", Entidades.Usuario.EPerfilUsuario.Admin));
+            listaUsuarios += (new Usuario("20323205133", "Juan", "Lopez", "pupu", "123", Entidades.Usuario.EPerfilUsuario.Empleado));
         }
+
+        private static void HardcodProductos()
+        {
+            listaProductos += (new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.78, Cama.ETamanio.Grande));
+            listaProductos += (new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.50, Cama.ETamanio.Chico));
+            listaProductos += (new Juguete("Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.12, Juguete.EMaterial.Plastico));
+            listaProductos += (new Juguete("Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.14, Juguete.EMaterial.Goma));
+            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.98, Alimento.ETipoAlimento.Natural));
+            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.36, Alimento.ETipoAlimento.Balanceado));
+            listaProductos += (new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.85, ArtCuidadoMascota.ETipoCuidado.Farmacia));
+            listaProductos += (new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.05, ArtCuidadoMascota.ETipoCuidado.Limpieza));
+        }
+
+
+        private static void HardcodClientes()
+        {
+            listaClientes += (new Cliente("20323206008", "menagno", "lopez", 0));
+            listaClientes += (new Cliente("20323206016", "sultano", "lopez", 0));
+            listaClientes += (new Cliente("20323205109", "Fernando", "Talarga", 0));
+            listaClientes += (new Cliente("20323206059", "fefe", "lopez", 0));
+        }
+
 
         public static List<Cliente> ObtenerListaCliente()
         {
@@ -104,13 +116,10 @@ namespace Entidades
 
         }
 
-
-
         public static List<Usuario> ObtenerListaUsuarios()
         {
             return listaUsuarios;
         }
-
 
         public static void AddUsuario(Usuario usuario)
         {
@@ -119,36 +128,10 @@ namespace Entidades
         }
 
 
-        private static void HardcodProductos()
-        {
-            listaProductos.Add(new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.78, Cama.ETamanio.Grande));
-            listaProductos.Add(new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.50, Cama.ETamanio.Chico));
-            listaProductos.Add(new Juguete("Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.12, Juguete.EMaterial.Plastico));
-            listaProductos.Add(new Juguete("Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.14, Juguete.EMaterial.Goma));
-            listaProductos.Add(new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.98, Alimento.ETipoAlimento.Natural));
-            listaProductos.Add(new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.36, Alimento.ETipoAlimento.Balanceado));
-            listaProductos.Add(new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.85, ArtCuidadoMascota.ETipoCuidado.Farmacia));
-            listaProductos.Add(new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.05, ArtCuidadoMascota.ETipoCuidado.Limpieza));
-
-        }
 
 
-        private static void HardcodClientes()
-        {
-            listaClientes.Add(new Cliente("20323206008", "menagno", "lopez", 0));
-            listaClientes.Add(new Cliente("20323206016", "sultano", "lopez",0));
-            listaClientes.Add(new Cliente("20323205109", "Fernando", "Talarga", 0));
-            listaClientes.Add(new Cliente("20323206059", "fefe", "lopez", 0));
 
-        }
-
-
-        private static void HardcodVentas()
-        {
-            //listaVentas.Add(new Venta(listaClientes[1], 300));
-            //listaVentas.Add(new Venta(listaClientes[2], 300));
-            //listaVentas.Add(new Venta(listaClientes[3], 300));
-        }
+  
 
 
         public static Usuario ObtenerUsuario(string usuarioNombre, string password)
@@ -161,9 +144,8 @@ namespace Entidades
                     return item;
                 }
             }
-            return null;//TODO Consultar a Lucas por que no debo devulver null  segun Dense
+            return null;
         }
-
 
         public static Producto ObtenerProductoByID(int id)
         {
@@ -175,15 +157,13 @@ namespace Entidades
                     return item;
                 }
             }
-            return null;//TODO Consultar a Lucas por que no debo devulver null  segun Dense
+            return null;
         }
-
 
         public static List<Producto> ObtenerPorductos()
         {
             return listaProductos;
         }
-
 
         public static bool EliminarUsuario(Usuario usuario)
         {
@@ -211,16 +191,11 @@ namespace Entidades
         }
 
 
-
-
-
         public static List<Usuario> CargarListaNuevamente(List<Usuario> listaUsuariosAux)
         {
             if (!(listaUsuariosAux is null))
             {
-                //List<Usuario> auxList = ObtenerListaUsuarios();
                 LimpiarListaUsarios();
-
                 foreach (var item in listaUsuariosAux)
                 {
                     AddUsuario(item);
@@ -235,9 +210,7 @@ namespace Entidades
         {
             if (!(listaClienteAux is null))
             {
-                //List<Usuario> auxList = ObtenerListaUsuarios();
                 LimpiarListaClientes();
-
                 foreach (var item in listaClienteAux)
                 {
                     AddCliente(item);
