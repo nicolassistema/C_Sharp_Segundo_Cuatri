@@ -15,15 +15,13 @@ namespace Entidades
         #endregion
 
         #region "Constructores"
-
-
         public Producto()
         {
+
         }
 
         public Producto(string marca, string nombre, double precio) : this()
         {
-
             this.marca = marca;
             this.nombre = nombre;
             this.precio = precio;
@@ -114,6 +112,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Devuelve y setea el dato
+        /// </summary>
         public int Cantidad
         {
             get
@@ -221,7 +222,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($" {this.marca} | {this.nombre}  | {this.precio}");
+            sb.Append($" {this.Marca} | {this.Nombre}  | {this.Precio}");
             return sb.ToString();
         }
 

@@ -83,6 +83,12 @@ namespace Entidades
         #endregion
 
         #region "Operadores"
+        /// <summary>
+        /// Agrega el obejto si no se encuentra en la lista
+        /// </summary>
+        /// <param name="usuarios"></param>
+        /// <param name="usuario"></param>
+        /// <returns>devueve la lista con el objeto a agregar</returns>
         public static List<Usuario> operator +(List<Usuario> usuarios, Usuario usuario)
         {
             if (usuarios != usuario)
@@ -93,7 +99,12 @@ namespace Entidades
             else
                 return PetShop.Usuario;
         }
-
+        /// <summary>
+        /// Elimina el objeto de la lista si es que se encuentra
+        /// </summary>
+        /// <param name="usuarios"></param>
+        /// <param name="usuario"></param>
+        /// <returns>devuelve la lista sin el objeto a eliminar</returns>
         public static List<Usuario> operator -(List<Usuario> usuarios, Usuario usuario)
         {
 
@@ -106,6 +117,12 @@ namespace Entidades
                 return PetShop.Usuario;
         }
 
+        /// <summary>
+        /// Verifica que el objeto  se encuentre en la lista
+        /// </summary>
+        /// <param name="usuarios"></param>
+        /// <param name="usuario"></param>
+        /// <returns>Devuelve true si  se encuentra el objeto esta en la lista </returns>
         public static bool operator ==(List<Usuario> usuarios, Usuario usuario)
         {
             foreach (Usuario auxUsuarios in PetShop.Usuario)
@@ -116,7 +133,12 @@ namespace Entidades
 
             return false;
         }
-
+        /// <summary>
+        /// Verifica que el objeto NO se encuentre en la lista
+        /// </summary>
+        /// <param name="usuarios"></param>
+        /// <param name="usuario"></param>
+        /// <returns>Devuelve true si NO se encuentra el objeto esta en la lista </returns>
         public static bool operator !=(List<Usuario> usuarios, Usuario usuario)
         {
             return !(usuarios == usuario);
@@ -131,8 +153,13 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"{this.Apellido} {this.Nombre} {this.perfilUsuario}");
+            sb.AppendLine($"{this.Apellido} {this.Nombre}");
             return sb.ToString();
+        }
+
+        public string Mostrar()
+        {
+            return ToString();
         }
 
         /// <summary>

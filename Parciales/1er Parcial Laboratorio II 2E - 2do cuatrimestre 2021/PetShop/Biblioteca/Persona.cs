@@ -74,11 +74,12 @@ namespace Entidades
             StringBuilder sb = new StringBuilder();
             sb.Append($"{this.Apellido} |");
             sb.Append($"{this.Nombre} |");
-            sb.Append($"{this.cuit}|");
 
             return sb.ToString();
         }
 
+        //public abstract string Mostrar();
+    
         #endregion
 
     }

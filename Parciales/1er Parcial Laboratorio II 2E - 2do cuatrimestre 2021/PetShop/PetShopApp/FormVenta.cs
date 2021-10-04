@@ -87,7 +87,7 @@ namespace PetShopApp
                 lblCuit.Visible = false;
                 lblNombre.Visible = false;
                 lblApellido.Visible = false;
-           }
+            }
             else
             {
                 foreach (var item in lista)
@@ -141,7 +141,6 @@ namespace PetShopApp
             dgvListaProdSelecc.Rows.Remove(dgvListaProdSelecc.CurrentRow);
             lblMostrarTotal.Text = string.Format("{0:f2}", (acumDos - acum));
 
-
             for (int i = 0; i < dgvListaProductos.RowCount; i++)
             {
                 if (idAux == Convert.ToInt32(dgvListaProductos.Rows[i].Cells[0].Value.ToString()))
@@ -157,7 +156,6 @@ namespace PetShopApp
             {
                 btnSacar.Enabled = false;
             }
-
         }
 
         private void btnAceptaCompra_Click(object sender, EventArgs e)
@@ -172,10 +170,10 @@ namespace PetShopApp
                 string nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
                 double precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
                 producto = new Producto(marca, nombre, precio);
-                listaProductoAComprar.Add(producto);
+                listaProductoAComprar+=producto;
             }
-            Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()) , listaProductoAComprar);
-            MessageBox.Show(venta.ToString()) ;
+            Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()), listaProductoAComprar);
+            MessageBox.Show(venta.ToString());
         }
     }
 

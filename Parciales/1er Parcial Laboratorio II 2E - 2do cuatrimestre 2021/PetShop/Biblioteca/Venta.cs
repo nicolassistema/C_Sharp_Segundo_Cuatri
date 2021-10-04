@@ -5,7 +5,7 @@ namespace Entidades
 {
     public class Venta
     {
-        List<Producto> listaProductos;
+        List<Producto> productos;
         Cliente cliente;
         Usuario usuario;
         int numeroFactura;
@@ -13,7 +13,7 @@ namespace Entidades
 
         public Venta()
         {
-            listaProductos = new List<Producto>();
+            productos = new List<Producto>();
         }
 
         public Venta(Usuario usuario, Cliente cliente, double monto, List<Producto> productos) : this()
@@ -22,17 +22,17 @@ namespace Entidades
             this.Cliente = cliente;
             this.MontoTotal = monto;
             this.Usuario = usuario;
-            this.ListaProductos = listaProductos;
+            this.productos = productos;
         }
 
 
-        public Venta(Usuario usuario, Cliente cliente, List<Producto> listaProductos) : this()
+        public Venta(Usuario usuario, Cliente cliente, List<Producto> productos) : this()
         {
             this.NumeroFactura = IdFacturacionAutoIncremental();
             this.Cliente = cliente;
             this.MontoTotal = CalcularMontoTotal();
             this.Usuario = usuario;
-            this.ListaProductos = listaProductos;
+            this.productos = productos;
         }
         #region "Propiedades"
 
@@ -75,15 +75,15 @@ namespace Entidades
         }
 
 
-        public List<Producto> ListaProductos
+        public List<Producto> Productos
         {
             get
             {
-                return listaProductos;
+                return productos;
             }
             set
             {
-                listaProductos = value;
+                productos = value;
             }
         }
 
@@ -101,6 +101,12 @@ namespace Entidades
         #endregion
 
         #region "Operadores"
+        /// <summary>
+        /// Verifica que el producto se encuentre en la lista de ventas
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="producto"></param>
+        /// <returns>Devuelve true si el prodcuto si se encuentra en la lista de venta</returns>
         public static bool operator ==(List<Venta> productos, Venta producto)
         {
             foreach (Venta auxProducto in PetShop.Ventas)
@@ -111,6 +117,12 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Verifica que el producto NO se encuentre en la lista de ventas
+        /// </summary>
+        /// <param name="productos"></param>
+        /// <param name="producto"></param>
+        /// <returns>Devuelve true si el prodcuto NO se encuentre en la lista de venta</returns>
         public static bool operator !=(List<Venta> productos, Venta producto)
         {
             return !(productos == producto);
@@ -127,6 +139,10 @@ namespace Entidades
         #endregion
 
         #region "Utils"
+        /// <summary>
+        /// Incrementea el id de la factura
+        /// </summary>
+        /// <returns>devuelve el id incrementado</returns>
         public int IdFacturacionAutoIncremental()
         {
             for (int i = 0; i <= 1; i++)
@@ -136,7 +152,10 @@ namespace Entidades
             return this.numeroFactura;
         }
 
-
+        /// <summary>
+        /// Muestra la venta
+        /// </summary>
+        /// <returns>Muestra la venta</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -144,7 +163,7 @@ namespace Entidades
             sb.AppendLine(usuario.ToString());
 
             sb.AppendLine(Cliente.Mostrar());
-            foreach (var item in listaProductos)
+            foreach (var item in productos)
             {
                 sb.AppendLine(item.ToString());
             }
@@ -153,16 +172,23 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Calcular el monto total de los importes
+        /// </summary>
+        /// <returns>devuelve el monto total</returns>
         public double CalcularMontoTotal()
         {
             double monto = 0;
-            for (int i = 0; i < ListaProductos.Count; i++)
+            for (int i = 0; i < productos.Count; i++)
             {
-                monto += ListaProductos[i].Precio;
+                monto += productos[i].Precio;
             }
             return monto;
         }
-
+        /// <summary>
+        /// muestar el objetos
+        /// </summary>
+        /// <returns>muestra el objeto</returns>
         public string MostrarFactura()
         {
             return ToString();

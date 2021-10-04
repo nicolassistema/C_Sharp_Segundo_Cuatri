@@ -120,7 +120,7 @@ namespace Entidades
         /// Muestra la informacion del cliente
         /// </summary>
         /// <returns>Devuelve un mensaje</returns>
-        public string Mostrar()
+        public string  Mostrar()
         {
             return ToString();
         }
