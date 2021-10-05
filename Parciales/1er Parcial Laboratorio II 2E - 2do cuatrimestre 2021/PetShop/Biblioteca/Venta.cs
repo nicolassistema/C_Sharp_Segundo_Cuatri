@@ -48,8 +48,6 @@ namespace Entidades
             }
         }
 
-
-
         public int NumeroFactura
         {
             get

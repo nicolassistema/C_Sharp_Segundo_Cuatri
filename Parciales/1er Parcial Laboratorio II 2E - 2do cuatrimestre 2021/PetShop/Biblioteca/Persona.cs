@@ -69,6 +69,10 @@ namespace Entidades
         #endregion
 
         #region "utils"
+        /// <summary>
+        /// Mostrar el objeto
+        /// </summary>
+        /// <returns>Mostrar el objeto</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

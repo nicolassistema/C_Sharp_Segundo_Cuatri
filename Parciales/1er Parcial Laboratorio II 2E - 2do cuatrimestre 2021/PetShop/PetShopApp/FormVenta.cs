@@ -26,18 +26,17 @@ namespace PetShopApp
             this.userForm = usuario;
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
             CargarDataGridProducto();
+            btnCancelaCompra.Enabled = false;
+            btnAceptaCompra.Enabled = false;
         }
 
 
         public void CargarDataGridProducto()
         {
+            int i = 0;
             dgvListaProductos.Refresh();
             dgvListaProductos.DataSource = null;
-
-            int i = 0;
-
             dgvListaProductos.RowCount = PetShop.ObtenerPorductos().Count;
-
             foreach (var item in PetShop.ObtenerPorductos())
             {
                 dgvListaProductos.Rows[i].Cells[0].Value = item.Codigo;
@@ -60,6 +59,7 @@ namespace PetShopApp
                 this.Close();
             }
         }
+
 
         private void lblVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -111,6 +111,12 @@ namespace PetShopApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            cmbFromaPago.Text = "Efectivo";
+            txtMontoAPagar.Text = "";
+            lblMontoPagar.Text = "0.00";
+            lblVto.Text = "0.00";
+            btnAceptaCompra.Enabled = true;
+            btnCancelaCompra.Enabled = true;
             btnSacar.Enabled = true;
             double acum = 0;
             int stock = 0;
@@ -134,6 +140,10 @@ namespace PetShopApp
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
+            cmbFromaPago.Text = "Efectivo";
+            txtMontoAPagar.Text = "";
+            lblMontoPagar.Text = "0.00";
+            lblVto.Text = "0.00";
             int idAux = Convert.ToInt32(dgvListaProdSelecc.Rows[dgvListaProdSelecc.CurrentCell.RowIndex].Cells[0].Value);
             int stock = 0;
             double acumDos = double.Parse(lblMostrarTotal.Text);
@@ -151,15 +161,32 @@ namespace PetShopApp
                     break;
                 }
             }
-
             if (double.Parse(lblMostrarTotal.Text) <= 0)
             {
+                btnAceptaCompra.Enabled = false;
+                btnCancelaCompra.Enabled = false;
                 btnSacar.Enabled = false;
             }
         }
 
+        /// <summary>
+        /// Limpiar la lista de productos, la lista a comprar y restartea el total
+        /// </summary>
+        public void RestartearListas()
+        {
+            dgvListaProductos.Rows.Clear();
+            dgvListaProdSelecc.Rows.Clear();
+            CargarDataGridProducto();
+            lblMostrarTotal.Text = "0.00";
+        }
+
+
         private void btnAceptaCompra_Click(object sender, EventArgs e)
         {
+            cmbFromaPago.Text = "Efectivo";
+            txtMontoAPagar.Text = "";
+            lblMontoPagar.Text = "0.00";
+            lblVto.Text = "0.00";
             Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), 0);
             List<Producto> listaProductoAComprar = new List<Producto>();
             Producto producto;
@@ -173,9 +200,38 @@ namespace PetShopApp
                 listaProductoAComprar += producto;
             }
             Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()), listaProductoAComprar);
-           // MessageBox.Show(venta.ToString());
-
+            //MessageBox.Show(venta.ToString());
             lblMontoVta.Text = lblMostrarTotal.Text;
+        }
+
+        private void btnAceptarVta_Click(object sender, EventArgs e)
+        {
+            double montoTotal;
+            double montoPago;
+            if (!(txtMontoAPagar.Text == ""))
+            {
+                
+                lblMontoPagar.Text = txtMontoAPagar.Text.ToString();
+                montoTotal = double.Parse(lblMontoVta.Text.ToString());
+                montoPago = double.Parse(lblMontoPagar.Text.ToString());
+                lblVto.Text = string.Format("{0:f2}", (montoPago - montoTotal));
+            }
+            else
+            {
+                MessageBox.Show("Por favor ingresar el monto a pagar");
+            }
+        }
+
+        private void btnCancelarVta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelaCompra_Click(object sender, EventArgs e)
+        {
+            btnAceptaCompra.Enabled = false;
+            btnCancelaCompra.Enabled = false;
+            RestartearListas();
         }
     }
 

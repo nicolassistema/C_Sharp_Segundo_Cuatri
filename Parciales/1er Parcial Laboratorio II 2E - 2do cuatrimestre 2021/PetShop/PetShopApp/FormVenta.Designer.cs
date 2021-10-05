@@ -374,6 +374,7 @@ namespace PetShopApp
             this.btnCancelaCompra.TabIndex = 11;
             this.btnCancelaCompra.Text = "Cancelar";
             this.btnCancelaCompra.UseVisualStyleBackColor = true;
+            this.btnCancelaCompra.Click += new System.EventHandler(this.btnCancelaCompra_Click);
             // 
             // btnAceptaCompra
             // 
@@ -485,6 +486,7 @@ namespace PetShopApp
             this.btnCancelarVta.TabIndex = 14;
             this.btnCancelarVta.Text = "Cancelar";
             this.btnCancelarVta.UseVisualStyleBackColor = true;
+            this.btnCancelarVta.Click += new System.EventHandler(this.btnCancelarVta_Click);
             // 
             // btnAceptarVta
             // 
@@ -494,6 +496,7 @@ namespace PetShopApp
             this.btnAceptarVta.TabIndex = 12;
             this.btnAceptarVta.Text = "Aceptar";
             this.btnAceptarVta.UseVisualStyleBackColor = true;
+            this.btnAceptarVta.Click += new System.EventHandler(this.btnAceptarVta_Click);
             // 
             // lblMonto
             // 
@@ -522,7 +525,12 @@ namespace PetShopApp
             // 
             // cmbFromaPago
             // 
+            this.cmbFromaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFromaPago.FormattingEnabled = true;
+            this.cmbFromaPago.Items.AddRange(new object[] {
+            "MercadoPago",
+            "Efectivo",
+            "TarjetaDebito"});
             this.cmbFromaPago.Location = new System.Drawing.Point(75, 23);
             this.cmbFromaPago.Name = "cmbFromaPago";
             this.cmbFromaPago.Size = new System.Drawing.Size(121, 23);
