@@ -74,19 +74,6 @@ namespace Entidades
             }
         }
 
-
-        //public List<Producto> Productos
-        //{
-        //    get
-        //    {
-        //        return productos;
-        //    }
-        //    set
-        //    {
-        //        productos = value;
-        //    }
-        //}
-
         public Usuario Usuario
         {
             get
@@ -109,7 +96,7 @@ namespace Entidades
         /// <returns>Devuelve true si el prodcuto si se encuentra en la lista de venta</returns>
         public static bool operator ==(List<Venta> productos, Venta producto)
         {
-            foreach (Venta auxProducto in PetShop.Ventas)
+            foreach (Venta auxProducto in productos)
             {
                 if (producto == auxProducto)
                     return true;
@@ -131,10 +118,10 @@ namespace Entidades
         {
             if (ventas != venta)
             {
-                PetShop.Ventas.Add(venta);
-                return PetShop.Ventas;
+                ventas.Add(venta);
+                return ventas;
             }
-            return PetShop.Ventas;
+            return ventas;
         }
         #endregion
 

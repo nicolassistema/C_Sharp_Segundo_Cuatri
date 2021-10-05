@@ -429,7 +429,7 @@ namespace PetShopApp
             // 
             this.lblPesosPagar.AutoSize = true;
             this.lblPesosPagar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPesosPagar.Location = new System.Drawing.Point(247, 61);
+            this.lblPesosPagar.Location = new System.Drawing.Point(249, 62);
             this.lblPesosPagar.Name = "lblPesosPagar";
             this.lblPesosPagar.Size = new System.Drawing.Size(18, 20);
             this.lblPesosPagar.TabIndex = 17;
@@ -470,7 +470,7 @@ namespace PetShopApp
             // 
             this.lblMontoPagar.AutoSize = true;
             this.lblMontoPagar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMontoPagar.Location = new System.Drawing.Point(286, 61);
+            this.lblMontoPagar.Location = new System.Drawing.Point(288, 62);
             this.lblMontoPagar.Name = "lblMontoPagar";
             this.lblMontoPagar.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.lblMontoPagar.Size = new System.Drawing.Size(68, 20);
@@ -498,7 +498,7 @@ namespace PetShopApp
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
-            this.lblMonto.Location = new System.Drawing.Point(26, 75);
+            this.lblMonto.Location = new System.Drawing.Point(46, 66);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(43, 15);
             this.lblMonto.TabIndex = 13;
@@ -515,7 +515,7 @@ namespace PetShopApp
             // 
             // txtMontoAPagar
             // 
-            this.txtMontoAPagar.Location = new System.Drawing.Point(75, 72);
+            this.txtMontoAPagar.Location = new System.Drawing.Point(95, 63);
             this.txtMontoAPagar.Name = "txtMontoAPagar";
             this.txtMontoAPagar.Size = new System.Drawing.Size(100, 23);
             this.txtMontoAPagar.TabIndex = 8;

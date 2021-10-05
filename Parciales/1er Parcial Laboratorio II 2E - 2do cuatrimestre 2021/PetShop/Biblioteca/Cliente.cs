@@ -67,7 +67,7 @@ namespace Entidades
         {
             if (clientes != cliente)
             {
-                PetShop.Cliente.Add(cliente);
+                clientes.Add(cliente);
                 return PetShop.Cliente;
             }
             else
@@ -79,11 +79,11 @@ namespace Entidades
 
             if (clientes == cliente)
             {
-                PetShop.Cliente.Remove(cliente);
-                return PetShop.Cliente;
+                clientes.Remove(cliente);
+                return clientes;
             }
             else
-                return PetShop.Cliente;
+                return clientes;
         }
 
         public static bool operator ==(List<Cliente> clientes, Cliente cliente)
