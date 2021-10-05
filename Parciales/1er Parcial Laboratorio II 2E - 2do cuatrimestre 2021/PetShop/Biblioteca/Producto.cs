@@ -152,7 +152,7 @@ namespace Entidades
         /// <returns>devuelve verdadero en caso de que el objeto  este en la lista</returns>
         public static bool operator ==(List<Producto> productos, Producto producto)
         {
-            foreach (Producto productoAux in PetShop.Producto)
+            foreach (Producto productoAux in productos)
             {
                 if (producto == productoAux)
                 {
@@ -185,12 +185,12 @@ namespace Entidades
         {
             if (productos != producto)
             {
-                PetShop.Producto.Add(producto);
-                return PetShop.Producto;
+               productos.Add(producto);
+                return productos;
             }
             else
             {
-                return PetShop.Producto;
+                return productos;
             }
         }
 
@@ -204,12 +204,12 @@ namespace Entidades
         {
             if (productos == producto)
             {
-                PetShop.Producto.Remove(producto);
-                return PetShop.Producto;
+                productos.Remove(producto);
+                return productos;
             }
             else
             {
-                return PetShop.Producto;
+                return productos;
             }
         }
         #endregion

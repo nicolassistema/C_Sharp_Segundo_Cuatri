@@ -160,6 +160,7 @@ namespace PetShopApp
 
         private void btnAceptaCompra_Click(object sender, EventArgs e)
         {
+            string m = "";
             Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), 0);
             List<Producto> listaProductoAComprar = new List<Producto>();
             Producto producto;
@@ -173,6 +174,19 @@ namespace PetShopApp
                 listaProductoAComprar+=producto;
             }
             Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()), listaProductoAComprar);
+
+
+            foreach (var item in listaProductoAComprar)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.AppendLine(item.Nombre);
+                sb.AppendLine(item.Precio.ToString());
+                m += sb.ToString();
+            }
+
+
+            MessageBox.Show(m);
+
             MessageBox.Show(venta.ToString());
         }
     }

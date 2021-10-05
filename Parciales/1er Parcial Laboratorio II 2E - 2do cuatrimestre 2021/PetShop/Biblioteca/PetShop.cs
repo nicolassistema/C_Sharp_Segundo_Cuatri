@@ -108,10 +108,10 @@ namespace Entidades
 
         private static void HardcodVentas()
         {
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0],listaProductos));
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
+            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
         }
 
 

@@ -75,17 +75,17 @@ namespace Entidades
         }
 
 
-        public List<Producto> Productos
-        {
-            get
-            {
-                return productos;
-            }
-            set
-            {
-                productos = value;
-            }
-        }
+        //public List<Producto> Productos
+        //{
+        //    get
+        //    {
+        //        return productos;
+        //    }
+        //    set
+        //    {
+        //        productos = value;
+        //    }
+        //}
 
         public Usuario Usuario
         {
