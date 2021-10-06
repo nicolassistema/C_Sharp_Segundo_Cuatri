@@ -48,6 +48,7 @@ namespace PetShopApp
             this.btnSacar = new System.Windows.Forms.Button();
             this.lblMostrarTotal = new System.Windows.Forms.Label();
             this.pnlCompra = new System.Windows.Forms.Panel();
+            this.btnLimpiarSelectProd = new System.Windows.Forms.Button();
             this.dgvListaProdSelecc = new System.Windows.Forms.DataGridView();
             this.CodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,11 +78,14 @@ namespace PetShopApp
             this.txtMontoAPagar = new System.Windows.Forms.TextBox();
             this.cmbFromaPago = new System.Windows.Forms.ComboBox();
             this.pnlConfirmarCompra = new System.Windows.Forms.Panel();
+            this.btnCancelarConfirmCompra = new System.Windows.Forms.Button();
+            this.btnConfirmarCompra = new System.Windows.Forms.Button();
             this.pnlBuscarCliente.SuspendLayout();
             this.pnlCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdSelecc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             this.pnlVenta.SuspendLayout();
+            this.pnlConfirmarCompra.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNombreUsuario
@@ -222,7 +226,7 @@ namespace PetShopApp
             // 
             this.lblMostrarTotal.AutoSize = true;
             this.lblMostrarTotal.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMostrarTotal.Location = new System.Drawing.Point(671, 398);
+            this.lblMostrarTotal.Location = new System.Drawing.Point(767, 400);
             this.lblMostrarTotal.Name = "lblMostrarTotal";
             this.lblMostrarTotal.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.lblMostrarTotal.Size = new System.Drawing.Size(83, 37);
@@ -231,6 +235,7 @@ namespace PetShopApp
             // 
             // pnlCompra
             // 
+            this.pnlCompra.Controls.Add(this.btnLimpiarSelectProd);
             this.pnlCompra.Controls.Add(this.dgvListaProdSelecc);
             this.pnlCompra.Controls.Add(this.dgvListaProductos);
             this.pnlCompra.Controls.Add(this.lblPesos);
@@ -241,8 +246,18 @@ namespace PetShopApp
             this.pnlCompra.Controls.Add(this.btnAgregar);
             this.pnlCompra.Location = new System.Drawing.Point(403, 53);
             this.pnlCompra.Name = "pnlCompra";
-            this.pnlCompra.Size = new System.Drawing.Size(777, 466);
+            this.pnlCompra.Size = new System.Drawing.Size(863, 466);
             this.pnlCompra.TabIndex = 10;
+            // 
+            // btnLimpiarSelectProd
+            // 
+            this.btnLimpiarSelectProd.Location = new System.Drawing.Point(451, 391);
+            this.btnLimpiarSelectProd.Name = "btnLimpiarSelectProd";
+            this.btnLimpiarSelectProd.Size = new System.Drawing.Size(75, 53);
+            this.btnLimpiarSelectProd.TabIndex = 15;
+            this.btnLimpiarSelectProd.Text = "Limpiar Lista";
+            this.btnLimpiarSelectProd.UseVisualStyleBackColor = true;
+            this.btnLimpiarSelectProd.Click += new System.EventHandler(this.btnLimpiarSelectProd_Click);
             // 
             // dgvListaProdSelecc
             // 
@@ -272,7 +287,7 @@ namespace PetShopApp
             this.dgvListaProdSelecc.Name = "dgvListaProdSelecc";
             this.dgvListaProdSelecc.RowHeadersVisible = false;
             this.dgvListaProdSelecc.RowTemplate.Height = 25;
-            this.dgvListaProdSelecc.Size = new System.Drawing.Size(317, 357);
+            this.dgvListaProdSelecc.Size = new System.Drawing.Size(399, 357);
             this.dgvListaProdSelecc.TabIndex = 14;
             // 
             // CodProducto
@@ -361,7 +376,7 @@ namespace PetShopApp
             // 
             this.lblPesos.AutoSize = true;
             this.lblPesos.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPesos.Location = new System.Drawing.Point(632, 398);
+            this.lblPesos.Location = new System.Drawing.Point(728, 400);
             this.lblPesos.Name = "lblPesos";
             this.lblPesos.Size = new System.Drawing.Size(33, 37);
             this.lblPesos.TabIndex = 12;
@@ -369,7 +384,7 @@ namespace PetShopApp
             // 
             // btnCancelaCompra
             // 
-            this.btnCancelaCompra.Location = new System.Drawing.Point(551, 389);
+            this.btnCancelaCompra.Location = new System.Drawing.Point(647, 391);
             this.btnCancelaCompra.Name = "btnCancelaCompra";
             this.btnCancelaCompra.Size = new System.Drawing.Size(75, 53);
             this.btnCancelaCompra.TabIndex = 11;
@@ -379,7 +394,7 @@ namespace PetShopApp
             // 
             // btnAceptaCompra
             // 
-            this.btnAceptaCompra.Location = new System.Drawing.Point(453, 389);
+            this.btnAceptaCompra.Location = new System.Drawing.Point(549, 391);
             this.btnAceptaCompra.Name = "btnAceptaCompra";
             this.btnAceptaCompra.Size = new System.Drawing.Size(75, 53);
             this.btnAceptaCompra.TabIndex = 10;
@@ -402,7 +417,7 @@ namespace PetShopApp
             this.pnlVenta.Controls.Add(this.lblFormaPAgo);
             this.pnlVenta.Controls.Add(this.txtMontoAPagar);
             this.pnlVenta.Controls.Add(this.cmbFromaPago);
-            this.pnlVenta.Location = new System.Drawing.Point(15, 345);
+            this.pnlVenta.Location = new System.Drawing.Point(14, 345);
             this.pnlVenta.Name = "pnlVenta";
             this.pnlVenta.Size = new System.Drawing.Size(372, 171);
             this.pnlVenta.TabIndex = 11;
@@ -539,16 +554,41 @@ namespace PetShopApp
             // 
             // pnlConfirmarCompra
             // 
+            this.pnlConfirmarCompra.Controls.Add(this.btnCancelarConfirmCompra);
+            this.pnlConfirmarCompra.Controls.Add(this.btnConfirmarCompra);
             this.pnlConfirmarCompra.Location = new System.Drawing.Point(15, 218);
             this.pnlConfirmarCompra.Name = "pnlConfirmarCompra";
             this.pnlConfirmarCompra.Size = new System.Drawing.Size(372, 121);
             this.pnlConfirmarCompra.TabIndex = 12;
             // 
+            // btnCancelarConfirmCompra
+            // 
+            this.btnCancelarConfirmCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCancelarConfirmCompra.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelarConfirmCompra.Location = new System.Drawing.Point(192, 3);
+            this.btnCancelarConfirmCompra.Name = "btnCancelarConfirmCompra";
+            this.btnCancelarConfirmCompra.Size = new System.Drawing.Size(177, 115);
+            this.btnCancelarConfirmCompra.TabIndex = 1;
+            this.btnCancelarConfirmCompra.Text = "Cancelar Compra";
+            this.btnCancelarConfirmCompra.UseVisualStyleBackColor = false;
+            this.btnCancelarConfirmCompra.Click += new System.EventHandler(this.btnCancelarConfirmCompra_Click);
+            // 
+            // btnConfirmarCompra
+            // 
+            this.btnConfirmarCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnConfirmarCompra.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnConfirmarCompra.Location = new System.Drawing.Point(3, 3);
+            this.btnConfirmarCompra.Name = "btnConfirmarCompra";
+            this.btnConfirmarCompra.Size = new System.Drawing.Size(180, 115);
+            this.btnConfirmarCompra.TabIndex = 0;
+            this.btnConfirmarCompra.Text = "Confirmar Compra";
+            this.btnConfirmarCompra.UseVisualStyleBackColor = false;
+            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 535);
+            this.ClientSize = new System.Drawing.Size(1280, 527);
             this.Controls.Add(this.pnlConfirmarCompra);
             this.Controls.Add(this.pnlVenta);
             this.Controls.Add(this.pnlCompra);
@@ -567,6 +607,7 @@ namespace PetShopApp
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).EndInit();
             this.pnlVenta.ResumeLayout(false);
             this.pnlVenta.PerformLayout();
+            this.pnlConfirmarCompra.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,5 +659,8 @@ namespace PetShopApp
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Panel pnlConfirmarCompra;
+        private System.Windows.Forms.Button btnLimpiarSelectProd;
+        private System.Windows.Forms.Button btnCancelarConfirmCompra;
+        private System.Windows.Forms.Button btnConfirmarCompra;
     }
 }

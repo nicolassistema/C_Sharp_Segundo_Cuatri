@@ -79,6 +79,18 @@ Clientes nuevos
 20323206032	
 						  
 						  
+Facturador
+==========
+* aceitar Camino funcional
+	*Capa de visualizacion en objetos
+	
+
+
+*generador de factura pre impresion de ticket (form)
+*Imprimir ticket
+
+
+
 						  
 						  
 	
