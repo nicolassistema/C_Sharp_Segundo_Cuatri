@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\PetShopApp\\PetShopApp.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\PetShop\\PetShopApp\\PetShopApp.csproj",
       "projectName": "PetShopApp",
-      "projectPath": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\PetShopApp\\PetShopApp.csproj",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\PetShop\\PetShopApp\\PetShopApp.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\PetShopApp\\obj\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\PetShop\\PetShopApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Entidades.csproj": {
-              "projectPath": "C:\\GITHUB\\PROGRAMACION II - 2° Cuatrimestre\\Parciales\\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\\PetShop\\Biblioteca\\Entidades.csproj"
+            "C:\\Users\\Usuario\\Desktop\\PetShop\\Biblioteca\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\PetShop\\Biblioteca\\Entidades.csproj"
             }
           }
         }

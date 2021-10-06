@@ -384,6 +384,7 @@ namespace PetShopApp
             // 
             // btnCancelaCompra
             // 
+            this.btnCancelaCompra.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnCancelaCompra.Location = new System.Drawing.Point(647, 391);
             this.btnCancelaCompra.Name = "btnCancelaCompra";
             this.btnCancelaCompra.Size = new System.Drawing.Size(75, 53);

@@ -36,8 +36,7 @@ namespace PetShopApp
             btnSacar.Enabled = false;
             btnLimpiarSelectProd.Enabled = false;
             FocusPnlBuscarCliente(true);
-            ActiveDesactivePnlConfirm(false);
-
+            VisibilidadPnlConfirmarCompra(false);
         }
 
         public void CargarDataGridProducto()
@@ -89,10 +88,8 @@ namespace PetShopApp
 
             if (!(Validaciones.ValidateNumber(txtCuit.Text)))
             {
-                //  lblMensajeCliente.ForeColor = Color.Red;
                 lblMensajeCliente.Text = "Cuit Incorrecto";
                 lblMensajeCliente.Visible = true;
-
                 lblCuit.Visible = false;
                 lblNombre.Visible = false;
                 lblApellido.Visible = false;
@@ -100,6 +97,7 @@ namespace PetShopApp
             }
             else
             {
+                btnLimpiarSelectProd.Enabled = true;
                 foreach (var item in lista)
                 {
                     if (item.Cuit.ToString() == txtCuit.Text)
@@ -116,6 +114,12 @@ namespace PetShopApp
                             {
                                 btnLimpiarSelectProd.Enabled = false;
                             }
+
+                            if (double.Parse(lblMostrarTotal.Text) <= 0)
+                            {
+                                btnLimpiarSelectProd.Enabled = false;
+                            }
+
                             ActivDesactivPnlBuscarCliente(false);
                             btnCancelaCompra.Enabled = true;
                             ActivDesactivPnlCompra(true);
@@ -143,17 +147,11 @@ namespace PetShopApp
         public void RestartearVta()
         {
             pnlVenta.Visible = false;
-            //cmbFromaPago.Enabled = false;
-            //txtMontoAPagar.Enabled = false;
             lblMontoVta.Text = "0.00";
-            //  btnAceptaCompra.Enabled = true;
-            // btnCancelaCompra.Enabled = true;
             cmbFromaPago.Text = "";
             txtMontoAPagar.Text = "";
             lblMontoPagar.Text = "0.00";
             lblVto.Text = "0.00";
-            //  btnAceptarVta.Enabled = false;
-            //  btnCancelarVta.Enabled = false;
         }
 
         public void FocusPnlBuscarCliente(bool estado)
@@ -230,13 +228,14 @@ namespace PetShopApp
         {
             if (estado)
             {
-                pnlCompra.Enabled = true;
                 FocusPnlCompra(true);
+                pnlCompra.Enabled = true;
             }
             else
             {
-                pnlCompra.Enabled = false;
                 FocusPnlCompra(false);
+                pnlCompra.Enabled = false;
+                btnLimpiarSelectProd.Enabled = false;
             }
         }
 
@@ -258,16 +257,13 @@ namespace PetShopApp
         {
             if (estado)
             {
-                pnlConfirmarCompra.Visible = true;
                 pnlConfirmarCompra.Enabled = true;
                 FocusPnlConfirm(true);
             }
             else
             {
-                pnlConfirmarCompra.Visible = false;
                 pnlConfirmarCompra.Enabled = false;
                 FocusPnlConfirm(false);
-                pnlConfirmarCompra.Visible = false;
             }
         }
 
@@ -302,6 +298,7 @@ namespace PetShopApp
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
+            btnLimpiarSelectProd.Enabled = true;
             lblMontoVta.Text = "0.00";
             cmbFromaPago.Text = "";
             txtMontoAPagar.Text = "";
@@ -327,26 +324,22 @@ namespace PetShopApp
             if (double.Parse(lblMostrarTotal.Text) <= 0)
             {
                 btnAceptaCompra.Enabled = false;
-                btnCancelaCompra.Enabled = true;
+              //  btnCancelaCompra.Enabled = false;
                 btnSacar.Enabled = false;
                 btnLimpiarSelectProd.Enabled = false;
             }
         }
 
-
         private void btnAceptaCompra_Click(object sender, EventArgs e)
         {
             ActivDesactivPnlCompra(false);
-            btnLimpiarSelectProd.Enabled = false;
+            // btnLimpiarSelectProd.Enabled = false;
             ActivDesactivPnlVenta(true);
-            VisibilidadPnlVenta(true);
             pnlVenta.Visible = true;
             cmbFromaPago.Enabled = true;
             txtMontoAPagar.Enabled = true;
             btnAceptarVta.Enabled = true;
             btnCancelarVta.Enabled = true;
-            btnAceptaCompra.Enabled = false;
-            btnCancelaCompra.Enabled = false;
             cmbFromaPago.Text = "Efectivo";
             txtMontoAPagar.Text = "";
             lblMontoPagar.Text = "0.00";
@@ -400,14 +393,27 @@ namespace PetShopApp
             }
         }
 
+        public void VisibilidadPnlConfirmarCompra(bool estado)
+        {
+            if (estado)
+            {
+                pnlConfirmarCompra.Visible = true;
+            }
+            else
+            {
+                pnlConfirmarCompra.Visible = false;
+            }
+
+        }
+
         private void btnCancelarVta_Click(object sender, EventArgs e)
         {
 
             btnAceptaCompra.Enabled = true;
             btnCancelaCompra.Enabled = true;
+            RestartearVta();
             ActivDesactivPnlVenta(false);
             ActivDesactivPnlCompra(true);
-            RestartearVta();
             btnLimpiarSelectProd.Enabled = true;
         }
 
@@ -421,9 +427,10 @@ namespace PetShopApp
                 montoTotal = double.Parse(lblMontoVta.Text.ToString());
                 montoPago = double.Parse(lblMontoPagar.Text.ToString());
                 lblVto.Text = string.Format("{0:f2}", (montoPago - montoTotal));
+                VisibilidadPnlConfirmarCompra(true);
                 pnlVenta.Enabled = false;
                 FocusPnlVenta(false);
-                ActiveDesactivePnlConfirm(true);
+                FocusPnlConfirm(true);
             }
             else
             {
@@ -431,23 +438,9 @@ namespace PetShopApp
             }
         }
 
-
-        //public void VisibilidadPnlConfirmarCompra(bool estado)
-        //{
-        //    if (estado)
-        //    {
-        //        pnlConfirmarCompra.Visible = true;
-        //    }
-        //    else
-        //    {
-        //        pnlConfirmarCompra.Visible = false;
-        //    }
-           
-        //}
-
         private void btnCancelarConfirmCompra_Click(object sender, EventArgs e)
         {
-            ActiveDesactivePnlConfirm(false);
+            VisibilidadPnlConfirmarCompra(false);
             ActivDesactivPnlVenta(true);
         }
     }
