@@ -1,0 +1,98 @@
+
+Listas
+*empledos
+*clientes
+*productos
+
+
+informacion para conusltar:
+*fromas de pago: https://github.com/EzequielOggioni/MiniSuper/blob/main/MiniSuper/Usuario.cs
+
+dfsdfs
+
+
+
+venta
+diccionario --> key nombre del usuario y valor se venta
+
+facturacion --> cambiar por cerrar caja
+
+archivos serializacion -> github --> buscar el de texto
+
+
+
+
+
+Clase Facturacion
+Generar conversor --> lista de venta a facturacion total y luego serializar
+dia fecha y monto total 
+
+
+
+(Producto.ETipo)this.cmbTipoProducto.SelectedValue
+
+C:\GITHUB\PROGRAMACION II - 2° Cuatrimestre\Parciales\1er Parcial Laboratorio II 2E - 2do cuatrimestre 2021\PetShop\PetShopApp\bin\Debug
+
+
+
+*Administracion de los productos (ABM)
+
+Lista de produtos + detalle + disponiblidad
+
+*Administrar ventas (Front de venta)
+
+login automatico
+
+
+
+
+
+parte humana
+*El sistema tiene 3 perfiles
+
+cliente, empleado y administrador
+
+
+Empleado:
+	dar de alta nuevos cliente
+	Clientes viejos (solo ver)
+	Vender a clientes --> se tiene que cumplir que haya stock
+						  Que el dinero del usuario  alcance
+						  Etc
+
+Administrador
+	mismas tareas que el empleado
+	+ ver informacion de empleadors y editarlos
+	Podrá ver la facturación total de todas las ventas realizadas ashat el momento
+	
+	
+Clientes existentes	
+20323206008
+20323206016
+20323205109
+20323206059
+	
+Clientes nuevos
+20323206008	
+20323206016
+20323206024
+20323206032	
+						  
+						  
+						  
+						  
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

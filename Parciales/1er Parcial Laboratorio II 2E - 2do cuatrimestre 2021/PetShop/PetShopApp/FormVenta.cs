@@ -75,6 +75,7 @@ namespace PetShopApp
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
+            
             List<Cliente> lista = new List<Cliente>();
             lista = PetShop.ObtenerListaCliente();
 
@@ -87,6 +88,7 @@ namespace PetShopApp
                 lblCuit.Visible = false;
                 lblNombre.Visible = false;
                 lblApellido.Visible = false;
+                ActivaDesactivaPnlCompra(false);
             }
             else
             {
@@ -96,6 +98,7 @@ namespace PetShopApp
                     {
                         if (PetShop.BuscarClientePorString(item, txtCuit.Text.ToLower()))
                         {
+                            ActivaDesactivaPnlCompra(true);
                             lblMensajeCliente.Visible = false;
                             lblCuit.Text = item.Cuit.ToString();
                             lblCuit.Visible = true;
@@ -111,7 +114,8 @@ namespace PetShopApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            cmbFromaPago.Text = "Efectivo";
+            lblMontoVta.Text = "0.00";
+            cmbFromaPago.Text = "";
             txtMontoAPagar.Text = "";
             lblMontoPagar.Text = "0.00";
             lblVto.Text = "0.00";
@@ -140,7 +144,8 @@ namespace PetShopApp
 
         private void btnSacar_Click(object sender, EventArgs e)
         {
-            cmbFromaPago.Text = "Efectivo";
+            lblMontoVta.Text = "0.00";
+            cmbFromaPago.Text = "";
             txtMontoAPagar.Text = "";
             lblMontoPagar.Text = "0.00";
             lblVto.Text = "0.00";
@@ -183,6 +188,13 @@ namespace PetShopApp
 
         private void btnAceptaCompra_Click(object sender, EventArgs e)
         {
+            pnlVenta.Visible = true;
+            cmbFromaPago.Enabled = true;
+            txtMontoAPagar.Enabled = true;
+            btnAceptarVta.Enabled = true;
+            btnCancelarVta.Enabled = true;
+            btnAceptaCompra.Enabled = false;
+            btnCancelaCompra.Enabled = false;
             cmbFromaPago.Text = "Efectivo";
             txtMontoAPagar.Text = "";
             lblMontoPagar.Text = "0.00";
@@ -204,6 +216,40 @@ namespace PetShopApp
             lblMontoVta.Text = lblMostrarTotal.Text;
         }
 
+
+        public void ActivaDesactivaPnl(bool estado)
+        {
+            if (estado)
+            {
+                dgvListaProductos.Enabled = true;
+                dgvListaProdSelecc.Enabled = true;
+            }
+            else
+            {
+                dgvListaProductos.Enabled = false;
+                dgvListaProductos.Enabled = false;
+            }
+        }
+
+
+        public void ActivaDesactivaPnlCompra(bool estado)
+        {
+            if (estado)
+            {
+                pnlCompra.Enabled = true;
+                //dgvListaProductos.Enabled = true;
+                //dgvListaProdSelecc.Enabled = true;
+            }
+            else
+            {
+                pnlCompra.Enabled = false;
+                //dgvListaProductos.Enabled = false;
+                //dgvListaProductos.Enabled = false;
+            }
+        }
+
+
+
         private void btnAceptarVta_Click(object sender, EventArgs e)
         {
             double montoTotal;
@@ -222,13 +268,28 @@ namespace PetShopApp
             }
         }
 
+
+
+
         private void btnCancelarVta_Click(object sender, EventArgs e)
         {
-
+            pnlVenta.Visible = false;
+            cmbFromaPago.Enabled = false;
+            txtMontoAPagar.Enabled = false;
+            lblMontoVta.Text = "0.00";
+            btnAceptaCompra.Enabled = true;
+            btnCancelaCompra.Enabled = true;
+            cmbFromaPago.Text = "";
+            txtMontoAPagar.Text = "";
+            lblMontoPagar.Text = "0.00";
+            lblVto.Text = "0.00";
+            btnAceptarVta.Enabled = false;
+            btnCancelarVta.Enabled = false;
         }
 
         private void btnCancelaCompra_Click(object sender, EventArgs e)
         {
+       
             btnAceptaCompra.Enabled = false;
             btnCancelaCompra.Enabled = false;
             RestartearListas();

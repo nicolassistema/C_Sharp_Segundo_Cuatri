@@ -47,7 +47,7 @@ namespace PetShopApp
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnSacar = new System.Windows.Forms.Button();
             this.lblMostrarTotal = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlCompra = new System.Windows.Forms.Panel();
             this.dgvListaProdSelecc = new System.Windows.Forms.DataGridView();
             this.CodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,8 +76,9 @@ namespace PetShopApp
             this.lblFormaPAgo = new System.Windows.Forms.Label();
             this.txtMontoAPagar = new System.Windows.Forms.TextBox();
             this.cmbFromaPago = new System.Windows.Forms.ComboBox();
+            this.pnlConfirmarCompra = new System.Windows.Forms.Panel();
             this.pnlBuscarCliente.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdSelecc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
             this.pnlVenta.SuspendLayout();
@@ -130,9 +131,9 @@ namespace PetShopApp
             this.pnlBuscarCliente.Controls.Add(this.lblNombre);
             this.pnlBuscarCliente.Controls.Add(this.lblCuit);
             this.pnlBuscarCliente.Controls.Add(this.txtCuit);
-            this.pnlBuscarCliente.Location = new System.Drawing.Point(12, 53);
+            this.pnlBuscarCliente.Location = new System.Drawing.Point(15, 38);
             this.pnlBuscarCliente.Name = "pnlBuscarCliente";
-            this.pnlBuscarCliente.Size = new System.Drawing.Size(270, 197);
+            this.pnlBuscarCliente.Size = new System.Drawing.Size(270, 174);
             this.pnlBuscarCliente.TabIndex = 4;
             // 
             // lblMensajeCliente
@@ -228,20 +229,20 @@ namespace PetShopApp
             this.lblMostrarTotal.TabIndex = 8;
             this.lblMostrarTotal.Text = "0";
             // 
-            // panel2
+            // pnlCompra
             // 
-            this.panel2.Controls.Add(this.dgvListaProdSelecc);
-            this.panel2.Controls.Add(this.dgvListaProductos);
-            this.panel2.Controls.Add(this.lblPesos);
-            this.panel2.Controls.Add(this.btnCancelaCompra);
-            this.panel2.Controls.Add(this.btnAceptaCompra);
-            this.panel2.Controls.Add(this.lblMostrarTotal);
-            this.panel2.Controls.Add(this.btnSacar);
-            this.panel2.Controls.Add(this.btnAgregar);
-            this.panel2.Location = new System.Drawing.Point(403, 53);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 466);
-            this.panel2.TabIndex = 10;
+            this.pnlCompra.Controls.Add(this.dgvListaProdSelecc);
+            this.pnlCompra.Controls.Add(this.dgvListaProductos);
+            this.pnlCompra.Controls.Add(this.lblPesos);
+            this.pnlCompra.Controls.Add(this.btnCancelaCompra);
+            this.pnlCompra.Controls.Add(this.btnAceptaCompra);
+            this.pnlCompra.Controls.Add(this.lblMostrarTotal);
+            this.pnlCompra.Controls.Add(this.btnSacar);
+            this.pnlCompra.Controls.Add(this.btnAgregar);
+            this.pnlCompra.Location = new System.Drawing.Point(403, 53);
+            this.pnlCompra.Name = "pnlCompra";
+            this.pnlCompra.Size = new System.Drawing.Size(777, 466);
+            this.pnlCompra.TabIndex = 10;
             // 
             // dgvListaProdSelecc
             // 
@@ -536,13 +537,21 @@ namespace PetShopApp
             this.cmbFromaPago.Size = new System.Drawing.Size(121, 23);
             this.cmbFromaPago.TabIndex = 0;
             // 
+            // pnlConfirmarCompra
+            // 
+            this.pnlConfirmarCompra.Location = new System.Drawing.Point(15, 218);
+            this.pnlConfirmarCompra.Name = "pnlConfirmarCompra";
+            this.pnlConfirmarCompra.Size = new System.Drawing.Size(372, 121);
+            this.pnlConfirmarCompra.TabIndex = 12;
+            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 535);
+            this.Controls.Add(this.pnlConfirmarCompra);
             this.Controls.Add(this.pnlVenta);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pnlCompra);
             this.Controls.Add(this.pnlBuscarCliente);
             this.Controls.Add(this.lblVolver);
             this.Controls.Add(this.lblCerrarSesion);
@@ -552,8 +561,8 @@ namespace PetShopApp
             this.Text = "Ventas";
             this.pnlBuscarCliente.ResumeLayout(false);
             this.pnlBuscarCliente.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlCompra.ResumeLayout(false);
+            this.pnlCompra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdSelecc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).EndInit();
             this.pnlVenta.ResumeLayout(false);
@@ -577,7 +586,7 @@ namespace PetShopApp
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnSacar;
         private System.Windows.Forms.Label lblMostrarTotal;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlCompra;
         private System.Windows.Forms.Button btnCancelaCompra;
         private System.Windows.Forms.Button btnAceptaCompra;
         private System.Windows.Forms.Panel pnlVenta;
@@ -608,5 +617,6 @@ namespace PetShopApp
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Panel pnlConfirmarCompra;
     }
 }
