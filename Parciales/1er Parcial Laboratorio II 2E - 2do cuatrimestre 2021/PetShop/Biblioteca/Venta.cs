@@ -153,7 +153,7 @@ namespace Entidades
                 sb.AppendLine(item.ToString());
             }
 
-            sb.AppendLine($" {this.numeroFactura} | {this.montoTotal}");
+            sb.AppendLine($" {this.numeroFactura} | {this.MontoTotal}");
             return sb.ToString();
         }
 

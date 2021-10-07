@@ -1,7 +1,7 @@
 ﻿
 namespace PetShopApp
 {
-    partial class frmVenta
+    partial class FormVenta
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@ namespace PetShopApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.lblCerrarSesion = new System.Windows.Forms.LinkLabel();
             this.lblVolver = new System.Windows.Forms.LinkLabel();
@@ -78,7 +78,9 @@ namespace PetShopApp
             this.txtMontoAPagar = new System.Windows.Forms.TextBox();
             this.cmbFromaPago = new System.Windows.Forms.ComboBox();
             this.pnlConfirmarCompra = new System.Windows.Forms.Panel();
+            this.btnSalirDeVenta = new System.Windows.Forms.Button();
             this.btnCancelarConfirmCompra = new System.Windows.Forms.Button();
+            this.btnCompraNueva = new System.Windows.Forms.Button();
             this.btnConfirmarCompra = new System.Windows.Forms.Button();
             this.pnlBuscarCliente.SuspendLayout();
             this.pnlCompra.SuspendLayout();
@@ -261,28 +263,28 @@ namespace PetShopApp
             // 
             // dgvListaProdSelecc
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaProdSelecc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProdSelecc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvListaProdSelecc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProdSelecc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodProducto,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaProdSelecc.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaProdSelecc.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvListaProdSelecc.Location = new System.Drawing.Point(451, 7);
             this.dgvListaProdSelecc.Name = "dgvListaProdSelecc";
             this.dgvListaProdSelecc.RowHeadersVisible = false;
@@ -313,14 +315,14 @@ namespace PetShopApp
             // 
             // dgvListaProductos
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodPorducto,
@@ -328,15 +330,15 @@ namespace PetShopApp
             this.Nombre,
             this.Stock,
             this.Precio});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaProductos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaProductos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvListaProductos.Location = new System.Drawing.Point(14, 7);
             this.dgvListaProductos.Name = "dgvListaProductos";
             this.dgvListaProductos.RowHeadersVisible = false;
@@ -555,12 +557,26 @@ namespace PetShopApp
             // 
             // pnlConfirmarCompra
             // 
+            this.pnlConfirmarCompra.Controls.Add(this.btnSalirDeVenta);
             this.pnlConfirmarCompra.Controls.Add(this.btnCancelarConfirmCompra);
+            this.pnlConfirmarCompra.Controls.Add(this.btnCompraNueva);
             this.pnlConfirmarCompra.Controls.Add(this.btnConfirmarCompra);
             this.pnlConfirmarCompra.Location = new System.Drawing.Point(15, 218);
             this.pnlConfirmarCompra.Name = "pnlConfirmarCompra";
             this.pnlConfirmarCompra.Size = new System.Drawing.Size(372, 121);
             this.pnlConfirmarCompra.TabIndex = 12;
+            // 
+            // btnSalirDeVenta
+            // 
+            this.btnSalirDeVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSalirDeVenta.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSalirDeVenta.Location = new System.Drawing.Point(192, 3);
+            this.btnSalirDeVenta.Name = "btnSalirDeVenta";
+            this.btnSalirDeVenta.Size = new System.Drawing.Size(177, 115);
+            this.btnSalirDeVenta.TabIndex = 1;
+            this.btnSalirDeVenta.Text = "Volver al Menu Principal";
+            this.btnSalirDeVenta.UseVisualStyleBackColor = false;
+            this.btnSalirDeVenta.Click += new System.EventHandler(this.btnSalirDeVenta_Click);
             // 
             // btnCancelarConfirmCompra
             // 
@@ -574,6 +590,18 @@ namespace PetShopApp
             this.btnCancelarConfirmCompra.UseVisualStyleBackColor = false;
             this.btnCancelarConfirmCompra.Click += new System.EventHandler(this.btnCancelarConfirmCompra_Click);
             // 
+            // btnCompraNueva
+            // 
+            this.btnCompraNueva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnCompraNueva.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCompraNueva.Location = new System.Drawing.Point(3, 3);
+            this.btnCompraNueva.Name = "btnCompraNueva";
+            this.btnCompraNueva.Size = new System.Drawing.Size(180, 115);
+            this.btnCompraNueva.TabIndex = 0;
+            this.btnCompraNueva.Text = "Reiniciar Nueva Venta";
+            this.btnCompraNueva.UseVisualStyleBackColor = false;
+            this.btnCompraNueva.Click += new System.EventHandler(this.btnCompraNueva_Click);
+            // 
             // btnConfirmarCompra
             // 
             this.btnConfirmarCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -584,8 +612,9 @@ namespace PetShopApp
             this.btnConfirmarCompra.TabIndex = 0;
             this.btnConfirmarCompra.Text = "Confirmar Compra";
             this.btnConfirmarCompra.UseVisualStyleBackColor = false;
+            this.btnConfirmarCompra.Click += new System.EventHandler(this.btnConfirmarCompra_Click);
             // 
-            // frmVenta
+            // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -597,7 +626,7 @@ namespace PetShopApp
             this.Controls.Add(this.lblVolver);
             this.Controls.Add(this.lblCerrarSesion);
             this.Controls.Add(this.lblNombreUsuario);
-            this.Name = "frmVenta";
+            this.Name = "FormVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ventas";
             this.pnlBuscarCliente.ResumeLayout(false);
@@ -663,5 +692,7 @@ namespace PetShopApp
         private System.Windows.Forms.Button btnLimpiarSelectProd;
         private System.Windows.Forms.Button btnCancelarConfirmCompra;
         private System.Windows.Forms.Button btnConfirmarCompra;
+        private System.Windows.Forms.Button btnSalirDeVenta;
+        private System.Windows.Forms.Button btnCompraNueva;
     }
 }

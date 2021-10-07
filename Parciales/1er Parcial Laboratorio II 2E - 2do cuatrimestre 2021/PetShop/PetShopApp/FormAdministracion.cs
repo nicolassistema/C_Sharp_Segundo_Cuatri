@@ -32,7 +32,7 @@ namespace PetShopApp
 
         private void btnVender_Click(object sender, EventArgs e)
         {
-            frmVenta venta = new frmVenta(this.userForm);
+            FormVenta venta = new FormVenta(this.userForm);
             this.Hide();
             venta.ShowDialog();
         }

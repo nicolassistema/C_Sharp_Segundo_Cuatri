@@ -11,19 +11,23 @@ using Entidades;
 
 namespace PetShopApp
 {
-    public partial class frmVenta : Form
+    public partial class FormVenta : Form
     {
         Usuario userForm;
+    
+       // Producto producto;
 
-        public frmVenta()
+        public FormVenta()
         {
             InitializeComponent();
         }
 
 
-        public frmVenta(Usuario usuario) : this()
+        public FormVenta(Usuario usuario) : this()
         {
             this.userForm = usuario;
+            btnSalirDeVenta.Visible = false;
+            btnCompraNueva.Visible = false;
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
             CargarDataGridProducto();
             btnCancelaCompra.Enabled = false;
@@ -38,6 +42,8 @@ namespace PetShopApp
             FocusPnlBuscarCliente(true);
             VisibilidadPnlConfirmarCompra(false);
         }
+
+
 
         public void CargarDataGridProducto()
         {
@@ -408,11 +414,9 @@ namespace PetShopApp
 
         private void btnCancelarVta_Click(object sender, EventArgs e)
         {
-
             btnAceptaCompra.Enabled = true;
             btnCancelaCompra.Enabled = true;
             RestartearVta();
-            ActivDesactivPnlVenta(false);
             ActivDesactivPnlCompra(true);
             btnLimpiarSelectProd.Enabled = true;
         }
@@ -442,6 +446,55 @@ namespace PetShopApp
         {
             VisibilidadPnlConfirmarCompra(false);
             ActivDesactivPnlVenta(true);
+        }
+
+        private void btnConfirmarCompra_Click(object sender, EventArgs e)
+        {
+            string marca;
+            string nombre;
+            double precio;
+            List<Producto> listaProducto = new List<Producto>();
+            for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
+            {
+                marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
+                nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
+                precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
+                Producto producto = new Producto(marca, nombre, precio);
+                listaProducto += (producto);
+            }
+            Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), double.Parse(lblMontoPagar.Text.ToString()));
+            Venta venta = new Venta(userForm, cliente, double.Parse(lblMontoVta.Text.ToString()), listaProducto);
+            FormFactura factura = new FormFactura(venta);
+            PasoFinal();
+            factura.ShowDialog();
+        }
+
+        public void PasoFinal()
+        {
+            btnSalirDeVenta.Visible = true;
+            btnCompraNueva.Visible = true;
+            btnConfirmarCompra.Visible = false;
+            btnCancelarConfirmCompra.Visible = false;
+        }
+
+        private void btnSalirDeVenta_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Dese Salir de la pantalla venta hacia el menu principal?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.No)
+            {
+                frmAdministracion administracion = new frmAdministracion(this.userForm);
+                this.Hide();
+                administracion.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void btnCompraNueva_Click(object sender, EventArgs e)
+        {
+            FormVenta fm = new FormVenta(this.userForm);
+            this.Hide();
+            fm.ShowDialog();
+            this.Close();
         }
     }
 
