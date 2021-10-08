@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text;
+using System.Timers;
 
 namespace Entidades
 {
@@ -8,8 +9,10 @@ namespace Entidades
         List<Producto> productos;
         Cliente cliente;
         Usuario usuario;
+        Venta venta;
         int numeroFactura;
         double montoTotal;
+     
 
         public Venta()
         {
@@ -137,25 +140,84 @@ namespace Entidades
             return this.numeroFactura;
         }
 
+
+        public double SumaTotalPorProducto(List<Producto> productos, Producto producto)
+        {
+            double aux = 0;
+            foreach (var item in productos)
+            {
+                if (producto.Codigo == item.Codigo)
+                {
+                    aux += item.Precio;
+                }
+            }
+            return aux;
+        }
+
+        public int CantidadPorProducto(List<Producto> productos, Producto producto)
+        {
+            int cantidad = 0;
+            foreach (var item in productos)
+            {
+                if (producto.Codigo == item.Codigo)
+                {
+                    cantidad++;
+                }
+            }
+            return cantidad;
+        }
+
+
+
+
         /// <summary>
         /// Muestra la venta
         /// </summary>
         /// <returns>Muestra la venta</returns>
         public override string ToString()
         {
+            Venta venta = new Venta();
+            int acum = 0;
+            double acumDos;
+            int cant;
+            double total = 0;
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine(usuario.ToString());
-
-            sb.AppendLine(Cliente.Mostrar());
+            //         sb.AppendLine(usuario.ToString());
+            //          sb.AppendLine(Cliente.Mostrar());
+            sb.AppendLine("------------------------------------------------");
+            sb.AppendLine("C.  CONCEPTO                PRECION     IMPORTE");
+            sb.AppendLine("------------------------------------------------");
             foreach (var item in productos)
             {
-                sb.AppendLine(item.ToString());
+                acumDos = 0;
+                cant = 0;
+                acum++;
+                foreach (var itemDos in productos)
+                {
+                    if (itemDos.CodigoDos == acum)
+                    {
+                        acumDos += item.Precio;
+                        cant++;
+                    }
+                }
+                if (item.CodigoDos == acum)
+                {
+                    sb.AppendLine(" "+cant.ToString()+" "+ item.ToString()+"$"+"      "+ string.Format("{0:f2}", acumDos)+"$");
+                }
+                total += acumDos;
             }
-
-            sb.AppendLine($" {this.numeroFactura} | {this.MontoTotal}");
+            sb.AppendLine("------------------------------------------------");
+            sb.AppendLine("   TODOS LOS PROD. CON I.V.A. INCLUD.     ");
+            sb.AppendLine("------------------------------------------------");
+            sb.AppendLine("                                  TOTAL : $" + string.Format("{0:f2}", total));
+            sb.AppendLine("------------------------------------------------");
+            sb.AppendLine($"Fue atendid@ por: {usuario.Nombre} {usuario.Apellido}");
             return sb.ToString();
         }
+
+
+
+
 
         /// <summary>
         /// Calcular el monto total de los importes

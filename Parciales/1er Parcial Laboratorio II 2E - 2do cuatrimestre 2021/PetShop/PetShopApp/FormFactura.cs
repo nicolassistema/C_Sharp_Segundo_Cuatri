@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Entidades;
 
 namespace PetShopApp
@@ -24,19 +25,108 @@ namespace PetShopApp
         public FormFactura(Venta venta) : this()
         {
             this.venta = venta;
+            Imprimir();
 
 
-            rtxTicket.Text = venta.ToString();
         }
 
 
+        public void Imprimir()
+        {
+            StringBuilder sb = new StringBuilder();
 
-     
+
+            sb.AppendLine("---------------------Pet Shop------------------");
+            sb.AppendLine("                    'El Pikachu Juan'             ");
+            sb.AppendLine("           By Nicolas Ezequiel Letticugna       ");
+            sb.AppendLine("       Av. Gral. Chamizo y Donovan - Gerli      ");
+            sb.AppendLine("         Tel. 0800-2020-2020 (op. 3)            ");
+            sb.AppendLine("------------------------------------------------");
+            sb.AppendLine(MostrarFecha());
+            sb.Append(venta.ToString());
+
+            rtxTicket.Text = sb.ToString();
+        }
+
+        public string ImprimirTicket()
+        {
+            StringBuilder sb = new StringBuilder();
+
+
+            sb.AppendLine("---------------------Pet Shop------------------");
+            sb.AppendLine("                    'El Pikachu Juan'             ");
+            sb.AppendLine("           By Nicolas Ezequiel Letticugna       ");
+            sb.AppendLine("       Av. Gral. Chamizo y Donovan - Gerli      ");
+            sb.AppendLine("         Tel. 0800-2020-2020 (op. 3)            ");
+            sb.AppendLine("------------------------------------------------");
+            sb.AppendLine(MostrarFecha());
+            sb.Append(venta.ToString());
+
+            return sb.ToString();
+        }
+
+     public string MostrarFecha()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Factura N°                   " + DateTime.Today.ToString("dd/MM/yyyy") +" "+DateTime.Now.ToString("HH:mm:ss"));
+            return sb.ToString();
+           
+        }
 
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        private void Imprimir2()
+        {
+            string dirParameter = AppDomain.CurrentDomain.BaseDirectory + @"\file.txt";
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "(*.txt)|*.txt";
+           // saveFileDialog1.Title = "Save an Image File";
+            saveFileDialog1.FileName = "Nombre del archivo";
+            try
+            {
+                if (saveFileDialog1.ShowDialog()==DialogResult.OK)
+                {
+                    if (File.Exists(saveFileDialog1.FileName))
+                    {
+                        string txt = saveFileDialog1.FileName;
+                        StreamWriter tesxtoAGuardar = File.CreateText(txt);
+                        tesxtoAGuardar.WriteLine(rtxTicket.Text);
+                        tesxtoAGuardar.Close();
+                    }
+                    else
+                    {
+                        string txt = saveFileDialog1.FileName;
+                        StreamWriter tesxtoAGuardar = File.CreateText(txt);
+                        tesxtoAGuardar.WriteLine(rtxTicket.Text);
+                        tesxtoAGuardar.Close();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+
+        //private void GuardarTxt()
+        //{
+        //    string directorio = Directory.GetCurrentDirectory();
+        //    StreamWriter ticket = new StreamWriter(String.Concat (directorio, "/ticketCompra.txt"));
+        //    ticket.WriteLine(ImprimirTicket());
+        //    ticket.Close();
+        //}
+
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir2();
         }
     }
 }

@@ -7,6 +7,7 @@ namespace Entidades
     {
         #region "Atributos"
         int codigo;
+        int codigoDos;
         string marca;
         string nombre;
         string descripcion;
@@ -20,8 +21,9 @@ namespace Entidades
 
         }
 
-        public Producto(string marca, string nombre, double precio) : this()
+        public Producto( int codigoDos, string marca, string nombre, double precio) : this()
         {
+            this.codigoDos = codigoDos;
             this.marca = marca;
             this.nombre = nombre;
             this.precio = precio;
@@ -29,7 +31,7 @@ namespace Entidades
 
         public Producto(string marca, string nombre, string descripcion, double precio) : this()
         {
-            this.codigo = IdAutoIncremental();
+            this.Codigo = IdAutoIncremental();
             this.marca = marca;
             this.nombre = nombre;
             this.descripcion = descripcion;
@@ -39,17 +41,32 @@ namespace Entidades
 
         public Producto(string marca, string nombre, string descripcion, int cantidad, double precio) : this()
         {
-            this.codigo = IdAutoIncremental();
+            this.Codigo = IdAutoIncremental();
             this.marca = marca;
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.cantidad = cantidad;
             this.precio = precio;
-
         }
         #endregion
 
         #region "Propiedades"
+
+
+        /// <summary>
+        /// Devuelve y setea el dato
+        /// </summary>
+        public int CodigoDos
+        {
+            get
+            {
+                return this.codigoDos;
+            }
+            set
+            {
+                this.codigoDos = value;
+            }
+        }
 
         /// <summary>
         /// Devuelve y setea el dato
@@ -222,7 +239,7 @@ namespace Entidades
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($" {this.Marca} | {this.Nombre}  | {this.Precio}");
+            sb.Append($" {this.Nombre}             {this.Precio}");
             return sb.ToString();
         }
 

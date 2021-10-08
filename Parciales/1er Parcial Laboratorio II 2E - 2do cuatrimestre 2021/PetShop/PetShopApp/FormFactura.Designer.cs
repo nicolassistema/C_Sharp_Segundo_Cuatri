@@ -51,6 +51,7 @@ namespace PetShopApp
             this.btnImprimir.TabIndex = 1;
             this.btnImprimir.Text = "Imprimir Ticket";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnSalir
             // 

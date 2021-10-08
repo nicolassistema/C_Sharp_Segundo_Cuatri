@@ -50,7 +50,7 @@ namespace Entidades
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.Append($" | {this.material}");
+            sb.Append($" {this.Nombre}| {this.Precio}");
             return sb.ToString();
         }
         #endregion

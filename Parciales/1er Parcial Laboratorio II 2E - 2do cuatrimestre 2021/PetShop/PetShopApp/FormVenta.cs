@@ -356,10 +356,11 @@ namespace PetShopApp
 
             for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
             {
+                int codigo = Convert.ToInt32(dgvListaProdSelecc.Rows[i].Cells[0].Value.ToString());
                 string marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
                 string nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
                 double precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
-                producto = new Producto(marca, nombre, precio);
+                producto = new Producto(codigo, marca, nombre, precio);
                 listaProductoAComprar += producto;
             }
             Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()), listaProductoAComprar);
@@ -450,16 +451,18 @@ namespace PetShopApp
 
         private void btnConfirmarCompra_Click(object sender, EventArgs e)
         {
+            int id;
             string marca;
             string nombre;
             double precio;
             List<Producto> listaProducto = new List<Producto>();
             for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
             {
+                id = Convert.ToInt32(dgvListaProdSelecc.Rows[i].Cells[0].Value.ToString());
                 marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
                 nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
                 precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
-                Producto producto = new Producto(marca, nombre, precio);
+                Producto producto = new Producto(id,marca, nombre, precio);
                 listaProducto += (producto);
             }
             Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), double.Parse(lblMontoPagar.Text.ToString()));
@@ -475,6 +478,7 @@ namespace PetShopApp
             btnCompraNueva.Visible = true;
             btnConfirmarCompra.Visible = false;
             btnCancelarConfirmCompra.Visible = false;
+        
         }
 
         private void btnSalirDeVenta_Click(object sender, EventArgs e)
