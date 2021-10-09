@@ -426,6 +426,8 @@ namespace PetShopApp
         {
             double montoTotal;
             double montoPago;
+            //var direction = ListSortDirection.Ascending;
+            //dgvListaProdSelecc.Sort(CodProducto, direction);
             if (!(txtMontoAPagar.Text == ""))
             {
                 lblMontoPagar.Text = txtMontoAPagar.Text.ToString();
@@ -456,6 +458,13 @@ namespace PetShopApp
             string nombre;
             double precio;
             List<Producto> listaProducto = new List<Producto>();
+
+       
+
+          //  this.dgvListaProdSelecc.Sort(dgvListaProdSelecc.Columns(1), ListSortDirection.Ascending);
+
+
+
             for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
             {
                 id = Convert.ToInt32(dgvListaProdSelecc.Rows[i].Cells[0].Value.ToString());

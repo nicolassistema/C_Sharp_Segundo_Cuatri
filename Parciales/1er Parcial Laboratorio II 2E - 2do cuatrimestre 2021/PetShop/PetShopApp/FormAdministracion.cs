@@ -25,6 +25,7 @@ namespace PetShopApp
             lblBienvenido.Text = "Bienvenido: " + usuario.Nombre +" "+ usuario.Apellido;
             if (!(Usuario.IsAdmin(userForm)))
             {
+                btnClientes.Visible = false;
                 btnEmpleados.Visible = false;
                 btnFacturacion.Visible = false;
             }

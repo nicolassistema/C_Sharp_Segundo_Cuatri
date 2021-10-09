@@ -12,7 +12,7 @@ namespace Entidades
         Venta venta;
         int numeroFactura;
         double montoTotal;
-     
+
 
         public Venta()
         {
@@ -36,7 +36,7 @@ namespace Entidades
             this.productos = productos;
             this.MontoTotal = CalcularMontoTotal();
             this.Usuario = usuario;
-           
+
         }
         #region "Propiedades"
 
@@ -178,6 +178,9 @@ namespace Entidades
         /// <returns>Muestra la venta</returns>
         public override string ToString()
         {
+            int segundaListas = 0;
+            double precioUnitario = 0;
+            string nombre = "";
             Venta venta = new Venta();
             int acum = 0;
             double acumDos;
@@ -187,7 +190,7 @@ namespace Entidades
             //         sb.AppendLine(usuario.ToString());
             //          sb.AppendLine(Cliente.Mostrar());
             sb.AppendLine("------------------------------------------------");
-            sb.AppendLine("C.  CONCEPTO                PRECION     IMPORTE");
+            sb.AppendLine("C.  CONCEPTO                PRECIO      IMPORTE");
             sb.AppendLine("------------------------------------------------");
             foreach (var item in productos)
             {
@@ -196,15 +199,22 @@ namespace Entidades
                 acum++;
                 foreach (var itemDos in productos)
                 {
+                   
+                    int segundaLista = itemDos.CodigoDos;
+                    int indicePireraLista = acum;
+
                     if (itemDos.CodigoDos == acum)
                     {
-                        acumDos += item.Precio;
+                        precioUnitario = itemDos.Precio;
+                        nombre = itemDos.Nombre.ToString();
+                        segundaListas = itemDos.CodigoDos;
+                        acumDos += itemDos.Precio;
                         cant++;
                     }
                 }
-                if (item.CodigoDos == acum)
+                if (segundaListas == acum)
                 {
-                    sb.AppendLine(" "+cant.ToString()+" "+ item.ToString()+"$"+"      "+ string.Format("{0:f2}", acumDos)+"$");
+                    sb.AppendLine(" " + cant.ToString() + " " +/* item.ToString()*/ nombre +"      $"+ string.Format("{0:f2}", precioUnitario)   + "      $" + string.Format("{0:f2}", acumDos));
                 }
                 total += acumDos;
             }

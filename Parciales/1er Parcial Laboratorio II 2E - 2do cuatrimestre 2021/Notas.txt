@@ -28,6 +28,8 @@ Generar conversor --> lista de venta a facturacion total y luego serializar
 dia fecha y monto total 
 
 
+fecha  --- montoTotal      
+
 
 (Producto.ETipo)this.cmbTipoProducto.SelectedValue
 
@@ -93,8 +95,43 @@ Facturador
 
 						  
 						  
+	private void GuardarTxt()
+{
+try
+{
+// Get the current directory.
+//string path = Directory.GetCurrentDirectory();
+string target = @”\txt\”;
+path = Directory.GetCurrentDirectory() + target;
+string fileP = Directory.GetCurrentDirectory() + target + id_consulta + “.txt”;
+if (!Directory.Exists(path))
+Directory.CreateDirectory(path);
+
+StreamWriter file = new StreamWriter(fileP, true);
+file.WriteLine(tramaGlobalToSave);
+file.Close();
+}
+catch (Exception e)
+{
+Console.WriteLine(“The process failed: {0}”, e.ToString());
+}
+}
 	
-	
+=============================================================================================
+*Cambiar tonalidad negra en formulario principal
+*Exportar a CVS (el inventario)
+*Cerrar sesion por inactividad
+● Utilizar listview con imágenes.
+*Cambiar el icno en todos los formularios
+*gregar 2 colecciones diferentes (La que tengo actual es lista)
+*Polimorfismo (clases
+	abstractas, métodos
+	abstractos, métodos virtuales)
+*Agregar boton que autocompleta los datos
+
+
+
+
 
 
 

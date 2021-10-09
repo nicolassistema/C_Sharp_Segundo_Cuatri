@@ -90,14 +90,14 @@ namespace Entidades
 
         private static void HardcodProductos()
         {
-            listaProductos += (new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.78, Cama.ETamanio.Grande));
-            listaProductos += (new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.50, Cama.ETamanio.Chico));
-            listaProductos += (new Juguete("Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.12, Juguete.EMaterial.Plastico));
-            listaProductos += (new Juguete("Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.14, Juguete.EMaterial.Goma));
-            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 35, 12.98, Alimento.ETipoAlimento.Natural));
-            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 35, 12.36, Alimento.ETipoAlimento.Balanceado));
-            listaProductos += (new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.85, ArtCuidadoMascota.ETipoCuidado.Farmacia));
-            listaProductos += (new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.05, ArtCuidadoMascota.ETipoCuidado.Limpieza));
+            listaProductos += (new Cama("Cama pepito           ", "Cama lalala", "Cama grande descripcion", 35, 11.11, Cama.ETamanio.Grande));
+            listaProductos += (new Cama("Cama  pepito          ", "Cama lalala", "Cama grande descripcion", 35, 22.22, Cama.ETamanio.Chico));
+            listaProductos += (new Juguete("juguete pepito        ", "juguete  lalala", "juguete grande descripcion", 35, 33.33, Juguete.EMaterial.Plastico));
+            listaProductos += (new Juguete("juguete pepito        ", "juguete lalala", "juguete grande descripcion", 35, 44.44, Juguete.EMaterial.Goma));
+            listaProductos += (new Alimento("Alimento pepito       ", "Alimento  lalala", "Alimento grande descripcion", 35, 55.55, Alimento.ETipoAlimento.Natural));
+            listaProductos += (new Alimento("Alimento pepito       ", "Alimento  lalala", "Alimento grande descripcion", 35, 66.66, Alimento.ETipoAlimento.Balanceado));
+            listaProductos += (new ArtCuidadoMascota("Farmacia pepito       ", "Farmacia  lalala", "farmacia grande descripcion", 35, 77.77, ArtCuidadoMascota.ETipoCuidado.Farmacia));
+            listaProductos += (new ArtCuidadoMascota("Farmacia pepito      ", "Farmacia  lalala", "Limpieza grande descripcion", 35, 88.0588, ArtCuidadoMascota.ETipoCuidado.Limpieza));
         }
 
 
@@ -114,14 +114,14 @@ namespace Entidades
         {
             Producto prod1 = new Producto(1, "Dog Chow", "Dog Chow", 4000);
 
-            listaVentas += (new Venta(new Usuario("123456789","Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326","Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
-            listaVentas += (new Venta(new Usuario("123456789","Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
             listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
             listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
         }
 
 
-   
+
 
         public static List<Venta> ObtenerListaVentas()
         {

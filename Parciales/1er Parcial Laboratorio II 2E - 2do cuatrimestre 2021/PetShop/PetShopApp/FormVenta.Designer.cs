@@ -179,7 +179,8 @@ namespace PetShopApp
             this.lblApellido.AutoSize = true;
             this.lblApellido.Location = new System.Drawing.Point(18, 152);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(38, 15);
+            this.lblApellido.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.lblApellido.Size = new System.Drawing.Size(138, 15);
             this.lblApellido.TabIndex = 7;
             this.lblApellido.Text = "label3";
             this.lblApellido.Visible = false;
@@ -189,7 +190,8 @@ namespace PetShopApp
             this.lblNombre.AutoSize = true;
             this.lblNombre.Location = new System.Drawing.Point(18, 124);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(38, 15);
+            this.lblNombre.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.lblNombre.Size = new System.Drawing.Size(138, 15);
             this.lblNombre.TabIndex = 6;
             this.lblNombre.Text = "label2";
             this.lblNombre.Visible = false;
@@ -199,7 +201,8 @@ namespace PetShopApp
             this.lblCuit.AutoSize = true;
             this.lblCuit.Location = new System.Drawing.Point(18, 93);
             this.lblCuit.Name = "lblCuit";
-            this.lblCuit.Size = new System.Drawing.Size(38, 15);
+            this.lblCuit.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.lblCuit.Size = new System.Drawing.Size(138, 15);
             this.lblCuit.TabIndex = 5;
             this.lblCuit.Text = "label1";
             this.lblCuit.Visible = false;
@@ -449,7 +452,7 @@ namespace PetShopApp
             // 
             this.lblPesosPagar.AutoSize = true;
             this.lblPesosPagar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPesosPagar.Location = new System.Drawing.Point(249, 62);
+            this.lblPesosPagar.Location = new System.Drawing.Point(231, 62);
             this.lblPesosPagar.Name = "lblPesosPagar";
             this.lblPesosPagar.Size = new System.Drawing.Size(18, 20);
             this.lblPesosPagar.TabIndex = 17;
@@ -459,10 +462,10 @@ namespace PetShopApp
             // 
             this.lblMontoVta.AutoSize = true;
             this.lblMontoVta.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMontoVta.Location = new System.Drawing.Point(281, 11);
+            this.lblMontoVta.Location = new System.Drawing.Point(264, 11);
             this.lblMontoVta.Name = "lblMontoVta";
-            this.lblMontoVta.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.lblMontoVta.Size = new System.Drawing.Size(83, 37);
+            this.lblMontoVta.Padding = new System.Windows.Forms.Padding(0, 0, 70, 0);
+            this.lblMontoVta.Size = new System.Drawing.Size(103, 37);
             this.lblMontoVta.TabIndex = 13;
             this.lblMontoVta.Text = "0";
             // 
@@ -470,7 +473,7 @@ namespace PetShopApp
             // 
             this.lblPesosVta.AutoSize = true;
             this.lblPesosVta.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPesosVta.Location = new System.Drawing.Point(242, 11);
+            this.lblPesosVta.Location = new System.Drawing.Point(225, 11);
             this.lblPesosVta.Name = "lblPesosVta";
             this.lblPesosVta.Size = new System.Drawing.Size(33, 37);
             this.lblPesosVta.TabIndex = 13;
@@ -490,7 +493,7 @@ namespace PetShopApp
             // 
             this.lblMontoPagar.AutoSize = true;
             this.lblMontoPagar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMontoPagar.Location = new System.Drawing.Point(288, 62);
+            this.lblMontoPagar.Location = new System.Drawing.Point(270, 62);
             this.lblMontoPagar.Name = "lblMontoPagar";
             this.lblMontoPagar.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.lblMontoPagar.Size = new System.Drawing.Size(68, 20);
