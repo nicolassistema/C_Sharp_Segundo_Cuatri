@@ -62,6 +62,34 @@ namespace PetShopApp
             }
         }
 
+
+
+        public List<Producto> ActualizarInventario()
+        {
+            List<Producto> listaAux = new List<Producto>();
+            //   int id;
+            string nombre;
+            string descripcion;
+            int cantidad;
+            double precio;
+
+            // dgvListaProductos.Refresh();
+            // dgvListaProductos.DataSource = null;
+            //dgvListaProductos.RowCount = PetShop.ObtenerPorductos().Count;
+            for (int i = 0; i < dgvListaProductos.RowCount; i++)
+            {
+                //  id =Convert.ToInt32(dgvListaProductos.Rows[i].Cells[0].Value);
+                nombre = dgvListaProductos.Rows[i].Cells[1].Value.ToString();
+                descripcion = dgvListaProductos.Rows[i].Cells[2].Value.ToString();
+                cantidad = Convert.ToInt32(dgvListaProductos.Rows[i].Cells[3].Value.ToString());
+                precio = double.Parse(dgvListaProductos.Rows[i].Cells[4].Value.ToString());
+
+                listaAux += new Producto(nombre, descripcion, cantidad, precio);
+            }
+            return  PetShop.UpdateInventario(listaAux);
+        }
+
+
         private void lblCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             DialogResult dr = MessageBox.Show("Dese cerrar session?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -459,11 +487,7 @@ namespace PetShopApp
             double precio;
             List<Producto> listaProducto = new List<Producto>();
 
-       
-
           //  this.dgvListaProdSelecc.Sort(dgvListaProdSelecc.Columns(1), ListSortDirection.Ascending);
-
-
 
             for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
             {
@@ -478,6 +502,10 @@ namespace PetShopApp
             Venta venta = new Venta(userForm, cliente, double.Parse(lblMontoVta.Text.ToString()), listaProducto);
             FormFactura factura = new FormFactura(venta);
             PetShop.listaVentas += venta;
+            ActualizarInventario();
+
+          //  PetShop.RestarInventario();
+
             PasoFinal();
             factura.ShowDialog();
         }

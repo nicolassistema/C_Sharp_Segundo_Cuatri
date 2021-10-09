@@ -60,10 +60,8 @@ namespace Test
 
             foreach (var item in listaCliente)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(item.Mostrar());
             }
-
-
 
 
         }

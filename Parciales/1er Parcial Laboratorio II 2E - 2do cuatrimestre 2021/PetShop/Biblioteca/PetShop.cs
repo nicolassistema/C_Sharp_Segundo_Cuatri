@@ -122,6 +122,16 @@ namespace Entidades
 
 
 
+        public static List<Producto> UpdateInventario (List<Producto> producto)
+        {
+            listaProductos = new List<Producto>();
+
+            foreach (var item in producto)
+            {
+                listaProductos += item;
+            }
+            return listaProductos;
+        }
 
         public static List<Venta> ObtenerListaVentas()
         {
@@ -200,12 +210,10 @@ namespace Entidades
             listaUsuarios.Clear();
         }
 
-
         public static void LimpiarListaClientes()
         {
             listaClientes.Clear();
         }
-
 
         public static List<Usuario> CargarListaNuevamente(List<Usuario> listaUsuariosAux)
         {
@@ -220,7 +228,6 @@ namespace Entidades
             }
             return null;
         }
-
 
         public static List<Cliente> CargarListaNuevamenteClientes(List<Cliente> listaClienteAux)
         {

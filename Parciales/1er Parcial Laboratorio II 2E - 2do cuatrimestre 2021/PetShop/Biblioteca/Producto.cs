@@ -48,6 +48,15 @@ namespace Entidades
             this.cantidad = cantidad;
             this.precio = precio;
         }
+
+        public Producto( string nombre, string descripcion, int cantidad, double precio) : this()
+        {
+            this.Codigo = IdAutoIncremental();
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.cantidad = cantidad;
+            this.precio = precio;
+        }
         #endregion
 
         #region "Propiedades"
@@ -242,6 +251,9 @@ namespace Entidades
             sb.Append($" {this.Nombre}             {this.Precio}");
             return sb.ToString();
         }
+
+
+
 
         /// <summary>
         /// genera un id autoincremenal

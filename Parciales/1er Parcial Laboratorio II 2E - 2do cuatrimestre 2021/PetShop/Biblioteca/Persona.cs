@@ -73,7 +73,16 @@ namespace Entidades
         /// Mostrar el objeto
         /// </summary>
         /// <returns>Mostrar el objeto</returns>
-        public override string ToString()
+        //public override string ToString()
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append($"{this.Apellido} |");
+        //    sb.Append($"{this.Nombre} |");
+
+        //    return sb.ToString();
+        //}
+
+        public virtual string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append($"{this.Apellido} |");
@@ -81,8 +90,6 @@ namespace Entidades
 
             return sb.ToString();
         }
-
-        //public abstract string Mostrar();
     
         #endregion
 

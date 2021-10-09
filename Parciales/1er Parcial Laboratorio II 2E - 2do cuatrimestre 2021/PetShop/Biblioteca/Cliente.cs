@@ -104,24 +104,16 @@ namespace Entidades
         #endregion
 
         #region "Utils"
-        /// <summary>
-        /// Muestra la informacion del cliente
-        /// </summary>
-        /// <returns>Devuelve un mensaje</returns>
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(base.ToString());
-            return sb.ToString();
-        }
 
         /// <summary>
         /// Muestra la informacion del cliente
         /// </summary>
         /// <returns>Devuelve un mensaje</returns>
-        public string  Mostrar()
+        public override string Mostrar()
         {
-            return ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.Append(base.Mostrar());
+            return sb.ToString();
         }
 
         /// <summary>
