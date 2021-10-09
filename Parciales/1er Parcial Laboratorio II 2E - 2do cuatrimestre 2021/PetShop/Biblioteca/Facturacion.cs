@@ -75,15 +75,16 @@ namespace Entidades
             return new Facturacion(acum);
         }
 
-
-
         public override string ToString()
         {
             Facturacion facturacion = new Facturacion(((Facturacion)listaVenta).montoTotal);
             string fechaActual = (facturacion.Fecha).ToString("d", CultureInfo.CreateSpecificCulture("es-ES"));
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Fecha: {fechaActual}");
-            sb.AppendLine($"Facturación del dia: ${facturacion.MontoTotal}");
+            sb.AppendLine($"Facturación del dia: ${string.Format("{0:f2}", facturacion.MontoTotal)}");
+
+
+           
             return sb.ToString();
         }
 

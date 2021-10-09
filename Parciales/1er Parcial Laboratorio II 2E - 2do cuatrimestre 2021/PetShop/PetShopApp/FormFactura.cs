@@ -61,9 +61,28 @@ namespace PetShopApp
         public string MostrarFecha()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append($"Factura N°  {venta.NumeroFactura}    " + DateTime.Today.ToString("dd/MM/yyyy") + " " + DateTime.Now.ToString("HH:mm:ss"));
+            sb.Append($"Factura N°  {FormatoNroFactura()}       " + DateTime.Today.ToString("dd/MM/yyyy") + " " + DateTime.Now.ToString("HH:mm:ss"));
             return sb.ToString();
         }
+
+
+        public string FormatoNroFactura()
+        {
+            const int MaxLength = 5;
+            int aux;
+           // string ceros;
+            string numeroFactura = (venta.NumeroFactura).ToString();
+            aux = MaxLength - numeroFactura.Length;
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < aux; i++)
+            {
+
+                sb.Append("0");
+            }
+            sb.Append($"{ numeroFactura}");
+            return sb.ToString();
+        }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -76,7 +95,7 @@ namespace PetShopApp
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "(*.txt)|*.txt";
             // saveFileDialog1.Title = "Save an Image File";
-            saveFileDialog1.FileName = "Nombre del archivo";
+            saveFileDialog1.FileName = "Factura Nro_"+FormatoNroFactura()+"_"+ DateTime.Today.ToString("dd-MM-yyyy");
             try
             {
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
