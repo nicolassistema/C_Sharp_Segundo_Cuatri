@@ -48,6 +48,13 @@ namespace PetShopApp
             this.btnSacar = new System.Windows.Forms.Button();
             this.lblMostrarTotal = new System.Windows.Forms.Label();
             this.pnlCompra = new System.Windows.Forms.Panel();
+            this.lblDistancia = new System.Windows.Forms.Label();
+            this.chkSinEnvio = new System.Windows.Forms.CheckBox();
+            this.chkConEnvio = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblKgNumber = new System.Windows.Forms.Label();
+            this.lblKg = new System.Windows.Forms.Label();
+            this.lblTipoEnvio = new System.Windows.Forms.Label();
             this.btnLimpiarSelectProd = new System.Windows.Forms.Button();
             this.dgvListaProdSelecc = new System.Windows.Forms.DataGridView();
             this.CodProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +89,9 @@ namespace PetShopApp
             this.btnCancelarConfirmCompra = new System.Windows.Forms.Button();
             this.btnCompraNueva = new System.Windows.Forms.Button();
             this.btnConfirmarCompra = new System.Windows.Forms.Button();
+            this.lblDistancia2 = new System.Windows.Forms.Label();
+            this.lblCantCuadras = new System.Windows.Forms.Label();
+            this.lblPrcioXCuadra = new System.Windows.Forms.Label();
             this.pnlBuscarCliente.SuspendLayout();
             this.pnlCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProdSelecc)).BeginInit();
@@ -231,7 +241,7 @@ namespace PetShopApp
             // 
             this.lblMostrarTotal.AutoSize = true;
             this.lblMostrarTotal.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMostrarTotal.Location = new System.Drawing.Point(767, 400);
+            this.lblMostrarTotal.Location = new System.Drawing.Point(743, 374);
             this.lblMostrarTotal.Name = "lblMostrarTotal";
             this.lblMostrarTotal.Padding = new System.Windows.Forms.Padding(0, 0, 50, 0);
             this.lblMostrarTotal.Size = new System.Drawing.Size(83, 37);
@@ -240,6 +250,16 @@ namespace PetShopApp
             // 
             // pnlCompra
             // 
+            this.pnlCompra.Controls.Add(this.lblPrcioXCuadra);
+            this.pnlCompra.Controls.Add(this.lblCantCuadras);
+            this.pnlCompra.Controls.Add(this.lblDistancia2);
+            this.pnlCompra.Controls.Add(this.lblDistancia);
+            this.pnlCompra.Controls.Add(this.chkSinEnvio);
+            this.pnlCompra.Controls.Add(this.chkConEnvio);
+            this.pnlCompra.Controls.Add(this.label2);
+            this.pnlCompra.Controls.Add(this.lblKgNumber);
+            this.pnlCompra.Controls.Add(this.lblKg);
+            this.pnlCompra.Controls.Add(this.lblTipoEnvio);
             this.pnlCompra.Controls.Add(this.btnLimpiarSelectProd);
             this.pnlCompra.Controls.Add(this.dgvListaProdSelecc);
             this.pnlCompra.Controls.Add(this.dgvListaProductos);
@@ -251,8 +271,77 @@ namespace PetShopApp
             this.pnlCompra.Controls.Add(this.btnAgregar);
             this.pnlCompra.Location = new System.Drawing.Point(403, 53);
             this.pnlCompra.Name = "pnlCompra";
-            this.pnlCompra.Size = new System.Drawing.Size(863, 466);
+            this.pnlCompra.Size = new System.Drawing.Size(954, 466);
             this.pnlCompra.TabIndex = 10;
+            // 
+            // lblDistancia
+            // 
+            this.lblDistancia.AutoSize = true;
+            this.lblDistancia.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDistancia.Location = new System.Drawing.Point(814, 430);
+            this.lblDistancia.Name = "lblDistancia";
+            this.lblDistancia.Size = new System.Drawing.Size(23, 12);
+            this.lblDistancia.TabIndex = 22;
+            this.lblDistancia.Text = "Dist.";
+            // 
+            // chkSinEnvio
+            // 
+            this.chkSinEnvio.AutoSize = true;
+            this.chkSinEnvio.Location = new System.Drawing.Point(717, 445);
+            this.chkSinEnvio.Name = "chkSinEnvio";
+            this.chkSinEnvio.Size = new System.Drawing.Size(74, 19);
+            this.chkSinEnvio.TabIndex = 21;
+            this.chkSinEnvio.Text = "Sin Envio";
+            this.chkSinEnvio.UseVisualStyleBackColor = true;
+            // 
+            // chkConEnvio
+            // 
+            this.chkConEnvio.AutoSize = true;
+            this.chkConEnvio.Location = new System.Drawing.Point(717, 421);
+            this.chkConEnvio.Name = "chkConEnvio";
+            this.chkConEnvio.Size = new System.Drawing.Size(80, 19);
+            this.chkConEnvio.TabIndex = 20;
+            this.chkConEnvio.Text = "Con Envio";
+            this.chkConEnvio.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(896, 405);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 19);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "label2";
+            // 
+            // lblKgNumber
+            // 
+            this.lblKgNumber.AutoSize = true;
+            this.lblKgNumber.Location = new System.Drawing.Point(885, 377);
+            this.lblKgNumber.Name = "lblKgNumber";
+            this.lblKgNumber.Padding = new System.Windows.Forms.Padding(0, 0, 27, 0);
+            this.lblKgNumber.Size = new System.Drawing.Size(65, 15);
+            this.lblKgNumber.TabIndex = 18;
+            this.lblKgNumber.Text = "label4";
+            // 
+            // lblKg
+            // 
+            this.lblKg.AutoSize = true;
+            this.lblKg.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblKg.Location = new System.Drawing.Point(858, 377);
+            this.lblKg.Name = "lblKg";
+            this.lblKg.Size = new System.Drawing.Size(25, 15);
+            this.lblKg.TabIndex = 17;
+            this.lblKg.Text = "Kg.";
+            // 
+            // lblTipoEnvio
+            // 
+            this.lblTipoEnvio.AutoSize = true;
+            this.lblTipoEnvio.Location = new System.Drawing.Point(854, 408);
+            this.lblTipoEnvio.Name = "lblTipoEnvio";
+            this.lblTipoEnvio.Size = new System.Drawing.Size(38, 15);
+            this.lblTipoEnvio.TabIndex = 16;
+            this.lblTipoEnvio.Text = "label2";
             // 
             // btnLimpiarSelectProd
             // 
@@ -292,7 +381,7 @@ namespace PetShopApp
             this.dgvListaProdSelecc.Name = "dgvListaProdSelecc";
             this.dgvListaProdSelecc.RowHeadersVisible = false;
             this.dgvListaProdSelecc.RowTemplate.Height = 25;
-            this.dgvListaProdSelecc.Size = new System.Drawing.Size(399, 357);
+            this.dgvListaProdSelecc.Size = new System.Drawing.Size(497, 357);
             this.dgvListaProdSelecc.TabIndex = 14;
             // 
             // CodProducto
@@ -381,7 +470,7 @@ namespace PetShopApp
             // 
             this.lblPesos.AutoSize = true;
             this.lblPesos.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPesos.Location = new System.Drawing.Point(728, 400);
+            this.lblPesos.Location = new System.Drawing.Point(704, 374);
             this.lblPesos.Name = "lblPesos";
             this.lblPesos.Size = new System.Drawing.Size(33, 37);
             this.lblPesos.TabIndex = 12;
@@ -390,7 +479,7 @@ namespace PetShopApp
             // btnCancelaCompra
             // 
             this.btnCancelaCompra.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancelaCompra.Location = new System.Drawing.Point(647, 391);
+            this.btnCancelaCompra.Location = new System.Drawing.Point(628, 391);
             this.btnCancelaCompra.Name = "btnCancelaCompra";
             this.btnCancelaCompra.Size = new System.Drawing.Size(75, 53);
             this.btnCancelaCompra.TabIndex = 11;
@@ -400,7 +489,7 @@ namespace PetShopApp
             // 
             // btnAceptaCompra
             // 
-            this.btnAceptaCompra.Location = new System.Drawing.Point(549, 391);
+            this.btnAceptaCompra.Location = new System.Drawing.Point(540, 391);
             this.btnAceptaCompra.Name = "btnAceptaCompra";
             this.btnAceptaCompra.Size = new System.Drawing.Size(75, 53);
             this.btnAceptaCompra.TabIndex = 10;
@@ -617,11 +706,40 @@ namespace PetShopApp
             this.btnConfirmarCompra.UseVisualStyleBackColor = false;
             this.btnConfirmarCompra.Click += new System.EventHandler(this.btnConfirmarCompra_Click);
             // 
+            // lblDistancia2
+            // 
+            this.lblDistancia2.AutoSize = true;
+            this.lblDistancia2.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDistancia2.Location = new System.Drawing.Point(814, 442);
+            this.lblDistancia2.Name = "lblDistancia2";
+            this.lblDistancia2.Size = new System.Drawing.Size(40, 12);
+            this.lblDistancia2.TabIndex = 23;
+            this.lblDistancia2.Text = "Cuadras";
+            // 
+            // lblCantCuadras
+            // 
+            this.lblCantCuadras.AutoSize = true;
+            this.lblCantCuadras.Location = new System.Drawing.Point(856, 435);
+            this.lblCantCuadras.Name = "lblCantCuadras";
+            this.lblCantCuadras.Size = new System.Drawing.Size(38, 15);
+            this.lblCantCuadras.TabIndex = 24;
+            this.lblCantCuadras.Text = "label3";
+            // 
+            // lblPrcioXCuadra
+            // 
+            this.lblPrcioXCuadra.AutoSize = true;
+            this.lblPrcioXCuadra.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblPrcioXCuadra.Location = new System.Drawing.Point(896, 433);
+            this.lblPrcioXCuadra.Name = "lblPrcioXCuadra";
+            this.lblPrcioXCuadra.Size = new System.Drawing.Size(50, 19);
+            this.lblPrcioXCuadra.TabIndex = 25;
+            this.lblPrcioXCuadra.Text = "label4";
+            // 
             // FormVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1280, 527);
+            this.ClientSize = new System.Drawing.Size(1366, 527);
             this.Controls.Add(this.pnlConfirmarCompra);
             this.Controls.Add(this.pnlVenta);
             this.Controls.Add(this.pnlCompra);
@@ -697,5 +815,15 @@ namespace PetShopApp
         private System.Windows.Forms.Button btnConfirmarCompra;
         private System.Windows.Forms.Button btnSalirDeVenta;
         private System.Windows.Forms.Button btnCompraNueva;
+        private System.Windows.Forms.Label lblKgNumber;
+        private System.Windows.Forms.Label lblKg;
+        private System.Windows.Forms.Label lblTipoEnvio;
+        private System.Windows.Forms.CheckBox chkSinEnvio;
+        private System.Windows.Forms.CheckBox chkConEnvio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDistancia;
+        private System.Windows.Forms.Label lblPrcioXCuadra;
+        private System.Windows.Forms.Label lblCantCuadras;
+        private System.Windows.Forms.Label lblDistancia2;
     }
 }
