@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Entidades
 {
@@ -7,7 +8,9 @@ namespace Entidades
         static List<Usuario> listaUsuarios;
         static List<Producto> listaProductos;
         static List<Cliente> listaClientes;
-        static List<Venta> listaVentas;
+        public static List<Venta> listaVentas;
+        public static List<Facturacion> listaFacturas;
+        static Usuario usuario;
 
         static PetShop()
         {
@@ -15,6 +18,7 @@ namespace Entidades
             Producto = new List<Producto>();
             Cliente = new List<Cliente>();
             Ventas = new List<Venta>();
+            usuario = new Usuario();
             HarcodearListas();
         }
 
@@ -90,8 +94,8 @@ namespace Entidades
             listaProductos += (new Cama("Marca pepito", "Cama lalala", "Cama grande descripcion", 35, 12.50, Cama.ETamanio.Chico));
             listaProductos += (new Juguete("Marca pepito", "juguete  lalala", "juguete grande descripcion", 35, 12.12, Juguete.EMaterial.Plastico));
             listaProductos += (new Juguete("Marca pepito", "juguete lalala", "juguete grande descripcion", 35, 12.14, Juguete.EMaterial.Goma));
-            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.98, Alimento.ETipoAlimento.Natural));
-            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 0, 12.36, Alimento.ETipoAlimento.Balanceado));
+            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 35, 12.98, Alimento.ETipoAlimento.Natural));
+            listaProductos += (new Alimento("Marca pepito", "Alimento  lalala", "Alimento grande descripcion", 35, 12.36, Alimento.ETipoAlimento.Balanceado));
             listaProductos += (new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "farmacia grande descripcion", 35, 12.85, ArtCuidadoMascota.ETipoCuidado.Farmacia));
             listaProductos += (new ArtCuidadoMascota("Marca pepito", "Farmacia  lalala", "Limpieza grande descripcion", 35, 12.05, ArtCuidadoMascota.ETipoCuidado.Limpieza));
         }
@@ -108,12 +112,21 @@ namespace Entidades
 
         private static void HardcodVentas()
         {
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
-            listaVentas += (new Venta(listaUsuarios[0], listaClientes[0], listaProductos));
+            Producto prod1 = new Producto(1, "Dog Chow", "Dog Chow", 4000);
+
+            listaVentas += (new Venta(new Usuario("123456789","Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326","Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789","Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
         }
 
+
+   
+
+        public static List<Venta> ObtenerListaVentas()
+        {
+            return listaVentas;
+        }
 
         public static List<Cliente> ObtenerListaCliente()
         {

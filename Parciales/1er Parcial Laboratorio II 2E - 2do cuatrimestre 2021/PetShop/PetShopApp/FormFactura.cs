@@ -15,7 +15,7 @@ namespace PetShopApp
     public partial class FormFactura : Form
     {
         Venta venta;
-   
+
         public FormFactura()
         {
             InitializeComponent();
@@ -24,18 +24,14 @@ namespace PetShopApp
 
         public FormFactura(Venta venta) : this()
         {
+            rtxTicket.Enabled = false;
             this.venta = venta;
-            Imprimir();
-
-
+            ImprimirPorPantalla();
         }
 
-
-        public void Imprimir()
+        public void ImprimirPorPantalla()
         {
             StringBuilder sb = new StringBuilder();
-
-
             sb.AppendLine("---------------------Pet Shop------------------");
             sb.AppendLine("                    'El Pikachu Juan'             ");
             sb.AppendLine("           By Nicolas Ezequiel Letticugna       ");
@@ -44,15 +40,12 @@ namespace PetShopApp
             sb.AppendLine("------------------------------------------------");
             sb.AppendLine(MostrarFecha());
             sb.Append(venta.ToString());
-
             rtxTicket.Text = sb.ToString();
         }
 
         public string ImprimirTicket()
         {
             StringBuilder sb = new StringBuilder();
-
-
             sb.AppendLine("---------------------Pet Shop------------------");
             sb.AppendLine("                    'El Pikachu Juan'             ");
             sb.AppendLine("           By Nicolas Ezequiel Letticugna       ");
@@ -65,30 +58,28 @@ namespace PetShopApp
             return sb.ToString();
         }
 
-     public string MostrarFecha()
+        public string MostrarFecha()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("Factura N°                   " + DateTime.Today.ToString("dd/MM/yyyy") +" "+DateTime.Now.ToString("HH:mm:ss"));
+            sb.Append($"Factura N°  {venta.NumeroFactura}    " + DateTime.Today.ToString("dd/MM/yyyy") + " " + DateTime.Now.ToString("HH:mm:ss"));
             return sb.ToString();
-           
         }
-
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
-        private void Imprimir2()
+        private void ImprimirEnTxt()
         {
             string dirParameter = AppDomain.CurrentDomain.BaseDirectory + @"\file.txt";
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "(*.txt)|*.txt";
-           // saveFileDialog1.Title = "Save an Image File";
+            // saveFileDialog1.Title = "Save an Image File";
             saveFileDialog1.FileName = "Nombre del archivo";
             try
             {
-                if (saveFileDialog1.ShowDialog()==DialogResult.OK)
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     if (File.Exists(saveFileDialog1.FileName))
                     {
@@ -112,21 +103,9 @@ namespace PetShopApp
             }
         }
 
-
-
-
-        //private void GuardarTxt()
-        //{
-        //    string directorio = Directory.GetCurrentDirectory();
-        //    StreamWriter ticket = new StreamWriter(String.Concat (directorio, "/ticketCompra.txt"));
-        //    ticket.WriteLine(ImprimirTicket());
-        //    ticket.Close();
-        //}
-
-
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            Imprimir2();
+            ImprimirEnTxt();
         }
     }
 }

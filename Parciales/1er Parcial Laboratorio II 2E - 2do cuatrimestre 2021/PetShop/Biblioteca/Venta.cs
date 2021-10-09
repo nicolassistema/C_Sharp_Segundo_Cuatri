@@ -33,9 +33,10 @@ namespace Entidades
         {
             this.NumeroFactura = IdFacturacionAutoIncremental();
             this.Cliente = cliente;
+            this.productos = productos;
             this.MontoTotal = CalcularMontoTotal();
             this.Usuario = usuario;
-            this.productos = productos;
+           
         }
         #region "Propiedades"
 
@@ -115,6 +116,7 @@ namespace Entidades
         {
             return !(productos == producto);
         }
+
         public static List<Venta> operator +(List<Venta> ventas, Venta venta)
         {
             if (ventas != venta)
@@ -133,7 +135,7 @@ namespace Entidades
         /// <returns>devuelve el id incrementado</returns>
         public int IdFacturacionAutoIncremental()
         {
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= PetShop.ObtenerListaVentas().Count; i++)
             {
                 this.numeroFactura = i + 1;
             }
@@ -209,14 +211,11 @@ namespace Entidades
             sb.AppendLine("------------------------------------------------");
             sb.AppendLine("   TODOS LOS PROD. CON I.V.A. INCLUD.     ");
             sb.AppendLine("------------------------------------------------");
-            sb.AppendLine("                                  TOTAL : $" + string.Format("{0:f2}", total));
+            sb.AppendLine("                           TOTAL : $" + string.Format("{0:f2}", total));
             sb.AppendLine("------------------------------------------------");
             sb.AppendLine($"Fue atendid@ por: {usuario.Nombre} {usuario.Apellido}");
             return sb.ToString();
         }
-
-
-
 
 
         /// <summary>

@@ -8,17 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
-
+using System.Globalization;
 
 
 namespace PetShopApp
 {
     public partial class frmFacturacion : Form
     {
+        private Timer ti;
+
         Usuario userForm;
+        List<Venta> listaVentas;
+        Facturacion facturacion;
         public frmFacturacion()
         {
+            ti = new Timer();
+            ti.Tick += new EventHandler(eventoTimer);
             InitializeComponent();
+            ti.Enabled = true;
+            lblTimer.Visible = true;
         }
 
         public frmFacturacion(Usuario usuario) : this()
@@ -26,6 +34,21 @@ namespace PetShopApp
             this.userForm = usuario;
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
         }
+
+        public frmFacturacion(Usuario usuario, List<Venta> ventas) : this()
+        {
+            this.userForm = usuario;
+            lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
+            this.listaVentas = ventas;
+            CargarTexto();
+        }
+
+        private void eventoTimer(object ob, EventArgs evt)
+        {
+            DateTime hoy = DateTime.Now;
+            lblTimer.Text = hoy.ToString("F", CultureInfo.CreateSpecificCulture("es-ES"));
+        }
+
 
         private void lblVolver_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -50,5 +73,16 @@ namespace PetShopApp
                 this.Close();
             }
         }
+
+        public void CargarTexto()
+        {
+            lblFecha.Visible = true;
+            facturacion = new Facturacion(listaVentas);
+            lblFecha.Text = facturacion.ToString();
+        }
+
+
+
+
     }
 }

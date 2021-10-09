@@ -55,7 +55,7 @@ namespace PetShopApp
 
         private void btnFacturacion_Click(object sender, EventArgs e)
         {
-            frmFacturacion venta = new frmFacturacion(this.userForm);
+            frmFacturacion venta = new frmFacturacion(this.userForm, PetShop.ObtenerListaVentas());
             this.Hide();
             venta.ShowDialog();
             this.Close();

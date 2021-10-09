@@ -1,19 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Globalization;
 
 namespace Entidades
 {
     public class Facturacion
     {
+
         DateTime fecha;
         double montoTotal;
+        List<Venta> listaVenta;
 
-        public Facturacion(double montoTotal)
+        public Facturacion()
+        {
+
+        }
+
+        public Facturacion(double montoTotal) : this()
         {
             this.fecha = DateTime.Now;
             this.montoTotal = montoTotal;
         }
 
+        public Facturacion(List<Venta> listaVenta) : this()
+        {
+            this.fecha = DateTime.Now;
+            this.montoTotal = ((Facturacion)listaVenta).montoTotal;
+            this.listaVenta = listaVenta;
+        }
 
         /// <summary>
         /// setea y devuelve el dato
@@ -58,5 +74,22 @@ namespace Entidades
             }
             return new Facturacion(acum);
         }
+
+
+
+        public override string ToString()
+        {
+            Facturacion facturacion = new Facturacion(((Facturacion)listaVenta).montoTotal);
+            string fechaActual = (facturacion.Fecha).ToString("d", CultureInfo.CreateSpecificCulture("es-ES"));
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Fecha: {fechaActual}");
+            sb.AppendLine($"Facturación del dia: ${facturacion.MontoTotal}");
+            return sb.ToString();
+        }
+
+
+
+
+
     }
 }

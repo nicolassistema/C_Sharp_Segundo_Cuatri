@@ -27,44 +27,44 @@ namespace Test
             //    );
 
 
-           List<Cliente> listaCliente = new List<Cliente>()
-            {
+            List<Cliente> listaCliente = new List<Cliente>()
+              {
 
-          new Cliente("menagno", "lopez", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                new List<Producto>()
-                {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Cama.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguete.EMaterial.Goma)
-                }),
-           new Cliente("dfdfdf", "lopeuuuu", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
-                new List<Producto>()
-                {
-                    new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Cama.ETamanio.Grande),
-                    new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguete.EMaterial.Goma)
-                })
-
-
-            };
-
-      //      Console.WriteLine(unaCama.ToString());
+            new Cliente("menagno", "lopez", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
+                  new List<Producto>()
+                  {
+                      new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Cama.ETamanio.Grande),
+                      new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguete.EMaterial.Goma)
+                  }),
+             new Cliente("dfdfdf", "lopeuuuu", "32320600", Entidades.Cliente.ETipoPago.Efectivo, 250,
+                  new List<Producto>()
+                  {
+                      new Camas(1, "Marca pepito", "Cama lalala", "Cama grande descripcion", 1, 12.30, Cama.ETamanio.Grande),
+                      new Juguetes(4, "Marca pepito", "juguete lalala", "juguete grande descripcion", 1, 12.30, Juguete.EMaterial.Goma)
+                  })
 
 
-       //     Console.WriteLine(unCliente.ToString());
+            //  };
+
+                //      Console.WriteLine(unaCama.ToString());
 
 
-            //if (empleado.PerfilUsuario == Usuario.EPerfilUsuario.Admin)
-            //{
-            //    Console.WriteLine("****************Correcto");
-            //}
+                //     Console.WriteLine(unCliente.ToString());
+
+
+                //if (empleado.PerfilUsuario == Usuario.EPerfilUsuario.Admin)
+                //{
+                //    Console.WriteLine("****************Correcto");
+                //}
 
 
             foreach (var item in listaCliente)
             {
-                Console.WriteLine(item.ToString()); 
+                Console.WriteLine(item.ToString());
             }
-    
 
-            
+
+
 
         }
     }

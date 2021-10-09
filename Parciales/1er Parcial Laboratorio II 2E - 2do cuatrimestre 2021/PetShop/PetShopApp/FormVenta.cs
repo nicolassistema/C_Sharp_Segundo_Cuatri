@@ -468,6 +468,7 @@ namespace PetShopApp
             Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), double.Parse(lblMontoPagar.Text.ToString()));
             Venta venta = new Venta(userForm, cliente, double.Parse(lblMontoVta.Text.ToString()), listaProducto);
             FormFactura factura = new FormFactura(venta);
+            PetShop.listaVentas += venta;
             PasoFinal();
             factura.ShowDialog();
         }
