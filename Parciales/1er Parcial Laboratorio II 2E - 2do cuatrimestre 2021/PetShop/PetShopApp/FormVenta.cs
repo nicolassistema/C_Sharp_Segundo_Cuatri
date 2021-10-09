@@ -14,7 +14,7 @@ namespace PetShopApp
     public partial class FormVenta : Form
     {
         Usuario userForm;
-    
+
 
         public FormVenta()
         {
@@ -75,7 +75,7 @@ namespace PetShopApp
                 precio = double.Parse(dgvListaProductos.Rows[i].Cells[4].Value.ToString());
                 PetShop.listaProductos += new Producto(nombre, marca, cantidad, precio);
             }
-            return  PetShop.ObtenerPorductos();
+            return PetShop.ObtenerPorductos();
         }
 
         private void lblCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -305,17 +305,24 @@ namespace PetShopApp
             Producto productoAux = new Producto();
             int aux = Convert.ToInt32(dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[0].Value);
             productoAux = PetShop.ObtenerProductoByID(aux);
-            dgvListaProdSelecc.Rows.Add(new[] { productoAux.Codigo.ToString(), productoAux.Nombre.ToString(), productoAux.Marca.ToString(), productoAux.Precio.ToString() });
-            dgvListaProdSelecc.AllowUserToAddRows = false;
-            for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
-            {
-                acum += double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
-            }
-            lblMostrarTotal.Text = string.Format("{0:f2}", acum);
 
-            stock = Convert.ToInt32(dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[3].Value);
-            stock -= 1;
-            dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[3].Value = stock.ToString();
+            if (!(Convert.ToInt32(dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[3].Value) < 1))
+            {
+                dgvListaProdSelecc.Rows.Add(new[] { productoAux.Codigo.ToString(), productoAux.Nombre.ToString(), productoAux.Marca.ToString(), productoAux.Precio.ToString() });
+                dgvListaProdSelecc.AllowUserToAddRows = false;
+                for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
+                {
+                    acum += double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
+                }
+                lblMostrarTotal.Text = string.Format("{0:f2}", acum);
+                stock = Convert.ToInt32(dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[3].Value);
+                stock -= 1;
+                dgvListaProductos.Rows[dgvListaProductos.CurrentCell.RowIndex].Cells[3].Value = stock.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Producto sin stock!!!");
+            }
         }
 
         private void btnSacar_Click(object sender, EventArgs e)
@@ -346,7 +353,7 @@ namespace PetShopApp
             if (double.Parse(lblMostrarTotal.Text) <= 0)
             {
                 btnAceptaCompra.Enabled = false;
-              //  btnCancelaCompra.Enabled = false;
+                //  btnCancelaCompra.Enabled = false;
                 btnSacar.Enabled = false;
                 btnLimpiarSelectProd.Enabled = false;
             }
@@ -481,7 +488,7 @@ namespace PetShopApp
                 marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
                 nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
                 precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
-                Producto producto = new Producto(id,marca, nombre, precio);
+                Producto producto = new Producto(id, marca, nombre, precio);
                 listaProducto += (producto);
             }
             Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), double.Parse(lblMontoPagar.Text.ToString()));
@@ -501,7 +508,7 @@ namespace PetShopApp
             btnCompraNueva.Visible = true;
             btnConfirmarCompra.Visible = false;
             btnCancelarConfirmCompra.Visible = false;
-        
+
         }
 
         private void btnSalirDeVenta_Click(object sender, EventArgs e)
