@@ -15,7 +15,6 @@ namespace PetShopApp
     {
         Usuario userForm;
     
-       // Producto producto;
 
         public FormVenta()
         {
@@ -29,7 +28,6 @@ namespace PetShopApp
             btnSalirDeVenta.Visible = false;
             btnCompraNueva.Visible = false;
             lblNombreUsuario.Text = usuario.Nombre + " " + usuario.Apellido;
-            CargarDataGridProducto();
             btnCancelaCompra.Enabled = false;
             btnAceptaCompra.Enabled = false;
             dgvListaProdSelecc.AllowUserToAddRows = false;
@@ -42,7 +40,6 @@ namespace PetShopApp
             FocusPnlBuscarCliente(true);
             VisibilidadPnlConfirmarCompra(false);
         }
-
 
 
         public void CargarDataGridProducto()
@@ -63,32 +60,23 @@ namespace PetShopApp
         }
 
 
-
         public List<Producto> ActualizarInventario()
         {
             List<Producto> listaAux = new List<Producto>();
-            //   int id;
             string nombre;
-            string descripcion;
+            string marca;
             int cantidad;
             double precio;
-
-            // dgvListaProductos.Refresh();
-            // dgvListaProductos.DataSource = null;
-            //dgvListaProductos.RowCount = PetShop.ObtenerPorductos().Count;
             for (int i = 0; i < dgvListaProductos.RowCount; i++)
             {
-                //  id =Convert.ToInt32(dgvListaProductos.Rows[i].Cells[0].Value);
                 nombre = dgvListaProductos.Rows[i].Cells[1].Value.ToString();
-                descripcion = dgvListaProductos.Rows[i].Cells[2].Value.ToString();
+                marca = dgvListaProductos.Rows[i].Cells[2].Value.ToString();
                 cantidad = Convert.ToInt32(dgvListaProductos.Rows[i].Cells[3].Value.ToString());
                 precio = double.Parse(dgvListaProductos.Rows[i].Cells[4].Value.ToString());
-
-                listaAux += new Producto(nombre, descripcion, cantidad, precio);
+                PetShop.listaProductos += new Producto(nombre, marca, cantidad, precio);
             }
-            return  PetShop.UpdateInventario(listaAux);
+            return  PetShop.ObtenerPorductos();
         }
-
 
         private void lblCerrarSesion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -487,8 +475,6 @@ namespace PetShopApp
             double precio;
             List<Producto> listaProducto = new List<Producto>();
 
-          //  this.dgvListaProdSelecc.Sort(dgvListaProdSelecc.Columns(1), ListSortDirection.Ascending);
-
             for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
             {
                 id = Convert.ToInt32(dgvListaProdSelecc.Rows[i].Cells[0].Value.ToString());
@@ -502,9 +488,8 @@ namespace PetShopApp
             Venta venta = new Venta(userForm, cliente, double.Parse(lblMontoVta.Text.ToString()), listaProducto);
             FormFactura factura = new FormFactura(venta);
             PetShop.listaVentas += venta;
+            PetShop.LimpiarListaProductos();
             ActualizarInventario();
-
-          //  PetShop.RestarInventario();
 
             PasoFinal();
             factura.ShowDialog();

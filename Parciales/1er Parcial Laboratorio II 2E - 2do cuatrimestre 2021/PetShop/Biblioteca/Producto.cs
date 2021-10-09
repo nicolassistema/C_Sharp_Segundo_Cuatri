@@ -21,7 +21,7 @@ namespace Entidades
 
         }
 
-        public Producto( int codigoDos, string marca, string nombre, double precio) : this()
+        public Producto(int codigoDos, string marca, string nombre, double precio) : this()
         {
             this.codigoDos = codigoDos;
             this.marca = marca;
@@ -31,6 +31,7 @@ namespace Entidades
 
         public Producto(string marca, string nombre, string descripcion, double precio) : this()
         {
+
             this.Codigo = IdAutoIncremental();
             this.marca = marca;
             this.nombre = nombre;
@@ -49,11 +50,11 @@ namespace Entidades
             this.precio = precio;
         }
 
-        public Producto( string nombre, string descripcion, int cantidad, double precio) : this()
+        public Producto(string marca, string nombre, int cantidad, double precio) : this()
         {
             this.Codigo = IdAutoIncremental();
             this.nombre = nombre;
-            this.descripcion = descripcion;
+            this.marca = marca;
             this.cantidad = cantidad;
             this.precio = precio;
         }
@@ -211,7 +212,7 @@ namespace Entidades
         {
             if (productos != producto)
             {
-               productos.Add(producto);
+                productos.Add(producto);
                 return productos;
             }
             else
@@ -253,20 +254,21 @@ namespace Entidades
         }
 
 
-
-
         /// <summary>
         /// genera un id autoincremenal
         /// </summary>
         /// <returns>devuelve el id autoincrementado</returns>
         public int IdAutoIncremental()
         {
-            for (int i = 0; i <= PetShop.ObtenerPorductos().Count; i++)
-            {
-                codigo = i + 1;
-            }
+         
+                for (int i = 0; i <= PetShop.ObtenerPorductos().Count; i++)
+                {
+                    codigo = i + 1;
+                }
+          
             return codigo;
         }
+
         #endregion
     }
 }

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Entidades
 {
     public static class PetShop
     {
         static List<Usuario> listaUsuarios;
-        static List<Producto> listaProductos;
+        public static List<Producto> listaProductos;
+        static List<Producto> listaProductosWork;
         static List<Cliente> listaClientes;
         public static List<Venta> listaVentas;
         public static List<Facturacion> listaFacturas;
@@ -19,6 +21,7 @@ namespace Entidades
             Cliente = new List<Cliente>();
             Ventas = new List<Venta>();
             usuario = new Usuario();
+            listaProductosWork = new List<Producto>();
             HarcodearListas();
         }
 
@@ -90,6 +93,8 @@ namespace Entidades
 
         private static void HardcodProductos()
         {
+
+
             listaProductos += (new Cama("Cama pepito           ", "Cama lalala", "Cama grande descripcion", 35, 11.11, Cama.ETamanio.Grande));
             listaProductos += (new Cama("Cama  pepito          ", "Cama lalala", "Cama grande descripcion", 35, 22.22, Cama.ETamanio.Chico));
             listaProductos += (new Juguete("juguete pepito        ", "juguete  lalala", "juguete grande descripcion", 35, 33.33, Juguete.EMaterial.Plastico));
@@ -114,24 +119,13 @@ namespace Entidades
         {
             Producto prod1 = new Producto(1, "Dog Chow", "Dog Chow", 4000);
 
-            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
-            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
-            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
-            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "Lucas", "Rodriguez", "admin", "admin", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "Nicolas", "Letticugna", "lrodriguez", "lucas2021", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "Caro", "LaScrofani", "admin", "admin", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
+            listaVentas += (new Venta(new Usuario("123456789", "bobo", "esponja", "admin", "admin", Entidades.Usuario.EPerfilUsuario.Admin), new Cliente("20333232326", "Cosme", "Fulanito", 0), new List<Producto> { prod1 }));
         }
 
-
-
-        public static List<Producto> UpdateInventario (List<Producto> producto)
-        {
-            listaProductos = new List<Producto>();
-
-            foreach (var item in producto)
-            {
-                listaProductos += item;
-            }
-            return listaProductos;
-        }
+   
 
         public static List<Venta> ObtenerListaVentas()
         {
@@ -203,6 +197,11 @@ namespace Entidades
                 }
             }
             return false;
+        }
+
+        public static void LimpiarListaProductos()
+        {
+            listaProductos.Clear();
         }
 
         public static void LimpiarListaUsarios()
