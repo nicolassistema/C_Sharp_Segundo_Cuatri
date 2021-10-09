@@ -24,6 +24,9 @@ namespace PetShopApp
 
         public FormVenta(Usuario usuario) : this()
         {
+            InicializadorCuadras();
+            chkSinEnvio.Checked = true;
+            ActiveDesctiveEnvio(false);
             this.userForm = usuario;
             btnSalirDeVenta.Visible = false;
             btnCompraNueva.Visible = false;
@@ -289,6 +292,32 @@ namespace PetShopApp
             }
         }
 
+        public void ActiveDesctiveEnvio(bool estado)
+        {
+            if (estado)
+            {
+                lblKg.Visible = true;
+                lblKgNumber.Visible = true;
+                lblTipoEnvio.Visible = true;
+                lblMontoTipoEnvio.Visible = true;
+                lblDistancia.Visible = true;
+                lblDistancia2.Visible = true;
+                lblCantCuadras.Visible = true;
+                lblPrcioXCuadra.Visible = true;
+            }
+            else
+            {
+                lblKg.Visible = false;
+                lblKgNumber.Visible = false;
+                lblTipoEnvio.Visible = false;
+                lblMontoTipoEnvio.Visible = false;
+                lblDistancia.Visible = false;
+                lblDistancia2.Visible = false;
+                lblCantCuadras.Visible = false;
+                lblPrcioXCuadra.Visible = false;
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             btnLimpiarSelectProd.Enabled = true;
@@ -361,8 +390,10 @@ namespace PetShopApp
 
         private void btnAceptaCompra_Click(object sender, EventArgs e)
         {
+            double precioXCuadra = 0;
+            double total = 0;
+            double resultado = 0;
             ActivDesactivPnlCompra(false);
-            // btnLimpiarSelectProd.Enabled = false;
             ActivDesactivPnlVenta(true);
             pnlVenta.Visible = true;
             cmbFromaPago.Enabled = true;
@@ -373,22 +404,35 @@ namespace PetShopApp
             txtMontoAPagar.Text = "";
             lblMontoPagar.Text = "0.00";
             lblVto.Text = "0.00";
-            Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), 0);
-            List<Producto> listaProductoAComprar = new List<Producto>();
-            Producto producto;
+            //Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), 0);
+            //List<Producto> listaProductoAComprar = new List<Producto>();
+            //Producto producto;
 
-            for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
-            {
-                int codigo = Convert.ToInt32(dgvListaProdSelecc.Rows[i].Cells[0].Value.ToString());
-                string marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
-                string nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
-                double precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
-                producto = new Producto(codigo, marca, nombre, precio);
-                listaProductoAComprar += producto;
-            }
-            Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()), listaProductoAComprar);
+            //for (int i = 0; i < dgvListaProdSelecc.RowCount; i++)
+            //{
+            //    int codigo = Convert.ToInt32(dgvListaProdSelecc.Rows[i].Cells[0].Value.ToString());
+            //    string marca = dgvListaProdSelecc.Rows[i].Cells[1].Value.ToString();
+            //    string nombre = dgvListaProdSelecc.Rows[i].Cells[2].Value.ToString();
+            //    double precio = double.Parse(dgvListaProdSelecc.Rows[i].Cells[3].Value.ToString());
+            //    producto = new Producto(codigo, marca, nombre, precio);
+            //    listaProductoAComprar += producto;
+            //}
+            //Venta venta = new Venta(userForm, cliente, double.Parse(lblMostrarTotal.Text.ToString()), listaProductoAComprar);
             //MessageBox.Show(venta.ToString());
-            lblMontoVta.Text = lblMostrarTotal.Text;
+            if (!chkConEnvio.Checked)
+            {
+                lblMontoVta.Text = lblMostrarTotal.Text.ToString();
+
+            }
+            else
+            {
+               
+                precioXCuadra = double.Parse(lblPrcioXCuadra.Text.ToString());
+                total = double.Parse(lblMostrarTotal.Text.ToString());
+                resultado = precioXCuadra + total;
+                lblMontoVta.Text = resultado.ToString();
+            }
+            
         }
 
         private void btnCancelaCompra_Click(object sender, EventArgs e)
@@ -491,10 +535,12 @@ namespace PetShopApp
                 Producto producto = new Producto(id, marca, nombre, precio);
                 listaProducto += (producto);
             }
+         //
             Cliente cliente = new Cliente(lblCuit.Text.ToString(), lblNombre.Text.ToString(), lblApellido.Text.ToString(), double.Parse(lblMontoPagar.Text.ToString()));
-            Venta venta = new Venta(userForm, cliente, double.Parse(lblMontoVta.Text.ToString()), listaProducto);
+            Venta venta = new Venta(userForm, cliente, double.Parse(lblMontoVta.Text.ToString()), listaProducto, double.Parse(lblPrcioXCuadra.Text.ToString()));
             FormFactura factura = new FormFactura(venta);
             PetShop.listaVentas += venta;
+         
             PetShop.LimpiarListaProductos();
             ActualizarInventario();
 
@@ -531,9 +577,87 @@ namespace PetShopApp
             this.Close();
         }
 
-     
+        private void chkSinEnvio_CheckedChanged(object sender, EventArgs e)
+        {
+            chkConEnvio.Checked = false;
+            ActiveDesctiveEnvio(false);
+        }
+
+        private void chkConEnvio_CheckedChanged(object sender, EventArgs e)
+        {
+            chkSinEnvio.Checked = false;
+            ActiveDesctiveEnvio(true);
+        }
+
+        private void CheckedSinEnvio(object sender, MouseEventArgs e)
+        {
+            chkSinEnvio.Checked = true;
+        }
+
+        private void CheckedConEnvio(object sender, MouseEventArgs e)
+        {
+            chkConEnvio.Checked = true;
+        }
+
+        private int RandomCuadra()
+        {
+            Random r = new Random();
+            return int.Parse(r.Next(1, 90).ToString());
+        }
+
+        private int CalculoCuadra(int numero)
+        {
+            if (numero <= 30)
+            {
+                return 150;
+            }
+            else if (numero <= 60)
+            {
+                return 300;
+            }
+            else if (numero <= 90)
+            {
+                return 450;
+            }
+            else if (numero > 90)
+            {
+                return 60;
+            }
+            return 0;
+        }
+
+        private string InfoCuadras(int numero)
+        {
+            if (numero <= 30)
+            {
+                return "Hasta 30";
+            }
+            else if (numero <= 60)
+            {
+                return "Hasta 60";
+            }
+            else if (numero <= 90)
+            {
+                return "Hasta 90";
+            }
+            else if (numero > 90)
+            {
+                return "Mas de 90";
+            }
+            return "";
+        }
+
+        private void InicializadorCuadras()
+        {
+            int numero = RandomCuadra();
+            lblCantCuadras.Text = InfoCuadras(numero);
+            lblPrcioXCuadra.Text = CalculoCuadra(numero).ToString();
+        }
+
+        public double ObtenerMontoEnvio()
+        {
+            return double.Parse(lblPrcioXCuadra.Text.ToString());
+        }
+
     }
-
-
-
 }

@@ -6,12 +6,14 @@ namespace Entidades
 {
     public class Venta
     {
+        
         List<Producto> productos;
         Cliente cliente;
         Usuario usuario;
-        Venta venta;
+        Venta ventaEntrada;
         int numeroFactura;
         double montoTotal;
+        double montoEnvio;
 
 
         public Venta()
@@ -19,13 +21,14 @@ namespace Entidades
             productos = new List<Producto>();
         }
 
-        public Venta(Usuario usuario, Cliente cliente, double monto, List<Producto> productos) : this()
+        public Venta(Usuario usuario, Cliente cliente, double monto, List<Producto> productos, double montoEnvio) : this()
         {
             this.NumeroFactura = IdFacturacionAutoIncremental();
             this.Cliente = cliente;
             this.MontoTotal = monto;
             this.Usuario = usuario;
             this.productos = productos;
+            this.montoEnvio = montoEnvio;
         }
 
 
@@ -39,6 +42,19 @@ namespace Entidades
 
         }
         #region "Propiedades"
+
+        public double MontoEnvio
+        {
+            get
+            {
+                return this.montoEnvio;
+            }
+            set
+            {
+                this.montoEnvio = value;
+            }
+        }
+
 
         public double MontoTotal
         {
@@ -169,7 +185,7 @@ namespace Entidades
             return cantidad;
         }
 
-
+       
 
 
         /// <summary>
@@ -178,6 +194,9 @@ namespace Entidades
         /// <returns>Muestra la venta</returns>
         public override string ToString()
         {
+
+               
+
             int segundaListas = 0;
             double precioUnitario = 0;
             string nombre = "";
@@ -187,8 +206,6 @@ namespace Entidades
             int cant;
             double total = 0;
             StringBuilder sb = new StringBuilder();
-            //         sb.AppendLine(usuario.ToString());
-            //          sb.AppendLine(Cliente.Mostrar());
             sb.AppendLine("------------------------------------------------");
             sb.AppendLine("C.  CONCEPTO                PRECIO      IMPORTE");
             sb.AppendLine("------------------------------------------------");
@@ -199,7 +216,6 @@ namespace Entidades
                 acum++;
                 foreach (var itemDos in productos)
                 {
-                   
                     int segundaLista = itemDos.CodigoDos;
                     int indicePireraLista = acum;
 
@@ -214,10 +230,12 @@ namespace Entidades
                 }
                 if (segundaListas == acum)
                 {
-                    sb.AppendLine(" " + cant.ToString() + " " +/* item.ToString()*/ nombre +"      $"+ string.Format("{0:f2}", precioUnitario)   + "      $" + string.Format("{0:f2}", acumDos));
+                    sb.AppendLine(" " + cant.ToString() + " " +nombre +"      $"+ string.Format("{0:f2}", precioUnitario)   + "      $" + string.Format("{0:f2}", acumDos));
                 }
+              
                 total += acumDos;
             }
+        //    total += ventaEntrada.montoEnvio;
             sb.AppendLine("------------------------------------------------");
             sb.AppendLine("   TODOS LOS PROD. CON I.V.A. INCLUD.     ");
             sb.AppendLine("------------------------------------------------");
@@ -249,6 +267,12 @@ namespace Entidades
         {
             return ToString();
         }
+
+
+
+       
+
+
 
         #endregion
     }

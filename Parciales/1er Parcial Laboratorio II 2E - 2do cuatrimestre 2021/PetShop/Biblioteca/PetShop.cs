@@ -13,6 +13,7 @@ namespace Entidades
         public static List<Venta> listaVentas;
         public static List<Facturacion> listaFacturas;
         static Usuario usuario;
+        static Venta venta;
 
         static PetShop()
         {
@@ -253,6 +254,9 @@ namespace Entidades
             }
             return false;
         }
+
+       
+
 
     }
 }

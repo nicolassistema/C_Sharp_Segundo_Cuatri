@@ -77,6 +77,7 @@ namespace Entidades
 
         public override string ToString()
         {
+
             Facturacion facturacion = new Facturacion(((Facturacion)listaVenta).montoTotal);
             string fechaActual = (facturacion.Fecha).ToString("d", CultureInfo.CreateSpecificCulture("es-ES"));
             StringBuilder sb = new StringBuilder();
